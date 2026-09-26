@@ -1,0 +1,12 @@
+services:
+  rulekeeper:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - rulekeeper-data:/app/data
+    environment:
+      RULEKEEPER_PROVIDER: evidence
+    restart: unless-stopped
+volumes:
+  rulekeeper-data:

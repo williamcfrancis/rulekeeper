@@ -1,0 +1,4601 @@
+{
+  "available": true,
+  "split": "test",
+  "questions": 30,
+  "built_at": "2026-09-26T23:33:46.436108+00:00",
+  "corpus_sha256": "291840d3c390f9ce643fd6fef518bfb9e0df6e63c54b61388de9adb82258a76f",
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.14",
+    "model_threads": 4
+  },
+  "methodology": "Authored question set; required groups matched by title and supporting phrase. Recall@6 is the mean fraction of required groups retrieved per question. MRR is reciprocal rank of first relevant passage. Timings are warm, end-to-end retrieval. No answer-quality claim.",
+  "results": {
+    "lexical": {
+      "recall_at_6": 0.8,
+      "mrr": 0.6444,
+      "p50_ms": 10.3,
+      "p95_ms": 19.1
+    },
+    "dense": {
+      "recall_at_6": 0.9833,
+      "mrr": 0.8611,
+      "p50_ms": 25.9,
+      "p95_ms": 41.4
+    },
+    "hybrid": {
+      "recall_at_6": 1.0,
+      "mrr": 0.8056,
+      "p50_ms": 15.6,
+      "p95_ms": 24.7
+    },
+    "hybrid_reranked": {
+      "recall_at_6": 1.0,
+      "mrr": 0.8167,
+      "p50_ms": 944.8,
+      "p95_ms": 1143.0
+    }
+  },
+  "details": [
+    {
+      "id": "test-01",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "9e97c00fd997fc50",
+          "title": "Difficult Terrain",
+          "page": 14
+        },
+        {
+          "id": "75df649f166e1cd0",
+          "title": "Traits",
+          "page": 340
+        },
+        {
+          "id": "bc456bb0353a8b99",
+          "title": "Difficult Terrain",
+          "page": 181
+        },
+        {
+          "id": "1d6fb534d06a009e",
+          "title": "Ring of Free Action",
+          "page": 238
+        },
+        {
+          "id": "9aa3c57a7f3a1350",
+          "title": "Swimming",
+          "page": 189
+        },
+        {
+          "id": "af8ca009345fad8f",
+          "title": "Climbing",
+          "page": 178
+        }
+      ]
+    },
+    {
+      "id": "test-02",
+      "method": "lexical",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "541580ef9df973f8",
+          "title": "Power Word Heal",
+          "page": 154
+        },
+        {
+          "id": "ec26afcface25739",
+          "title": "Broom of Flying",
+          "page": 214
+        },
+        {
+          "id": "ff3d8e7c30becfb2",
+          "title": "Dropping Prone",
+          "page": 14
+        },
+        {
+          "id": "14b3c7a703f8e4a6",
+          "title": "Horseshoes of a Zephyr",
+          "page": 226
+        },
+        {
+          "id": "2688b8258ce59836",
+          "title": "Bonus Actions",
+          "page": 272
+        },
+        {
+          "id": "065e311b7db281c7",
+          "title": "Flying",
+          "page": 182
+        }
+      ]
+    },
+    {
+      "id": "test-03",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e41130563176a387",
+          "title": "Grappled [Condition]",
+          "page": 182
+        },
+        {
+          "id": "3c5e33614a7fe322",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "00f7c9462df5adf7",
+          "title": "Grappler",
+          "page": 87
+        },
+        {
+          "id": "8bd96a82d7321cd6",
+          "title": "Utilize [Action]",
+          "page": 191
+        },
+        {
+          "id": "4d314fecccb45aeb",
+          "title": "Actions",
+          "page": 347
+        },
+        {
+          "id": "44b27ca1e942edfc",
+          "title": "Actions",
+          "page": 352
+        }
+      ]
+    },
+    {
+      "id": "test-04",
+      "method": "lexical",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "127a13c339e3f743",
+          "title": "No Stacking",
+          "page": 17
+        },
+        {
+          "id": "553b956aae2fa8b4",
+          "title": "They Don\u2019t Stack",
+          "page": 8
+        },
+        {
+          "id": "b6cafcd1fa3fb97f",
+          "title": "Order of Application",
+          "page": 17
+        },
+        {
+          "id": "d0023d72ef3a3aab",
+          "title": "They Don\u2019t Stack",
+          "page": 18
+        },
+        {
+          "id": "6b1391c551f2f59d",
+          "title": "Damage against Multiple Targets",
+          "page": 16
+        },
+        {
+          "id": "cef9bff7164a9faa",
+          "title": "Aura of Life",
+          "page": 111
+        }
+      ]
+    },
+    {
+      "id": "test-05",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "60f2244c1d862531",
+          "title": "Resistance and Vulnerability",
+          "page": 17
+        },
+        {
+          "id": "48b8bd41879a27de",
+          "title": "Vulnerability",
+          "page": 191
+        },
+        {
+          "id": "e4c33fb308b23b6b",
+          "title": "Hallow",
+          "page": 139
+        },
+        {
+          "id": "127a13c339e3f743",
+          "title": "No Stacking",
+          "page": 17
+        },
+        {
+          "id": "60bef0ae4e22135a",
+          "title": "Armor of Vulnerability",
+          "page": 211
+        },
+        {
+          "id": "b6cafcd1fa3fb97f",
+          "title": "Order of Application",
+          "page": 17
+        }
+      ]
+    },
+    {
+      "id": "test-06",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "ccd65810d8823811",
+          "title": "Cover",
+          "page": 179
+        },
+        {
+          "id": "59eee0a6bef62d4c",
+          "title": "Cover",
+          "page": 15
+        },
+        {
+          "id": "f16186aa4e4c438b",
+          "title": "Sacred Flame",
+          "page": 159
+        },
+        {
+          "id": "35e301b9eee6b7c4",
+          "title": "Level 9: Supreme Sneak",
+          "page": 64
+        },
+        {
+          "id": "0a01b4f16a858116",
+          "title": "Hide [Action]",
+          "page": 183
+        },
+        {
+          "id": "a26097cfb3aafc5c",
+          "title": "Fill In Numbers",
+          "page": 22
+        }
+      ]
+    },
+    {
+      "id": "test-07",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "62969247a703e6e8",
+          "title": "Ready [Action]",
+          "page": 187
+        },
+        {
+          "id": "7d9d660a8514ed25",
+          "title": "Ready [Action]",
+          "page": 186
+        },
+        {
+          "id": "c73cf1b6c7e95eb3",
+          "title": "Bestow Curse",
+          "page": 113
+        },
+        {
+          "id": "e095dd0bc9485956",
+          "title": "Longer Casting Times",
+          "page": 105
+        },
+        {
+          "id": "c19016e5b2cfe84d",
+          "title": "Level 18: Dragon Companion",
+          "page": 70
+        },
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        }
+      ]
+    },
+    {
+      "id": "test-08",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "05ce47d48c6181dd",
+          "title": "Help [Action]",
+          "page": 182
+        },
+        {
+          "id": "f07aba9e2b99b263",
+          "title": "Actions",
+          "page": 9
+        },
+        {
+          "id": "e54943e3e7f29682",
+          "title": "One Thing at a Time",
+          "page": 10
+        },
+        {
+          "id": "4b045743106fdf1a",
+          "title": "Influence [Action]",
+          "page": 184
+        },
+        {
+          "id": "02ceb2ecc19b8c6f",
+          "title": "Reactions",
+          "page": 327
+        },
+        {
+          "id": "b4365216b507b311",
+          "title": "Falling Net",
+          "page": 199
+        }
+      ]
+    },
+    {
+      "id": "test-09",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "8eee68e0fb88f9d2",
+          "title": "Dodge [Action]",
+          "page": 181
+        },
+        {
+          "id": "b9293357772b466e",
+          "title": "Level 5: Uncanny Dodge",
+          "page": 63
+        },
+        {
+          "id": "5f66d0af221de2b7",
+          "title": "Level 3: Second-Story Work",
+          "page": 64
+        },
+        {
+          "id": "263167bcdfb0d817",
+          "title": "Boots of Striding and Springing",
+          "page": 214
+        },
+        {
+          "id": "fa91b2277246d542",
+          "title": "Level 2: Danger Sense",
+          "page": 29
+        },
+        {
+          "id": "9b944e3b45f2c4e5",
+          "title": "Your Turn",
+          "page": 14
+        }
+      ]
+    },
+    {
+      "id": "test-10",
+      "method": "lexical",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "1043b44c4d29def3",
+          "title": "Wearing and Wielding Items",
+          "page": 103
+        },
+        {
+          "id": "e8d1c341f8c30c2e",
+          "title": "Knock",
+          "page": 143
+        },
+        {
+          "id": "a05c376e2b9cf909",
+          "title": "Attunement",
+          "page": 177
+        },
+        {
+          "id": "4c0843a7becc4429",
+          "title": "Magic Items A\u2013Z",
+          "page": 209
+        },
+        {
+          "id": "514cc81612a1e437",
+          "title": "Identifying a Magic Item",
+          "page": 102
+        },
+        {
+          "id": "97690b5cdb995d91",
+          "title": "Equipping a Monster with Other Items",
+          "page": 255
+        }
+      ]
+    },
+    {
+      "id": "test-11",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e4bb65ff5ea2539b",
+          "title": "Darkvision",
+          "page": 180
+        },
+        {
+          "id": "2b89185bd87afa90",
+          "title": "Darkness",
+          "page": 122
+        },
+        {
+          "id": "0c6d2eceb648b6c5",
+          "title": "Darkness",
+          "page": 180
+        },
+        {
+          "id": "80c41ea771c999dd",
+          "title": "Robe (1 GP)",
+          "page": 99
+        },
+        {
+          "id": "5cea66d113bd24a8",
+          "title": "Robe of Scintillating Colors",
+          "page": 240
+        },
+        {
+          "id": "bcfb5a1a4e1656b3",
+          "title": "Light",
+          "page": 11
+        }
+      ]
+    },
+    {
+      "id": "test-12",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.16666666666666666,
+      "retrieved": [
+        {
+          "id": "fe12c9c24bb348db",
+          "title": "Limited Usage",
+          "page": 257
+        },
+        {
+          "id": "8cb924a60f3ef544",
+          "title": "Long Rest",
+          "page": 185
+        },
+        {
+          "id": "13bf270b770296fe",
+          "title": "Attune during a Short Rest",
+          "page": 102
+        },
+        {
+          "id": "1b6c976b87bc32ca",
+          "title": "Hit Points",
+          "page": 16
+        },
+        {
+          "id": "b40fb0d79565b21b",
+          "title": "Level 2: Action Surge",
+          "page": 48
+        },
+        {
+          "id": "a9f958c0e45547e8",
+          "title": "Short Rest",
+          "page": 187
+        }
+      ]
+    },
+    {
+      "id": "test-13",
+      "method": "lexical",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "8cb924a60f3ef544",
+          "title": "Long Rest",
+          "page": 185
+        },
+        {
+          "id": "a074d507ecb69e71",
+          "title": "Level 14: Overchannel",
+          "page": 82
+        },
+        {
+          "id": "fe12c9c24bb348db",
+          "title": "Limited Usage",
+          "page": 257
+        },
+        {
+          "id": "39520e630c20aeaf",
+          "title": "Preparing Spells",
+          "page": 104
+        },
+        {
+          "id": "ecfacabca04a442a",
+          "title": "Level 9: Indomitable",
+          "page": 48
+        },
+        {
+          "id": "1b6c976b87bc32ca",
+          "title": "Hit Points",
+          "page": 16
+        }
+      ]
+    },
+    {
+      "id": "test-14",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "b115313cd3fbfd3e",
+          "title": "Level 18: Survivor",
+          "page": 49
+        },
+        {
+          "id": "0b66d8325803a7b2",
+          "title": "Death Saving Throws",
+          "page": 18
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "cb2cb671e866c295",
+          "title": "Periapt of Wound Closure",
+          "page": 234
+        },
+        {
+          "id": "957b3eda440660ff",
+          "title": "Rolling 20 or 1",
+          "page": 7
+        },
+        {
+          "id": "30294ed3d7a261df",
+          "title": "Death Saving Throw",
+          "page": 181
+        }
+      ]
+    },
+    {
+      "id": "test-15",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "e153765a23a359a2",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "17add452c5223c0a",
+          "title": "Unarmed Strike",
+          "page": 190
+        },
+        {
+          "id": "3b1f884be6ae1c56",
+          "title": "Level 1: Martial Arts",
+          "page": 50
+        },
+        {
+          "id": "00f7c9462df5adf7",
+          "title": "Grappler",
+          "page": 87
+        },
+        {
+          "id": "91ab9b3ae6557c04",
+          "title": "Level 10: Retaliation",
+          "page": 30
+        },
+        {
+          "id": "5f1ea1513016b951",
+          "title": "Level 5: Stunning Strike",
+          "page": 51
+        }
+      ]
+    },
+    {
+      "id": "test-16",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.16666666666666666,
+      "retrieved": [
+        {
+          "id": "fee41500f5fbde09",
+          "title": "Charges",
+          "page": 206
+        },
+        {
+          "id": "00e198b17ead6aca",
+          "title": "No More Than Three Items",
+          "page": 102
+        },
+        {
+          "id": "b49fa3452b7571e2",
+          "title": "Attunement",
+          "page": 102
+        },
+        {
+          "id": "39d0a994bdbf4694",
+          "title": "Dead",
+          "page": 180
+        },
+        {
+          "id": "6cebf235b243f2d8",
+          "title": "Wondrous Items",
+          "page": 205
+        },
+        {
+          "id": "a05c376e2b9cf909",
+          "title": "Attunement",
+          "page": 177
+        }
+      ]
+    },
+    {
+      "id": "test-17",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "cb60126401d1d723",
+          "title": "Delayed Blast Fireball",
+          "page": 122
+        },
+        {
+          "id": "77df804a7f0accb8",
+          "title": "Fireball",
+          "page": 131
+        },
+        {
+          "id": "e17fd95f56e38a6b",
+          "title": "Necklace of Fireballs",
+          "page": 233
+        },
+        {
+          "id": "f6f093fb30d1eaff",
+          "title": "Actions",
+          "page": 315
+        },
+        {
+          "id": "6b1391c551f2f59d",
+          "title": "Damage against Multiple Targets",
+          "page": 16
+        },
+        {
+          "id": "7f9435d956f1cc01",
+          "title": "Helm of Brilliance",
+          "page": 225
+        }
+      ]
+    },
+    {
+      "id": "test-18",
+      "method": "lexical",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "0ffeb6d5f8f79234",
+          "title": "Shield, +1, +2, or +3",
+          "page": 243
+        },
+        {
+          "id": "3aa686952f7c5502",
+          "title": "Arrow-Catching Shield",
+          "page": 211
+        },
+        {
+          "id": "1e155eb086afc3f4",
+          "title": "Shield of the Cavalier",
+          "page": 243
+        },
+        {
+          "id": "ba31dc5c71e6ae22",
+          "title": "Armor Training",
+          "page": 177
+        },
+        {
+          "id": "c1d76626db7a940a",
+          "title": "Shield of Faith",
+          "page": 162
+        },
+        {
+          "id": "6c9fb25478c1f573",
+          "title": "Sentinel Shield",
+          "page": 243
+        }
+      ]
+    },
+    {
+      "id": "test-19",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "76428c9b6fe5bb2c",
+          "title": "Magic Missile",
+          "page": 146
+        },
+        {
+          "id": "415dd4e054bce218",
+          "title": "Brooch of Shielding",
+          "page": 214
+        },
+        {
+          "id": "42db8394f81133b9",
+          "title": "Shield",
+          "page": 161
+        },
+        {
+          "id": "7d84572dacc1bb4b",
+          "title": "Javelin of Lightning",
+          "page": 228
+        },
+        {
+          "id": "0022aeae28accbbe",
+          "title": "Using a Higher-Level Spell Slot",
+          "page": 104
+        },
+        {
+          "id": "f271955c6c8a56bd",
+          "title": "Actions",
+          "page": 311
+        }
+      ]
+    },
+    {
+      "id": "test-20",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "bf8af2e41e403267",
+          "title": "Misty Step",
+          "page": 150
+        },
+        {
+          "id": "402b52a8c3442f21",
+          "title": "Bonus Actions",
+          "page": 275
+        },
+        {
+          "id": "77f974d07c441fbc",
+          "title": "Bonus Actions",
+          "page": 305
+        },
+        {
+          "id": "18b292fd0497aff5",
+          "title": "Combat Step by Step",
+          "page": 13
+        },
+        {
+          "id": "e5e808c4b66914e7",
+          "title": "Level 11: Fleet Step",
+          "page": 52
+        },
+        {
+          "id": "85b9d76ad63186ab",
+          "title": "Casting Time",
+          "page": 105
+        }
+      ]
+    },
+    {
+      "id": "test-21",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "b26a3ab839377429",
+          "title": "Counterspell",
+          "page": 120
+        },
+        {
+          "id": "00a9497f25d487e5",
+          "title": "Targets",
+          "page": 106
+        },
+        {
+          "id": "1140957ae6805c10",
+          "title": "Reactions",
+          "page": 304
+        },
+        {
+          "id": "2e2d7539de5bf0f0",
+          "title": "Reactions",
+          "page": 305
+        },
+        {
+          "id": "f3cde2a601a285c1",
+          "title": "One Spell with a Spell Slot per Turn",
+          "page": 105
+        },
+        {
+          "id": "c73cf1b6c7e95eb3",
+          "title": "Bestow Curse",
+          "page": 113
+        }
+      ]
+    },
+    {
+      "id": "test-22",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "f1f9153a94ed83a9",
+          "title": "Potion of Invisibility",
+          "page": 236
+        },
+        {
+          "id": "6d73e951c71d60e9",
+          "title": "Invisibility",
+          "page": 143
+        },
+        {
+          "id": "cdf8e31464459c31",
+          "title": "Bonus Actions",
+          "page": 313
+        },
+        {
+          "id": "31fd9955e3bde8c2",
+          "title": "Bonus Actions",
+          "page": 274
+        },
+        {
+          "id": "7169274323493877",
+          "title": "Cloak of Invisibility",
+          "page": 215
+        },
+        {
+          "id": "7a9de1397be2e001",
+          "title": "Actions",
+          "page": 299
+        }
+      ]
+    },
+    {
+      "id": "test-23",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e26d3b2be0f8a419",
+          "title": "Frightened [Condition]",
+          "page": 182
+        },
+        {
+          "id": "43201322e0e24382",
+          "title": "Fear Effects",
+          "page": 196
+        },
+        {
+          "id": "fc34d1317f62142e",
+          "title": "Fear",
+          "page": 130
+        },
+        {
+          "id": "462f4d696a9b313f",
+          "title": "Antipathy/Sympathy",
+          "page": 109
+        },
+        {
+          "id": "af554a8827705e89",
+          "title": "Moving around Other Creatures",
+          "page": 14
+        },
+        {
+          "id": "40fcde9a991d2697",
+          "title": "Conjure Fey",
+          "page": 118
+        }
+      ]
+    },
+    {
+      "id": "test-24",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "f7ae7e73a5427be6",
+          "title": "Blindness/Deafness",
+          "page": 113
+        },
+        {
+          "id": "ef9c210e2219a836",
+          "title": "Blinded [Condition]",
+          "page": 177
+        },
+        {
+          "id": "924b450a9c588d8e",
+          "title": "Range",
+          "page": 15
+        },
+        {
+          "id": "ebdf4a3914d1ed4d",
+          "title": "Level 13: Studied Attacks",
+          "page": 48
+        },
+        {
+          "id": "a90c2b62af835e73",
+          "title": "Prismatic Wall",
+          "page": 155
+        },
+        {
+          "id": "6cebaf0fb4592fe9",
+          "title": "Level 3: Potent Cantrip",
+          "page": 82
+        }
+      ]
+    },
+    {
+      "id": "test-25",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "ca9963d2c9d25aa7",
+          "title": "Dash [Action]",
+          "page": 180
+        },
+        {
+          "id": "263167bcdfb0d817",
+          "title": "Boots of Striding and Springing",
+          "page": 214
+        },
+        {
+          "id": "56aae15d0ee31ef8",
+          "title": "Your Turn",
+          "page": 13
+        },
+        {
+          "id": "db1c550c4093d4e5",
+          "title": "Speed",
+          "page": 188
+        },
+        {
+          "id": "5f4890e63f38c5f3",
+          "title": "Actions",
+          "page": 361
+        },
+        {
+          "id": "43201322e0e24382",
+          "title": "Fear Effects",
+          "page": 196
+        }
+      ]
+    },
+    {
+      "id": "test-26",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "fc19c8bf54a436d7",
+          "title": "Stunned [Condition]",
+          "page": 189
+        },
+        {
+          "id": "66970fed4a262bdf",
+          "title": "Paralyzed [Condition]",
+          "page": 186
+        },
+        {
+          "id": "48d607aee8321415",
+          "title": "Unconscious [Condition]",
+          "page": 191
+        },
+        {
+          "id": "7a120b31b1d5d869",
+          "title": "Petrified [Condition]",
+          "page": 186
+        },
+        {
+          "id": "ed6af5dcc1efd967",
+          "title": "Ability Modifier",
+          "page": 7
+        },
+        {
+          "id": "ef873e8653459102",
+          "title": "Level 14: Disciplined Survivor",
+          "page": 52
+        }
+      ]
+    },
+    {
+      "id": "test-27",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "357d949ede606d83",
+          "title": "Poisoned [Condition]",
+          "page": 186
+        },
+        {
+          "id": "e26d3b2be0f8a419",
+          "title": "Frightened [Condition]",
+          "page": 182
+        },
+        {
+          "id": "db96361cbf4248ba",
+          "title": "Traits",
+          "page": 341
+        },
+        {
+          "id": "b7e91b37c56a1c8d",
+          "title": "Traits",
+          "page": 302
+        },
+        {
+          "id": "ef9c210e2219a836",
+          "title": "Blinded [Condition]",
+          "page": 177
+        },
+        {
+          "id": "b455aabba9d7b868",
+          "title": "D20 Test",
+          "page": 180
+        }
+      ]
+    },
+    {
+      "id": "test-28",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "ce01082314e08c74",
+          "title": "Animated Shield",
+          "page": 209
+        },
+        {
+          "id": "0df45754c12b427c",
+          "title": "Incapacitated [Condition]",
+          "page": 184
+        },
+        {
+          "id": "fde83b3929b825b9",
+          "title": "Gem of Brightness",
+          "page": 223
+        },
+        {
+          "id": "b8adb06854b2eb68",
+          "title": "Level 7: Countercharm",
+          "page": 33
+        },
+        {
+          "id": "cf15cb9b85b6aab3",
+          "title": "Actions",
+          "page": 324
+        }
+      ]
+    },
+    {
+      "id": "test-29",
+      "method": "lexical",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "541580ef9df973f8",
+          "title": "Power Word Heal",
+          "page": 154
+        },
+        {
+          "id": "577ebd04b9d6891f",
+          "title": "Bonus Actions",
+          "page": 317
+        },
+        {
+          "id": "1a33f9e5fa1455c5",
+          "title": "Bonus Actions",
+          "page": 332
+        },
+        {
+          "id": "b0d0914857068c1b",
+          "title": "Bonus Actions",
+          "page": 319
+        },
+        {
+          "id": "00f7c9462df5adf7",
+          "title": "Grappler",
+          "page": 87
+        },
+        {
+          "id": "abb5285af95e083e",
+          "title": "Actions",
+          "page": 303
+        }
+      ]
+    },
+    {
+      "id": "test-30",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "60f2244c1d862531",
+          "title": "Resistance and Vulnerability",
+          "page": 17
+        },
+        {
+          "id": "b6cafcd1fa3fb97f",
+          "title": "Order of Application",
+          "page": 17
+        },
+        {
+          "id": "127a13c339e3f743",
+          "title": "No Stacking",
+          "page": 17
+        },
+        {
+          "id": "60bef0ae4e22135a",
+          "title": "Armor of Vulnerability",
+          "page": 211
+        },
+        {
+          "id": "48b8bd41879a27de",
+          "title": "Vulnerability",
+          "page": 191
+        },
+        {
+          "id": "e4c33fb308b23b6b",
+          "title": "Hallow",
+          "page": 139
+        }
+      ]
+    },
+    {
+      "id": "test-01",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "bc456bb0353a8b99",
+          "title": "Difficult Terrain",
+          "page": 181
+        },
+        {
+          "id": "9e97c00fd997fc50",
+          "title": "Difficult Terrain",
+          "page": 14
+        },
+        {
+          "id": "73d3c84f86f28399",
+          "title": "Crawling",
+          "page": 179
+        },
+        {
+          "id": "af8ca009345fad8f",
+          "title": "Climbing",
+          "page": 178
+        },
+        {
+          "id": "9aa3c57a7f3a1350",
+          "title": "Swimming",
+          "page": 189
+        },
+        {
+          "id": "4713d7ebf468c3e6",
+          "title": "Your Turn",
+          "page": 13
+        }
+      ]
+    },
+    {
+      "id": "test-02",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "ff3d8e7c30becfb2",
+          "title": "Dropping Prone",
+          "page": 14
+        },
+        {
+          "id": "6bd32f4555f4c9a2",
+          "title": "Prone [Condition]",
+          "page": 186
+        },
+        {
+          "id": "af554a8827705e89",
+          "title": "Moving around Other Creatures",
+          "page": 14
+        },
+        {
+          "id": "cafded3d416e29a1",
+          "title": "Falling [Hazard]",
+          "page": 182
+        },
+        {
+          "id": "af65697bb3fbac71",
+          "title": "Actions",
+          "page": 326
+        },
+        {
+          "id": "48d607aee8321415",
+          "title": "Unconscious [Condition]",
+          "page": 191
+        }
+      ]
+    },
+    {
+      "id": "test-03",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "e153765a23a359a2",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "e41130563176a387",
+          "title": "Grappled [Condition]",
+          "page": 182
+        },
+        {
+          "id": "00f7c9462df5adf7",
+          "title": "Grappler",
+          "page": 87
+        },
+        {
+          "id": "63c09b86f26bbc7b",
+          "title": "Actions",
+          "page": 295
+        },
+        {
+          "id": "4d314fecccb45aeb",
+          "title": "Actions",
+          "page": 347
+        },
+        {
+          "id": "44b27ca1e942edfc",
+          "title": "Actions",
+          "page": 352
+        }
+      ]
+    },
+    {
+      "id": "test-04",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "127a13c339e3f743",
+          "title": "No Stacking",
+          "page": 17
+        },
+        {
+          "id": "781d7a0ea2fb5cc4",
+          "title": "Resistance",
+          "page": 187
+        },
+        {
+          "id": "60f2244c1d862531",
+          "title": "Resistance and Vulnerability",
+          "page": 17
+        },
+        {
+          "id": "48b8bd41879a27de",
+          "title": "Vulnerability",
+          "page": 191
+        },
+        {
+          "id": "b6cafcd1fa3fb97f",
+          "title": "Order of Application",
+          "page": 17
+        },
+        {
+          "id": "6b1391c551f2f59d",
+          "title": "Damage against Multiple Targets",
+          "page": 16
+        }
+      ]
+    },
+    {
+      "id": "test-05",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "48b8bd41879a27de",
+          "title": "Vulnerability",
+          "page": 191
+        },
+        {
+          "id": "4d28ab5252e1e3fa",
+          "title": "Damage Types",
+          "page": 180
+        },
+        {
+          "id": "6e7d1842373a3cb0",
+          "title": "Damage Types",
+          "page": 16
+        },
+        {
+          "id": "60f2244c1d862531",
+          "title": "Resistance and Vulnerability",
+          "page": 17
+        },
+        {
+          "id": "60bef0ae4e22135a",
+          "title": "Armor of Vulnerability",
+          "page": 211
+        },
+        {
+          "id": "41936d96436df48c",
+          "title": "Immunity",
+          "page": 17
+        }
+      ]
+    },
+    {
+      "id": "test-06",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "ccd65810d8823811",
+          "title": "Cover",
+          "page": 179
+        },
+        {
+          "id": "0ffeb6d5f8f79234",
+          "title": "Shield, +1, +2, or +3",
+          "page": 243
+        },
+        {
+          "id": "0d64516f4db07e5e",
+          "title": "Armor Class",
+          "page": 177
+        },
+        {
+          "id": "caf39d15a3b67187",
+          "title": "Bonus Actions",
+          "page": 293
+        },
+        {
+          "id": "0df53c13ebda4c10",
+          "title": "Ring of Protection",
+          "page": 238
+        },
+        {
+          "id": "08cd1e69e522738a",
+          "title": "Bonus Actions",
+          "page": 348
+        }
+      ]
+    },
+    {
+      "id": "test-07",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "62969247a703e6e8",
+          "title": "Ready [Action]",
+          "page": 187
+        },
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        },
+        {
+          "id": "7670697a008a479f",
+          "title": "Dominate Person",
+          "page": 126
+        },
+        {
+          "id": "40596d9ba8ed5a0f",
+          "title": "Spell Scroll",
+          "page": 244
+        },
+        {
+          "id": "b992b36559245b81",
+          "title": "Spells Cast from Items",
+          "page": 206
+        },
+        {
+          "id": "e9cbc01f8c0718f2",
+          "title": "Spellcasting Focus",
+          "page": 188
+        }
+      ]
+    },
+    {
+      "id": "test-08",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "05ce47d48c6181dd",
+          "title": "Help [Action]",
+          "page": 182
+        },
+        {
+          "id": "187407e6d31f6472",
+          "title": "Ability Checks",
+          "page": 6
+        },
+        {
+          "id": "95e038266afb12c1",
+          "title": "Ability Modifier",
+          "page": 6
+        },
+        {
+          "id": "510c5101e8577244",
+          "title": "Influence [Action]",
+          "page": 184
+        },
+        {
+          "id": "294f080c3300068f",
+          "title": "Search [Action]",
+          "page": 187
+        },
+        {
+          "id": "93f4c725705106cb",
+          "title": "Skill Proficiencies",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "test-09",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "8eee68e0fb88f9d2",
+          "title": "Dodge [Action]",
+          "page": 181
+        },
+        {
+          "id": "f07aba9e2b99b263",
+          "title": "Actions",
+          "page": 9
+        },
+        {
+          "id": "9b944e3b45f2c4e5",
+          "title": "Your Turn",
+          "page": 14
+        },
+        {
+          "id": "ff3d8e7c30becfb2",
+          "title": "Dropping Prone",
+          "page": 14
+        },
+        {
+          "id": "b6f05ded8149a7e8",
+          "title": "Level 3: Steady Aim",
+          "page": 62
+        },
+        {
+          "id": "6bd32f4555f4c9a2",
+          "title": "Prone [Condition]",
+          "page": 186
+        }
+      ]
+    },
+    {
+      "id": "test-10",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "1952f55640192694",
+          "title": "Bag of Devouring",
+          "page": 212
+        },
+        {
+          "id": "48d607aee8321415",
+          "title": "Unconscious [Condition]",
+          "page": 191
+        },
+        {
+          "id": "6f7c022c560b836f",
+          "title": "Iron Bands",
+          "page": 228
+        },
+        {
+          "id": "d9191ac37973d41e",
+          "title": "Bag of Holding",
+          "page": 212
+        },
+        {
+          "id": "718918f950fe6d50",
+          "title": "Dropping to 0 Hit Points",
+          "page": 17
+        },
+        {
+          "id": "aab90355f2bf6cee",
+          "title": "Consumable Items",
+          "page": 206
+        }
+      ]
+    },
+    {
+      "id": "test-11",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e4bb65ff5ea2539b",
+          "title": "Darkvision",
+          "page": 180
+        },
+        {
+          "id": "2b89185bd87afa90",
+          "title": "Darkness",
+          "page": 122
+        },
+        {
+          "id": "13722fa491c2c6b3",
+          "title": "Goggles of Night",
+          "page": 224
+        },
+        {
+          "id": "54ea8e5900c5a2f4",
+          "title": "Darkvision",
+          "page": 122
+        },
+        {
+          "id": "b80f86a659ea038a",
+          "title": "Special Senses",
+          "page": 11
+        },
+        {
+          "id": "bcfb5a1a4e1656b3",
+          "title": "Light",
+          "page": 11
+        }
+      ]
+    },
+    {
+      "id": "test-12",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "922530c6985e479f",
+          "title": "Long Rest",
+          "page": 185
+        },
+        {
+          "id": "a9f958c0e45547e8",
+          "title": "Short Rest",
+          "page": 187
+        },
+        {
+          "id": "ddd0d1a1b827785f",
+          "title": "Prayer of Healing",
+          "page": 154
+        },
+        {
+          "id": "199996150a53b5d5",
+          "title": "Duration",
+          "page": 18
+        },
+        {
+          "id": "3f56633c6e4c73b3",
+          "title": "Duration",
+          "page": 106
+        },
+        {
+          "id": "52e8cdbb977c27fb",
+          "title": "Sleep",
+          "page": 163
+        }
+      ]
+    },
+    {
+      "id": "test-13",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "922530c6985e479f",
+          "title": "Long Rest",
+          "page": 185
+        },
+        {
+          "id": "a9f958c0e45547e8",
+          "title": "Short Rest",
+          "page": 187
+        },
+        {
+          "id": "52e8cdbb977c27fb",
+          "title": "Sleep",
+          "page": 163
+        },
+        {
+          "id": "ddd0d1a1b827785f",
+          "title": "Prayer of Healing",
+          "page": 154
+        },
+        {
+          "id": "d53e171f7fe2459d",
+          "title": "Dream",
+          "page": 126
+        },
+        {
+          "id": "94f63e8ad2e8a675",
+          "title": "Alarm",
+          "page": 107
+        }
+      ]
+    },
+    {
+      "id": "test-14",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "0b66d8325803a7b2",
+          "title": "Death Saving Throws",
+          "page": 18
+        },
+        {
+          "id": "957b3eda440660ff",
+          "title": "Rolling 20 or 1",
+          "page": 7
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "930e79a8a62a84a3",
+          "title": "Interactions with Rerolls",
+          "page": 8
+        },
+        {
+          "id": "742c9d83970ef9a2",
+          "title": "Saving Throw",
+          "page": 187
+        },
+        {
+          "id": "75590bc119e316a0",
+          "title": "Level 20: Stroke of Luck",
+          "page": 63
+        }
+      ]
+    },
+    {
+      "id": "test-15",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "e153765a23a359a2",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "00f7c9462df5adf7",
+          "title": "Grappler",
+          "page": 87
+        },
+        {
+          "id": "17add452c5223c0a",
+          "title": "Unarmed Strike",
+          "page": 190
+        },
+        {
+          "id": "63c09b86f26bbc7b",
+          "title": "Actions",
+          "page": 295
+        },
+        {
+          "id": "eea0e5ddb042b84b",
+          "title": "Actions",
+          "page": 259
+        },
+        {
+          "id": "4d314fecccb45aeb",
+          "title": "Actions",
+          "page": 347
+        }
+      ]
+    },
+    {
+      "id": "test-16",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "00e198b17ead6aca",
+          "title": "No More Than Three Items",
+          "page": 102
+        },
+        {
+          "id": "a05c376e2b9cf909",
+          "title": "Attunement",
+          "page": 177
+        },
+        {
+          "id": "aabec444c5ba20a7",
+          "title": "Multiple Items of the Same Kind",
+          "page": 103
+        },
+        {
+          "id": "cb11da9de618a50f",
+          "title": "Animate Objects",
+          "page": 108
+        },
+        {
+          "id": "66608a4e68b495a4",
+          "title": "Level 13: Use Magic Device",
+          "page": 64
+        },
+        {
+          "id": "fc281db2b6a2c47a",
+          "title": "Bless",
+          "page": 113
+        }
+      ]
+    },
+    {
+      "id": "test-17",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "77df804a7f0accb8",
+          "title": "Fireball",
+          "page": 131
+        },
+        {
+          "id": "a26b62218f9cd350",
+          "title": "Saving Throws and Damage",
+          "page": 16
+        },
+        {
+          "id": "849e3ced1d5ac829",
+          "title": "Delayed Blast Fireball",
+          "page": 122
+        },
+        {
+          "id": "6b1391c551f2f59d",
+          "title": "Damage against Multiple Targets",
+          "page": 16
+        },
+        {
+          "id": "2a9bae9e9f40e481",
+          "title": "Actions",
+          "page": 305
+        },
+        {
+          "id": "3734c195219b8010",
+          "title": "Half Damage",
+          "page": 16
+        }
+      ]
+    },
+    {
+      "id": "test-18",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "42db8394f81133b9",
+          "title": "Shield",
+          "page": 161
+        },
+        {
+          "id": "c1d76626db7a940a",
+          "title": "Shield of Faith",
+          "page": 162
+        },
+        {
+          "id": "e31155d8e5858b67",
+          "title": "Mage Armor",
+          "page": 145
+        },
+        {
+          "id": "0ffeb6d5f8f79234",
+          "title": "Shield, +1, +2, or +3",
+          "page": 243
+        },
+        {
+          "id": "20f10d6e435781ee",
+          "title": "Armor Class",
+          "page": 7
+        },
+        {
+          "id": "ea5c2bd8ca1940e7",
+          "title": "Shield",
+          "page": 92
+        }
+      ]
+    },
+    {
+      "id": "test-19",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "76428c9b6fe5bb2c",
+          "title": "Magic Missile",
+          "page": 146
+        },
+        {
+          "id": "21860668aca816b3",
+          "title": "Wand of Magic Missiles",
+          "page": 251
+        },
+        {
+          "id": "befc837b66679c79",
+          "title": "Gloves of Missile Snaring",
+          "page": 224
+        },
+        {
+          "id": "7978e679ce427931",
+          "title": "Actions",
+          "page": 332
+        },
+        {
+          "id": "415dd4e054bce218",
+          "title": "Brooch of Shielding",
+          "page": 214
+        },
+        {
+          "id": "4e1079c57ccba828",
+          "title": "Actions",
+          "page": 348
+        }
+      ]
+    },
+    {
+      "id": "test-20",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "bf8af2e41e403267",
+          "title": "Misty Step",
+          "page": 150
+        },
+        {
+          "id": "77f974d07c441fbc",
+          "title": "Bonus Actions",
+          "page": 305
+        },
+        {
+          "id": "402b52a8c3442f21",
+          "title": "Bonus Actions",
+          "page": 275
+        },
+        {
+          "id": "db523c5ea7c8a939",
+          "title": "Bonus Actions",
+          "page": 306
+        },
+        {
+          "id": "e3f6c663bfc909df",
+          "title": "Teleport",
+          "page": 168
+        },
+        {
+          "id": "31da81cb64f3067e",
+          "title": "Wind Walk",
+          "page": 174
+        }
+      ]
+    },
+    {
+      "id": "test-21",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "b26a3ab839377429",
+          "title": "Counterspell",
+          "page": 120
+        },
+        {
+          "id": "29eb2840828dc63d",
+          "title": "Reactions",
+          "page": 305
+        },
+        {
+          "id": "1140957ae6805c10",
+          "title": "Reactions",
+          "page": 304
+        },
+        {
+          "id": "1e85fd389f0809c8",
+          "title": "Cantrip",
+          "page": 178
+        },
+        {
+          "id": "0022aeae28accbbe",
+          "title": "Using a Higher-Level Spell Slot",
+          "page": 104
+        },
+        {
+          "id": "5f657520ffd9d168",
+          "title": "Banishment",
+          "page": 112
+        }
+      ]
+    },
+    {
+      "id": "test-22",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "cdf8e31464459c31",
+          "title": "Bonus Actions",
+          "page": 313
+        },
+        {
+          "id": "6d73e951c71d60e9",
+          "title": "Invisibility",
+          "page": 143
+        },
+        {
+          "id": "822cf4c0279a4e96",
+          "title": "Greater Invisibility",
+          "page": 137
+        },
+        {
+          "id": "f1f9153a94ed83a9",
+          "title": "Potion of Invisibility",
+          "page": 236
+        },
+        {
+          "id": "629c31d338fabd37",
+          "title": "Actions",
+          "page": 317
+        },
+        {
+          "id": "0749b4b4a656c622",
+          "title": "Ring of Invisibility",
+          "page": 238
+        }
+      ]
+    },
+    {
+      "id": "test-23",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e26d3b2be0f8a419",
+          "title": "Frightened [Condition]",
+          "page": 182
+        },
+        {
+          "id": "43201322e0e24382",
+          "title": "Fear Effects",
+          "page": 196
+        },
+        {
+          "id": "fc34d1317f62142e",
+          "title": "Fear",
+          "page": 130
+        },
+        {
+          "id": "6981e2f6e122b17d",
+          "title": "Level 10: Aura of Courage",
+          "page": 55
+        },
+        {
+          "id": "ed3a08bd9dc34f97",
+          "title": "Reactions",
+          "page": 273
+        },
+        {
+          "id": "9dcca85308c623df",
+          "title": "Level 14: Intimidating Presence",
+          "page": 30
+        }
+      ]
+    },
+    {
+      "id": "test-24",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "ef9c210e2219a836",
+          "title": "Blinded [Condition]",
+          "page": 177
+        },
+        {
+          "id": "b8e3134226d2e7f7",
+          "title": "Vision and Light",
+          "page": 11
+        },
+        {
+          "id": "029ef850abc0b5f7",
+          "title": "Actions",
+          "page": 288
+        },
+        {
+          "id": "3ea8082236433103",
+          "title": "Actions",
+          "page": 279
+        },
+        {
+          "id": "ed88902d8f496a03",
+          "title": "Obscured Areas",
+          "page": 11
+        },
+        {
+          "id": "e9c4c2f4cc465190",
+          "title": "Heavily Obscured",
+          "page": 182
+        }
+      ]
+    },
+    {
+      "id": "test-25",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "ca9963d2c9d25aa7",
+          "title": "Dash [Action]",
+          "page": 180
+        },
+        {
+          "id": "f07aba9e2b99b263",
+          "title": "Actions",
+          "page": 9
+        },
+        {
+          "id": "0148246fb70c555b",
+          "title": "Orc",
+          "page": 86
+        },
+        {
+          "id": "43201322e0e24382",
+          "title": "Fear Effects",
+          "page": 196
+        },
+        {
+          "id": "5f4890e63f38c5f3",
+          "title": "Actions",
+          "page": 361
+        },
+        {
+          "id": "2cadf44bc357c0bb",
+          "title": "Slower Travelers",
+          "page": 192
+        }
+      ]
+    },
+    {
+      "id": "test-26",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "fc19c8bf54a436d7",
+          "title": "Stunned [Condition]",
+          "page": 189
+        },
+        {
+          "id": "0bc9d4fa5a291117",
+          "title": "Power Word Stun",
+          "page": 154
+        },
+        {
+          "id": "5f1ea1513016b951",
+          "title": "Level 5: Stunning Strike",
+          "page": 51
+        },
+        {
+          "id": "66970fed4a262bdf",
+          "title": "Paralyzed [Condition]",
+          "page": 186
+        },
+        {
+          "id": "e471f4f52ac8ebd3",
+          "title": "Level 7: Evasion",
+          "page": 51
+        },
+        {
+          "id": "87e63d36cfb92c07",
+          "title": "Actions",
+          "page": 268
+        }
+      ]
+    },
+    {
+      "id": "test-27",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "357d949ede606d83",
+          "title": "Poisoned [Condition]",
+          "page": 186
+        },
+        {
+          "id": "3d096f5bbf04449a",
+          "title": "Protection from Poison",
+          "page": 157
+        },
+        {
+          "id": "03bea607d45f8695",
+          "title": "Actions",
+          "page": 281
+        },
+        {
+          "id": "82b849ea60d8d9d8",
+          "title": "Actions",
+          "page": 354
+        },
+        {
+          "id": "4377ae710d3e4148",
+          "title": "Poisoned Needle",
+          "page": 200
+        },
+        {
+          "id": "750c0f17307b5580",
+          "title": "Poisoner\u2019s Kit (50 GP)",
+          "page": 94
+        }
+      ]
+    },
+    {
+      "id": "test-28",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "5f657520ffd9d168",
+          "title": "Banishment",
+          "page": 112
+        },
+        {
+          "id": "0df45754c12b427c",
+          "title": "Incapacitated [Condition]",
+          "page": 184
+        },
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        },
+        {
+          "id": "87e63d36cfb92c07",
+          "title": "Actions",
+          "page": 268
+        },
+        {
+          "id": "7670697a008a479f",
+          "title": "Dominate Person",
+          "page": 126
+        }
+      ]
+    },
+    {
+      "id": "test-29",
+      "method": "dense",
+      "recall_at_6": 0.5,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e41130563176a387",
+          "title": "Grappled [Condition]",
+          "page": 182
+        },
+        {
+          "id": "3c5e33614a7fe322",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "cafded3d416e29a1",
+          "title": "Falling [Hazard]",
+          "page": 182
+        },
+        {
+          "id": "ff3d8e7c30becfb2",
+          "title": "Dropping Prone",
+          "page": 14
+        },
+        {
+          "id": "1184ff7176fac0b7",
+          "title": "Actions",
+          "page": 347
+        },
+        {
+          "id": "af65697bb3fbac71",
+          "title": "Actions",
+          "page": 326
+        }
+      ]
+    },
+    {
+      "id": "test-30",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "60f2244c1d862531",
+          "title": "Resistance and Vulnerability",
+          "page": 17
+        },
+        {
+          "id": "48b8bd41879a27de",
+          "title": "Vulnerability",
+          "page": 191
+        },
+        {
+          "id": "b6cafcd1fa3fb97f",
+          "title": "Order of Application",
+          "page": 17
+        },
+        {
+          "id": "781d7a0ea2fb5cc4",
+          "title": "Resistance",
+          "page": 187
+        },
+        {
+          "id": "b51c384d2fa34b9a",
+          "title": "Armor of Resistance",
+          "page": 210
+        },
+        {
+          "id": "6e7d1842373a3cb0",
+          "title": "Damage Types",
+          "page": 16
+        }
+      ]
+    },
+    {
+      "id": "test-01",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "bc456bb0353a8b99",
+          "title": "Difficult Terrain",
+          "page": 181
+        },
+        {
+          "id": "9e97c00fd997fc50",
+          "title": "Difficult Terrain",
+          "page": 14
+        },
+        {
+          "id": "af8ca009345fad8f",
+          "title": "Climbing",
+          "page": 178
+        },
+        {
+          "id": "9aa3c57a7f3a1350",
+          "title": "Swimming",
+          "page": 189
+        },
+        {
+          "id": "73d3c84f86f28399",
+          "title": "Crawling",
+          "page": 179
+        },
+        {
+          "id": "4713d7ebf468c3e6",
+          "title": "Your Turn",
+          "page": 13
+        }
+      ]
+    },
+    {
+      "id": "test-02",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "6bd32f4555f4c9a2",
+          "title": "Prone [Condition]",
+          "page": 186
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "e13a42131ec89bd4",
+          "title": "Speed",
+          "page": 188
+        },
+        {
+          "id": "ff3d8e7c30becfb2",
+          "title": "Dropping Prone",
+          "page": 14
+        },
+        {
+          "id": "065e311b7db281c7",
+          "title": "Flying",
+          "page": 182
+        },
+        {
+          "id": "48d607aee8321415",
+          "title": "Unconscious [Condition]",
+          "page": 191
+        }
+      ]
+    },
+    {
+      "id": "test-03",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e41130563176a387",
+          "title": "Grappled [Condition]",
+          "page": 182
+        },
+        {
+          "id": "0946afc94746aebd",
+          "title": "Attack [Action]",
+          "page": 177
+        },
+        {
+          "id": "e153765a23a359a2",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "00f7c9462df5adf7",
+          "title": "Grappler",
+          "page": 87
+        },
+        {
+          "id": "4d314fecccb45aeb",
+          "title": "Actions",
+          "page": 347
+        },
+        {
+          "id": "44b27ca1e942edfc",
+          "title": "Actions",
+          "page": 352
+        }
+      ]
+    },
+    {
+      "id": "test-04",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "781d7a0ea2fb5cc4",
+          "title": "Resistance",
+          "page": 187
+        },
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "127a13c339e3f743",
+          "title": "No Stacking",
+          "page": 17
+        },
+        {
+          "id": "b6cafcd1fa3fb97f",
+          "title": "Order of Application",
+          "page": 17
+        },
+        {
+          "id": "60f2244c1d862531",
+          "title": "Resistance and Vulnerability",
+          "page": 17
+        },
+        {
+          "id": "6b1391c551f2f59d",
+          "title": "Damage against Multiple Targets",
+          "page": 16
+        }
+      ]
+    },
+    {
+      "id": "test-05",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "48b8bd41879a27de",
+          "title": "Vulnerability",
+          "page": 191
+        },
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "60f2244c1d862531",
+          "title": "Resistance and Vulnerability",
+          "page": 17
+        },
+        {
+          "id": "60bef0ae4e22135a",
+          "title": "Armor of Vulnerability",
+          "page": 211
+        },
+        {
+          "id": "b6cafcd1fa3fb97f",
+          "title": "Order of Application",
+          "page": 17
+        },
+        {
+          "id": "e4c33fb308b23b6b",
+          "title": "Hallow",
+          "page": 139
+        }
+      ]
+    },
+    {
+      "id": "test-06",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "ccd65810d8823811",
+          "title": "Cover",
+          "page": 179
+        },
+        {
+          "id": "20f10d6e435781ee",
+          "title": "Armor Class",
+          "page": 7
+        },
+        {
+          "id": "0df53c13ebda4c10",
+          "title": "Ring of Protection",
+          "page": 238
+        },
+        {
+          "id": "520ba65128728463",
+          "title": "Cloak of Protection",
+          "page": 216
+        },
+        {
+          "id": "caf39d15a3b67187",
+          "title": "Bonus Actions",
+          "page": 293
+        },
+        {
+          "id": "a26b62218f9cd350",
+          "title": "Saving Throws and Damage",
+          "page": 16
+        }
+      ]
+    },
+    {
+      "id": "test-07",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "855b24704f89e111",
+          "title": "Spell",
+          "page": 188
+        },
+        {
+          "id": "62969247a703e6e8",
+          "title": "Ready [Action]",
+          "page": 187
+        },
+        {
+          "id": "e095dd0bc9485956",
+          "title": "Longer Casting Times",
+          "page": 105
+        },
+        {
+          "id": "b992b36559245b81",
+          "title": "Spells Cast from Items",
+          "page": 206
+        },
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        }
+      ]
+    },
+    {
+      "id": "test-08",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "05ce47d48c6181dd",
+          "title": "Help [Action]",
+          "page": 182
+        },
+        {
+          "id": "e4d9e3377a484f2b",
+          "title": "Ability Check",
+          "page": 176
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "5486c322907cdaa9",
+          "title": "Action",
+          "page": 176
+        },
+        {
+          "id": "4b045743106fdf1a",
+          "title": "Influence [Action]",
+          "page": 184
+        },
+        {
+          "id": "95e038266afb12c1",
+          "title": "Ability Modifier",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "test-09",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "8eee68e0fb88f9d2",
+          "title": "Dodge [Action]",
+          "page": 181
+        },
+        {
+          "id": "e13a42131ec89bd4",
+          "title": "Speed",
+          "page": 188
+        },
+        {
+          "id": "9b944e3b45f2c4e5",
+          "title": "Your Turn",
+          "page": 14
+        },
+        {
+          "id": "fa91b2277246d542",
+          "title": "Level 2: Danger Sense",
+          "page": 29
+        },
+        {
+          "id": "f07aba9e2b99b263",
+          "title": "Actions",
+          "page": 9
+        },
+        {
+          "id": "2522f583bba87ed4",
+          "title": "Level 7: Evasion",
+          "page": 63
+        }
+      ]
+    },
+    {
+      "id": "test-10",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "48d607aee8321415",
+          "title": "Unconscious [Condition]",
+          "page": 191
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "324efef1338013e8",
+          "title": "Knocking Out a Creature",
+          "page": 184
+        },
+        {
+          "id": "718918f950fe6d50",
+          "title": "Dropping to 0 Hit Points",
+          "page": 17
+        },
+        {
+          "id": "d50eeacdffca5495",
+          "title": "Falling Unconscious",
+          "page": 17
+        },
+        {
+          "id": "14091d69efc1b965",
+          "title": "Magic Items",
+          "page": 204
+        }
+      ]
+    },
+    {
+      "id": "test-11",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e4bb65ff5ea2539b",
+          "title": "Darkvision",
+          "page": 180
+        },
+        {
+          "id": "0c6d2eceb648b6c5",
+          "title": "Darkness",
+          "page": 180
+        },
+        {
+          "id": "2b89185bd87afa90",
+          "title": "Darkness",
+          "page": 122
+        },
+        {
+          "id": "bcfb5a1a4e1656b3",
+          "title": "Light",
+          "page": 11
+        },
+        {
+          "id": "66a1efd958afe8d3",
+          "title": "Truesight",
+          "page": 190
+        },
+        {
+          "id": "5cea66d113bd24a8",
+          "title": "Robe of Scintillating Colors",
+          "page": 240
+        }
+      ]
+    },
+    {
+      "id": "test-12",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "a9f958c0e45547e8",
+          "title": "Short Rest",
+          "page": 187
+        },
+        {
+          "id": "8cb924a60f3ef544",
+          "title": "Long Rest",
+          "page": 185
+        },
+        {
+          "id": "1b6c976b87bc32ca",
+          "title": "Hit Points",
+          "page": 16
+        },
+        {
+          "id": "13bf270b770296fe",
+          "title": "Attune during a Short Rest",
+          "page": 102
+        },
+        {
+          "id": "fe12c9c24bb348db",
+          "title": "Limited Usage",
+          "page": 257
+        },
+        {
+          "id": "ddd0d1a1b827785f",
+          "title": "Prayer of Healing",
+          "page": 154
+        }
+      ]
+    },
+    {
+      "id": "test-13",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "922530c6985e479f",
+          "title": "Long Rest",
+          "page": 185
+        },
+        {
+          "id": "d53e171f7fe2459d",
+          "title": "Dream",
+          "page": 126
+        },
+        {
+          "id": "199996150a53b5d5",
+          "title": "Duration",
+          "page": 18
+        },
+        {
+          "id": "ddd0d1a1b827785f",
+          "title": "Prayer of Healing",
+          "page": 154
+        },
+        {
+          "id": "1017a679d6ce5ddd",
+          "title": "Per Day",
+          "page": 186
+        },
+        {
+          "id": "a9f958c0e45547e8",
+          "title": "Short Rest",
+          "page": 187
+        }
+      ]
+    },
+    {
+      "id": "test-14",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "30294ed3d7a261df",
+          "title": "Death Saving Throw",
+          "page": 181
+        },
+        {
+          "id": "742c9d83970ef9a2",
+          "title": "Saving Throw",
+          "page": 187
+        },
+        {
+          "id": "0b66d8325803a7b2",
+          "title": "Death Saving Throws",
+          "page": 18
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "957b3eda440660ff",
+          "title": "Rolling 20 or 1",
+          "page": 7
+        },
+        {
+          "id": "b115313cd3fbfd3e",
+          "title": "Level 18: Survivor",
+          "page": 49
+        }
+      ]
+    },
+    {
+      "id": "test-15",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "17add452c5223c0a",
+          "title": "Unarmed Strike",
+          "page": 190
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "e153765a23a359a2",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "00f7c9462df5adf7",
+          "title": "Grappler",
+          "page": 87
+        },
+        {
+          "id": "abb5285af95e083e",
+          "title": "Actions",
+          "page": 303
+        },
+        {
+          "id": "9bac5f8c5a78ce0c",
+          "title": "Actions",
+          "page": 319
+        }
+      ]
+    },
+    {
+      "id": "test-16",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "00e198b17ead6aca",
+          "title": "No More Than Three Items",
+          "page": 102
+        },
+        {
+          "id": "a05c376e2b9cf909",
+          "title": "Attunement",
+          "page": 177
+        },
+        {
+          "id": "aabec444c5ba20a7",
+          "title": "Multiple Items of the Same Kind",
+          "page": 103
+        },
+        {
+          "id": "6cebf235b243f2d8",
+          "title": "Wondrous Items",
+          "page": 205
+        }
+      ]
+    },
+    {
+      "id": "test-17",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "742c9d83970ef9a2",
+          "title": "Saving Throw",
+          "page": 187
+        },
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "77df804a7f0accb8",
+          "title": "Fireball",
+          "page": 131
+        },
+        {
+          "id": "cb60126401d1d723",
+          "title": "Delayed Blast Fireball",
+          "page": 122
+        },
+        {
+          "id": "6b1391c551f2f59d",
+          "title": "Damage against Multiple Targets",
+          "page": 16
+        },
+        {
+          "id": "3734c195219b8010",
+          "title": "Half Damage",
+          "page": 16
+        }
+      ]
+    },
+    {
+      "id": "test-18",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        {
+          "id": "0ffeb6d5f8f79234",
+          "title": "Shield, +1, +2, or +3",
+          "page": 243
+        },
+        {
+          "id": "c1d76626db7a940a",
+          "title": "Shield of Faith",
+          "page": 162
+        },
+        {
+          "id": "1e155eb086afc3f4",
+          "title": "Shield of the Cavalier",
+          "page": 243
+        },
+        {
+          "id": "42db8394f81133b9",
+          "title": "Shield",
+          "page": 161
+        },
+        {
+          "id": "3aa686952f7c5502",
+          "title": "Arrow-Catching Shield",
+          "page": 211
+        },
+        {
+          "id": "ea5c2bd8ca1940e7",
+          "title": "Shield",
+          "page": 92
+        }
+      ]
+    },
+    {
+      "id": "test-19",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        },
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "76428c9b6fe5bb2c",
+          "title": "Magic Missile",
+          "page": 146
+        },
+        {
+          "id": "415dd4e054bce218",
+          "title": "Brooch of Shielding",
+          "page": 214
+        },
+        {
+          "id": "21860668aca816b3",
+          "title": "Wand of Magic Missiles",
+          "page": 251
+        },
+        {
+          "id": "befc837b66679c79",
+          "title": "Gloves of Missile Snaring",
+          "page": 224
+        }
+      ]
+    },
+    {
+      "id": "test-20",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "5486c322907cdaa9",
+          "title": "Action",
+          "page": 176
+        },
+        {
+          "id": "bf8af2e41e403267",
+          "title": "Misty Step",
+          "page": 150
+        },
+        {
+          "id": "77f974d07c441fbc",
+          "title": "Bonus Actions",
+          "page": 305
+        },
+        {
+          "id": "402b52a8c3442f21",
+          "title": "Bonus Actions",
+          "page": 275
+        },
+        {
+          "id": "e5e808c4b66914e7",
+          "title": "Level 11: Fleet Step",
+          "page": 52
+        },
+        {
+          "id": "ba9245af98d8ca1d",
+          "title": "Dimension Door",
+          "page": 123
+        }
+      ]
+    },
+    {
+      "id": "test-21",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "855b24704f89e111",
+          "title": "Spell",
+          "page": 188
+        },
+        {
+          "id": "b26a3ab839377429",
+          "title": "Counterspell",
+          "page": 120
+        },
+        {
+          "id": "29eb2840828dc63d",
+          "title": "Reactions",
+          "page": 305
+        },
+        {
+          "id": "1140957ae6805c10",
+          "title": "Reactions",
+          "page": 304
+        },
+        {
+          "id": "0022aeae28accbbe",
+          "title": "Using a Higher-Level Spell Slot",
+          "page": 104
+        },
+        {
+          "id": "f3cde2a601a285c1",
+          "title": "One Spell with a Spell Slot per Turn",
+          "page": 105
+        }
+      ]
+    },
+    {
+      "id": "test-22",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "855b24704f89e111",
+          "title": "Spell",
+          "page": 188
+        },
+        {
+          "id": "cdf8e31464459c31",
+          "title": "Bonus Actions",
+          "page": 313
+        },
+        {
+          "id": "6d73e951c71d60e9",
+          "title": "Invisibility",
+          "page": 143
+        },
+        {
+          "id": "f1f9153a94ed83a9",
+          "title": "Potion of Invisibility",
+          "page": 236
+        },
+        {
+          "id": "629c31d338fabd37",
+          "title": "Actions",
+          "page": 317
+        },
+        {
+          "id": "7169274323493877",
+          "title": "Cloak of Invisibility",
+          "page": 215
+        }
+      ]
+    },
+    {
+      "id": "test-23",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e26d3b2be0f8a419",
+          "title": "Frightened [Condition]",
+          "page": 182
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "43201322e0e24382",
+          "title": "Fear Effects",
+          "page": 196
+        },
+        {
+          "id": "fc34d1317f62142e",
+          "title": "Fear",
+          "page": 130
+        },
+        {
+          "id": "462f4d696a9b313f",
+          "title": "Antipathy/Sympathy",
+          "page": 109
+        },
+        {
+          "id": "af554a8827705e89",
+          "title": "Moving around Other Creatures",
+          "page": 14
+        }
+      ]
+    },
+    {
+      "id": "test-24",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "ef9c210e2219a836",
+          "title": "Blinded [Condition]",
+          "page": 177
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "f7ae7e73a5427be6",
+          "title": "Blindness/Deafness",
+          "page": 113
+        },
+        {
+          "id": "3e4ec54e4d62536a",
+          "title": "Actions",
+          "page": 274
+        },
+        {
+          "id": "0f1311bad22c416d",
+          "title": "Reactions",
+          "page": 310
+        },
+        {
+          "id": "e9c4c2f4cc465190",
+          "title": "Heavily Obscured",
+          "page": 182
+        }
+      ]
+    },
+    {
+      "id": "test-25",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "ca9963d2c9d25aa7",
+          "title": "Dash [Action]",
+          "page": 180
+        },
+        {
+          "id": "e13a42131ec89bd4",
+          "title": "Speed",
+          "page": 188
+        },
+        {
+          "id": "0148246fb70c555b",
+          "title": "Orc",
+          "page": 86
+        },
+        {
+          "id": "43201322e0e24382",
+          "title": "Fear Effects",
+          "page": 196
+        },
+        {
+          "id": "5f4890e63f38c5f3",
+          "title": "Actions",
+          "page": 361
+        },
+        {
+          "id": "f07aba9e2b99b263",
+          "title": "Actions",
+          "page": 9
+        }
+      ]
+    },
+    {
+      "id": "test-26",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "fc19c8bf54a436d7",
+          "title": "Stunned [Condition]",
+          "page": 189
+        },
+        {
+          "id": "66970fed4a262bdf",
+          "title": "Paralyzed [Condition]",
+          "page": 186
+        },
+        {
+          "id": "ed6af5dcc1efd967",
+          "title": "Ability Modifier",
+          "page": 7
+        },
+        {
+          "id": "e471f4f52ac8ebd3",
+          "title": "Level 7: Evasion",
+          "page": 51
+        },
+        {
+          "id": "48d607aee8321415",
+          "title": "Unconscious [Condition]",
+          "page": 191
+        },
+        {
+          "id": "742c9d83970ef9a2",
+          "title": "Saving Throw",
+          "page": 187
+        }
+      ]
+    },
+    {
+      "id": "test-27",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "357d949ede606d83",
+          "title": "Poisoned [Condition]",
+          "page": 186
+        },
+        {
+          "id": "0946afc94746aebd",
+          "title": "Attack [Action]",
+          "page": 177
+        },
+        {
+          "id": "eda0be6292839df5",
+          "title": "Condition",
+          "page": 179
+        },
+        {
+          "id": "a130a99c6941154a",
+          "title": "Actions",
+          "page": 313
+        },
+        {
+          "id": "7a9de1397be2e001",
+          "title": "Actions",
+          "page": 299
+        },
+        {
+          "id": "82b849ea60d8d9d8",
+          "title": "Actions",
+          "page": 354
+        }
+      ]
+    },
+    {
+      "id": "test-28",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "0df45754c12b427c",
+          "title": "Incapacitated [Condition]",
+          "page": 184
+        },
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "87e63d36cfb92c07",
+          "title": "Actions",
+          "page": 268
+        },
+        {
+          "id": "cf15cb9b85b6aab3",
+          "title": "Actions",
+          "page": 324
+        },
+        {
+          "id": "13b5986b19670ecc",
+          "title": "Legendary Actions",
+          "page": 257
+        }
+      ]
+    },
+    {
+      "id": "test-29",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e41130563176a387",
+          "title": "Grappled [Condition]",
+          "page": 182
+        },
+        {
+          "id": "6bd32f4555f4c9a2",
+          "title": "Prone [Condition]",
+          "page": 186
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "e153765a23a359a2",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "577ebd04b9d6891f",
+          "title": "Bonus Actions",
+          "page": 317
+        },
+        {
+          "id": "1a33f9e5fa1455c5",
+          "title": "Bonus Actions",
+          "page": 332
+        }
+      ]
+    },
+    {
+      "id": "test-30",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "48b8bd41879a27de",
+          "title": "Vulnerability",
+          "page": 191
+        },
+        {
+          "id": "781d7a0ea2fb5cc4",
+          "title": "Resistance",
+          "page": 187
+        },
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "60f2244c1d862531",
+          "title": "Resistance and Vulnerability",
+          "page": 17
+        },
+        {
+          "id": "b6cafcd1fa3fb97f",
+          "title": "Order of Application",
+          "page": 17
+        },
+        {
+          "id": "60bef0ae4e22135a",
+          "title": "Armor of Vulnerability",
+          "page": 211
+        }
+      ]
+    },
+    {
+      "id": "test-01",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "bc456bb0353a8b99",
+          "title": "Difficult Terrain",
+          "page": 181
+        },
+        {
+          "id": "9e97c00fd997fc50",
+          "title": "Difficult Terrain",
+          "page": 14
+        },
+        {
+          "id": "af8ca009345fad8f",
+          "title": "Climbing",
+          "page": 178
+        },
+        {
+          "id": "73d3c84f86f28399",
+          "title": "Crawling",
+          "page": 179
+        },
+        {
+          "id": "9aa3c57a7f3a1350",
+          "title": "Swimming",
+          "page": 189
+        },
+        {
+          "id": "4713d7ebf468c3e6",
+          "title": "Your Turn",
+          "page": 13
+        }
+      ]
+    },
+    {
+      "id": "test-02",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "6bd32f4555f4c9a2",
+          "title": "Prone [Condition]",
+          "page": 186
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "e13a42131ec89bd4",
+          "title": "Speed",
+          "page": 188
+        },
+        {
+          "id": "ff3d8e7c30becfb2",
+          "title": "Dropping Prone",
+          "page": 14
+        },
+        {
+          "id": "065e311b7db281c7",
+          "title": "Flying",
+          "page": 182
+        },
+        {
+          "id": "48d607aee8321415",
+          "title": "Unconscious [Condition]",
+          "page": 191
+        }
+      ]
+    },
+    {
+      "id": "test-03",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e41130563176a387",
+          "title": "Grappled [Condition]",
+          "page": 182
+        },
+        {
+          "id": "0946afc94746aebd",
+          "title": "Attack [Action]",
+          "page": 177
+        },
+        {
+          "id": "e153765a23a359a2",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "00f7c9462df5adf7",
+          "title": "Grappler",
+          "page": 87
+        },
+        {
+          "id": "4d314fecccb45aeb",
+          "title": "Actions",
+          "page": 347
+        },
+        {
+          "id": "44b27ca1e942edfc",
+          "title": "Actions",
+          "page": 352
+        }
+      ]
+    },
+    {
+      "id": "test-04",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "781d7a0ea2fb5cc4",
+          "title": "Resistance",
+          "page": 187
+        },
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "127a13c339e3f743",
+          "title": "No Stacking",
+          "page": 17
+        },
+        {
+          "id": "b6cafcd1fa3fb97f",
+          "title": "Order of Application",
+          "page": 17
+        },
+        {
+          "id": "60f2244c1d862531",
+          "title": "Resistance and Vulnerability",
+          "page": 17
+        },
+        {
+          "id": "6b1391c551f2f59d",
+          "title": "Damage against Multiple Targets",
+          "page": 16
+        }
+      ]
+    },
+    {
+      "id": "test-05",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "48b8bd41879a27de",
+          "title": "Vulnerability",
+          "page": 191
+        },
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "60f2244c1d862531",
+          "title": "Resistance and Vulnerability",
+          "page": 17
+        },
+        {
+          "id": "127a13c339e3f743",
+          "title": "No Stacking",
+          "page": 17
+        },
+        {
+          "id": "60bef0ae4e22135a",
+          "title": "Armor of Vulnerability",
+          "page": 211
+        },
+        {
+          "id": "e4c33fb308b23b6b",
+          "title": "Hallow",
+          "page": 139
+        }
+      ]
+    },
+    {
+      "id": "test-06",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "ccd65810d8823811",
+          "title": "Cover",
+          "page": 179
+        },
+        {
+          "id": "59eee0a6bef62d4c",
+          "title": "Cover",
+          "page": 15
+        },
+        {
+          "id": "f16186aa4e4c438b",
+          "title": "Sacred Flame",
+          "page": 159
+        },
+        {
+          "id": "cca1873d58a0bd87",
+          "title": "Bonus Actions",
+          "page": 357
+        },
+        {
+          "id": "caf39d15a3b67187",
+          "title": "Bonus Actions",
+          "page": 293
+        },
+        {
+          "id": "08cd1e69e522738a",
+          "title": "Bonus Actions",
+          "page": 348
+        }
+      ]
+    },
+    {
+      "id": "test-07",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "855b24704f89e111",
+          "title": "Spell",
+          "page": 188
+        },
+        {
+          "id": "62969247a703e6e8",
+          "title": "Ready [Action]",
+          "page": 187
+        },
+        {
+          "id": "c73cf1b6c7e95eb3",
+          "title": "Bestow Curse",
+          "page": 113
+        },
+        {
+          "id": "b992b36559245b81",
+          "title": "Spells Cast from Items",
+          "page": 206
+        },
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        }
+      ]
+    },
+    {
+      "id": "test-08",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "05ce47d48c6181dd",
+          "title": "Help [Action]",
+          "page": 182
+        },
+        {
+          "id": "e4d9e3377a484f2b",
+          "title": "Ability Check",
+          "page": 176
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "5486c322907cdaa9",
+          "title": "Action",
+          "page": 176
+        },
+        {
+          "id": "f07aba9e2b99b263",
+          "title": "Actions",
+          "page": 9
+        },
+        {
+          "id": "8ee11b366d4b5920",
+          "title": "Stabilizing a Character",
+          "page": 18
+        }
+      ]
+    },
+    {
+      "id": "test-09",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "8eee68e0fb88f9d2",
+          "title": "Dodge [Action]",
+          "page": 181
+        },
+        {
+          "id": "e13a42131ec89bd4",
+          "title": "Speed",
+          "page": 188
+        },
+        {
+          "id": "f07aba9e2b99b263",
+          "title": "Actions",
+          "page": 9
+        },
+        {
+          "id": "e41130563176a387",
+          "title": "Grappled [Condition]",
+          "page": 182
+        },
+        {
+          "id": "6bd32f4555f4c9a2",
+          "title": "Prone [Condition]",
+          "page": 186
+        },
+        {
+          "id": "a302009881d35be3",
+          "title": "Restrained [Condition]",
+          "page": 187
+        }
+      ]
+    },
+    {
+      "id": "test-10",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "48d607aee8321415",
+          "title": "Unconscious [Condition]",
+          "page": 191
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "324efef1338013e8",
+          "title": "Knocking Out a Creature",
+          "page": 184
+        },
+        {
+          "id": "718918f950fe6d50",
+          "title": "Dropping to 0 Hit Points",
+          "page": 17
+        },
+        {
+          "id": "c0fc36a7e65e6037",
+          "title": "Bag of Devouring",
+          "page": 212
+        },
+        {
+          "id": "f75af7fc674705ec",
+          "title": "Bag of Holding",
+          "page": 212
+        }
+      ]
+    },
+    {
+      "id": "test-11",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e4bb65ff5ea2539b",
+          "title": "Darkvision",
+          "page": 180
+        },
+        {
+          "id": "0c6d2eceb648b6c5",
+          "title": "Darkness",
+          "page": 180
+        },
+        {
+          "id": "13722fa491c2c6b3",
+          "title": "Goggles of Night",
+          "page": 224
+        },
+        {
+          "id": "2b89185bd87afa90",
+          "title": "Darkness",
+          "page": 122
+        },
+        {
+          "id": "66a1efd958afe8d3",
+          "title": "Truesight",
+          "page": 190
+        },
+        {
+          "id": "bcfb5a1a4e1656b3",
+          "title": "Light",
+          "page": 11
+        }
+      ]
+    },
+    {
+      "id": "test-12",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "a9f958c0e45547e8",
+          "title": "Short Rest",
+          "page": 187
+        },
+        {
+          "id": "8cb924a60f3ef544",
+          "title": "Long Rest",
+          "page": 185
+        },
+        {
+          "id": "1b6c976b87bc32ca",
+          "title": "Hit Points",
+          "page": 16
+        },
+        {
+          "id": "ddd0d1a1b827785f",
+          "title": "Prayer of Healing",
+          "page": 154
+        },
+        {
+          "id": "13bf270b770296fe",
+          "title": "Attune during a Short Rest",
+          "page": 102
+        },
+        {
+          "id": "6a648e1aeb596ca0",
+          "title": "Level 5: Sorcerous Restoration",
+          "page": 66
+        }
+      ]
+    },
+    {
+      "id": "test-13",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "922530c6985e479f",
+          "title": "Long Rest",
+          "page": 185
+        },
+        {
+          "id": "a9f958c0e45547e8",
+          "title": "Short Rest",
+          "page": 187
+        },
+        {
+          "id": "1b6c976b87bc32ca",
+          "title": "Hit Points",
+          "page": 16
+        },
+        {
+          "id": "199996150a53b5d5",
+          "title": "Duration",
+          "page": 18
+        },
+        {
+          "id": "1017a679d6ce5ddd",
+          "title": "Per Day",
+          "page": 186
+        },
+        {
+          "id": "ddd0d1a1b827785f",
+          "title": "Prayer of Healing",
+          "page": 154
+        }
+      ]
+    },
+    {
+      "id": "test-14",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "30294ed3d7a261df",
+          "title": "Death Saving Throw",
+          "page": 181
+        },
+        {
+          "id": "742c9d83970ef9a2",
+          "title": "Saving Throw",
+          "page": 187
+        },
+        {
+          "id": "0b66d8325803a7b2",
+          "title": "Death Saving Throws",
+          "page": 18
+        },
+        {
+          "id": "b115313cd3fbfd3e",
+          "title": "Level 18: Survivor",
+          "page": 49
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "957b3eda440660ff",
+          "title": "Rolling 20 or 1",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "test-15",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "17add452c5223c0a",
+          "title": "Unarmed Strike",
+          "page": 190
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "e153765a23a359a2",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "00f7c9462df5adf7",
+          "title": "Grappler",
+          "page": 87
+        },
+        {
+          "id": "95841fe3e8539aa0",
+          "title": "Level 17: Quivering Palm",
+          "page": 52
+        },
+        {
+          "id": "17e98989f9333635",
+          "title": "Opportunity Attacks",
+          "page": 185
+        }
+      ]
+    },
+    {
+      "id": "test-16",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "a05c376e2b9cf909",
+          "title": "Attunement",
+          "page": 177
+        },
+        {
+          "id": "00e198b17ead6aca",
+          "title": "No More Than Three Items",
+          "page": 102
+        },
+        {
+          "id": "6cebf235b243f2d8",
+          "title": "Wondrous Items",
+          "page": 205
+        },
+        {
+          "id": "66608a4e68b495a4",
+          "title": "Level 13: Use Magic Device",
+          "page": 64
+        }
+      ]
+    },
+    {
+      "id": "test-17",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.16666666666666666,
+      "retrieved": [
+        {
+          "id": "742c9d83970ef9a2",
+          "title": "Saving Throw",
+          "page": 187
+        },
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "a26b62218f9cd350",
+          "title": "Saving Throws and Damage",
+          "page": 16
+        },
+        {
+          "id": "6b1391c551f2f59d",
+          "title": "Damage against Multiple Targets",
+          "page": 16
+        },
+        {
+          "id": "3734c195219b8010",
+          "title": "Half Damage",
+          "page": 16
+        },
+        {
+          "id": "77df804a7f0accb8",
+          "title": "Fireball",
+          "page": 131
+        }
+      ]
+    },
+    {
+      "id": "test-18",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "c1d76626db7a940a",
+          "title": "Shield of Faith",
+          "page": 162
+        },
+        {
+          "id": "42db8394f81133b9",
+          "title": "Shield",
+          "page": 161
+        },
+        {
+          "id": "ba31dc5c71e6ae22",
+          "title": "Armor Training",
+          "page": 177
+        },
+        {
+          "id": "3aa686952f7c5502",
+          "title": "Arrow-Catching Shield",
+          "page": 211
+        },
+        {
+          "id": "1e155eb086afc3f4",
+          "title": "Shield of the Cavalier",
+          "page": 243
+        },
+        {
+          "id": "0ffeb6d5f8f79234",
+          "title": "Shield, +1, +2, or +3",
+          "page": 243
+        }
+      ]
+    },
+    {
+      "id": "test-19",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        },
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "76428c9b6fe5bb2c",
+          "title": "Magic Missile",
+          "page": 146
+        },
+        {
+          "id": "7d84572dacc1bb4b",
+          "title": "Javelin of Lightning",
+          "page": 228
+        },
+        {
+          "id": "a19789d913eba197",
+          "title": "Horn of Blasting",
+          "page": 226
+        },
+        {
+          "id": "42db8394f81133b9",
+          "title": "Shield",
+          "page": 161
+        }
+      ]
+    },
+    {
+      "id": "test-20",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "5486c322907cdaa9",
+          "title": "Action",
+          "page": 176
+        },
+        {
+          "id": "bf8af2e41e403267",
+          "title": "Misty Step",
+          "page": 150
+        },
+        {
+          "id": "77f974d07c441fbc",
+          "title": "Bonus Actions",
+          "page": 305
+        },
+        {
+          "id": "402b52a8c3442f21",
+          "title": "Bonus Actions",
+          "page": 275
+        },
+        {
+          "id": "ba9245af98d8ca1d",
+          "title": "Dimension Door",
+          "page": 123
+        },
+        {
+          "id": "db523c5ea7c8a939",
+          "title": "Bonus Actions",
+          "page": 306
+        }
+      ]
+    },
+    {
+      "id": "test-21",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "855b24704f89e111",
+          "title": "Spell",
+          "page": 188
+        },
+        {
+          "id": "b26a3ab839377429",
+          "title": "Counterspell",
+          "page": 120
+        },
+        {
+          "id": "1140957ae6805c10",
+          "title": "Reactions",
+          "page": 304
+        },
+        {
+          "id": "0022aeae28accbbe",
+          "title": "Using a Higher-Level Spell Slot",
+          "page": 104
+        },
+        {
+          "id": "2d202dce45b83d50",
+          "title": "Spell Slots",
+          "page": 104
+        },
+        {
+          "id": "29eb2840828dc63d",
+          "title": "Reactions",
+          "page": 305
+        }
+      ]
+    },
+    {
+      "id": "test-22",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "855b24704f89e111",
+          "title": "Spell",
+          "page": 188
+        },
+        {
+          "id": "6d73e951c71d60e9",
+          "title": "Invisibility",
+          "page": 143
+        },
+        {
+          "id": "7169274323493877",
+          "title": "Cloak of Invisibility",
+          "page": 215
+        },
+        {
+          "id": "bb8009196aa27a89",
+          "title": "Mislead",
+          "page": 150
+        },
+        {
+          "id": "f1f9153a94ed83a9",
+          "title": "Potion of Invisibility",
+          "page": 236
+        },
+        {
+          "id": "629c31d338fabd37",
+          "title": "Actions",
+          "page": 317
+        }
+      ]
+    },
+    {
+      "id": "test-23",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e26d3b2be0f8a419",
+          "title": "Frightened [Condition]",
+          "page": 182
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "43201322e0e24382",
+          "title": "Fear Effects",
+          "page": 196
+        },
+        {
+          "id": "462f4d696a9b313f",
+          "title": "Antipathy/Sympathy",
+          "page": 109
+        },
+        {
+          "id": "19d2b7b0ac4daf53",
+          "title": "Mace of Terror",
+          "page": 229
+        },
+        {
+          "id": "fc34d1317f62142e",
+          "title": "Fear",
+          "page": 130
+        }
+      ]
+    },
+    {
+      "id": "test-24",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "ef9c210e2219a836",
+          "title": "Blinded [Condition]",
+          "page": 177
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "029ef850abc0b5f7",
+          "title": "Actions",
+          "page": 288
+        },
+        {
+          "id": "0f1311bad22c416d",
+          "title": "Reactions",
+          "page": 310
+        },
+        {
+          "id": "a90c2b62af835e73",
+          "title": "Prismatic Wall",
+          "page": 155
+        },
+        {
+          "id": "3e4ec54e4d62536a",
+          "title": "Actions",
+          "page": 274
+        }
+      ]
+    },
+    {
+      "id": "test-25",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "ca9963d2c9d25aa7",
+          "title": "Dash [Action]",
+          "page": 180
+        },
+        {
+          "id": "e13a42131ec89bd4",
+          "title": "Speed",
+          "page": 188
+        },
+        {
+          "id": "f07aba9e2b99b263",
+          "title": "Actions",
+          "page": 9
+        },
+        {
+          "id": "0148246fb70c555b",
+          "title": "Orc",
+          "page": 86
+        },
+        {
+          "id": "43201322e0e24382",
+          "title": "Fear Effects",
+          "page": 196
+        },
+        {
+          "id": "2f231254a44e18ee",
+          "title": "Level 2: Cunning Action",
+          "page": 62
+        }
+      ]
+    },
+    {
+      "id": "test-26",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "fc19c8bf54a436d7",
+          "title": "Stunned [Condition]",
+          "page": 189
+        },
+        {
+          "id": "48d607aee8321415",
+          "title": "Unconscious [Condition]",
+          "page": 191
+        },
+        {
+          "id": "66970fed4a262bdf",
+          "title": "Paralyzed [Condition]",
+          "page": 186
+        },
+        {
+          "id": "7a120b31b1d5d869",
+          "title": "Petrified [Condition]",
+          "page": 186
+        },
+        {
+          "id": "e471f4f52ac8ebd3",
+          "title": "Level 7: Evasion",
+          "page": 51
+        },
+        {
+          "id": "2522f583bba87ed4",
+          "title": "Level 7: Evasion",
+          "page": 63
+        }
+      ]
+    },
+    {
+      "id": "test-27",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "357d949ede606d83",
+          "title": "Poisoned [Condition]",
+          "page": 186
+        },
+        {
+          "id": "0946afc94746aebd",
+          "title": "Attack [Action]",
+          "page": 177
+        },
+        {
+          "id": "eda0be6292839df5",
+          "title": "Condition",
+          "page": 179
+        },
+        {
+          "id": "e26d3b2be0f8a419",
+          "title": "Frightened [Condition]",
+          "page": 182
+        },
+        {
+          "id": "ef9c210e2219a836",
+          "title": "Blinded [Condition]",
+          "page": 177
+        },
+        {
+          "id": "7a9de1397be2e001",
+          "title": "Actions",
+          "page": 299
+        }
+      ]
+    },
+    {
+      "id": "test-28",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "0df45754c12b427c",
+          "title": "Incapacitated [Condition]",
+          "page": 184
+        },
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "52e8cdbb977c27fb",
+          "title": "Sleep",
+          "page": 163
+        },
+        {
+          "id": "13b5986b19670ecc",
+          "title": "Legendary Actions",
+          "page": 257
+        },
+        {
+          "id": "87e63d36cfb92c07",
+          "title": "Actions",
+          "page": 268
+        }
+      ]
+    },
+    {
+      "id": "test-29",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e41130563176a387",
+          "title": "Grappled [Condition]",
+          "page": 182
+        },
+        {
+          "id": "6bd32f4555f4c9a2",
+          "title": "Prone [Condition]",
+          "page": 186
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "541580ef9df973f8",
+          "title": "Power Word Heal",
+          "page": 154
+        },
+        {
+          "id": "b4083511ea62db3d",
+          "title": "Actions",
+          "page": 303
+        },
+        {
+          "id": "e153765a23a359a2",
+          "title": "Grappling",
+          "page": 182
+        }
+      ]
+    },
+    {
+      "id": "test-30",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "48b8bd41879a27de",
+          "title": "Vulnerability",
+          "page": 191
+        },
+        {
+          "id": "781d7a0ea2fb5cc4",
+          "title": "Resistance",
+          "page": 187
+        },
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "60f2244c1d862531",
+          "title": "Resistance and Vulnerability",
+          "page": 17
+        },
+        {
+          "id": "b6cafcd1fa3fb97f",
+          "title": "Order of Application",
+          "page": 17
+        },
+        {
+          "id": "127a13c339e3f743",
+          "title": "No Stacking",
+          "page": 17
+        }
+      ]
+    }
+  ]
+}

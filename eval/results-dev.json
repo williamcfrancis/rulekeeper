@@ -1,0 +1,953 @@
+{
+  "available": true,
+  "split": "dev",
+  "questions": 6,
+  "built_at": "2026-09-26T23:33:34.950631+00:00",
+  "corpus_sha256": "291840d3c390f9ce643fd6fef518bfb9e0df6e63c54b61388de9adb82258a76f",
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.14",
+    "model_threads": 4
+  },
+  "methodology": "Authored question set; required groups matched by title and supporting phrase. Recall@6 is the mean fraction of required groups retrieved per question. MRR is reciprocal rank of first relevant passage. Timings are warm, end-to-end retrieval. No answer-quality claim.",
+  "results": {
+    "lexical": {
+      "recall_at_6": 1.0,
+      "mrr": 0.8056,
+      "p50_ms": 4.6,
+      "p95_ms": 5.5
+    },
+    "dense": {
+      "recall_at_6": 0.8333,
+      "mrr": 0.75,
+      "p50_ms": 12.5,
+      "p95_ms": 14.4
+    },
+    "hybrid": {
+      "recall_at_6": 1.0,
+      "mrr": 1.0,
+      "p50_ms": 13.1,
+      "p95_ms": 14.8
+    },
+    "hybrid_reranked": {
+      "recall_at_6": 1.0,
+      "mrr": 1.0,
+      "p50_ms": 1181.1,
+      "p95_ms": 1592.6
+    }
+  },
+  "details": [
+    {
+      "id": "dev-01",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "0df45754c12b427c",
+          "title": "Incapacitated [Condition]",
+          "page": 184
+        },
+        {
+          "id": "17332824a0fdf124",
+          "title": "Hideous Laughter",
+          "page": 140
+        },
+        {
+          "id": "3f56633c6e4c73b3",
+          "title": "Duration",
+          "page": 106
+        },
+        {
+          "id": "c98844876345f733",
+          "title": "Haste",
+          "page": 139
+        },
+        {
+          "id": "52e8cdbb977c27fb",
+          "title": "Sleep",
+          "page": 163
+        }
+      ]
+    },
+    {
+      "id": "dev-02",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "bb5a7a1e9cbfe0f1",
+          "title": "Disengage [Action]",
+          "page": 181
+        },
+        {
+          "id": "2cc0bd36c1a4e8a8",
+          "title": "Opportunity Attacks",
+          "page": 15
+        },
+        {
+          "id": "17e98989f9333635",
+          "title": "Opportunity Attacks",
+          "page": 185
+        },
+        {
+          "id": "77adb4ecfa1cf264",
+          "title": "Reaction",
+          "page": 186
+        },
+        {
+          "id": "67848f37cab03d37",
+          "title": "Level 5: Tactical Shift",
+          "page": 48
+        },
+        {
+          "id": "09016e4ee1811324",
+          "title": "Level 2: Monk\u2019s Focus",
+          "page": 50
+        }
+      ]
+    },
+    {
+      "id": "dev-03",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "553b956aae2fa8b4",
+          "title": "They Don\u2019t Stack",
+          "page": 8
+        },
+        {
+          "id": "eb33b680e956c632",
+          "title": "Disadvantage",
+          "page": 181
+        },
+        {
+          "id": "930e79a8a62a84a3",
+          "title": "Interactions with Rerolls",
+          "page": 8
+        },
+        {
+          "id": "7c531c2aa9891b77",
+          "title": "Advantage",
+          "page": 176
+        },
+        {
+          "id": "1a0f4e70517f8156",
+          "title": "Roll Two D20s",
+          "page": 8
+        },
+        {
+          "id": "6590010f5c3016f7",
+          "title": "Advantage/Disadvantage",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "dev-04",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "0c61152a5243b406",
+          "title": "Gaze of Two Minds",
+          "page": 73
+        },
+        {
+          "id": "ccf903d91c9cc036",
+          "title": "Eldritch Mind",
+          "page": 72
+        },
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "e095dd0bc9485956",
+          "title": "Longer Casting Times",
+          "page": 105
+        },
+        {
+          "id": "d1db3f94467be213",
+          "title": "Actions",
+          "page": 279
+        },
+        {
+          "id": "62969247a703e6e8",
+          "title": "Ready [Action]",
+          "page": 187
+        }
+      ]
+    },
+    {
+      "id": "dev-05",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "88c2f5ebc71639a5",
+          "title": "Invisible [Condition]",
+          "page": 184
+        },
+        {
+          "id": "ef9c210e2219a836",
+          "title": "Blinded [Condition]",
+          "page": 177
+        },
+        {
+          "id": "a302009881d35be3",
+          "title": "Restrained [Condition]",
+          "page": 187
+        },
+        {
+          "id": "35e301b9eee6b7c4",
+          "title": "Level 9: Supreme Sneak",
+          "page": 64
+        },
+        {
+          "id": "8f45514b1ee2ade2",
+          "title": "Dust of Disappearance",
+          "page": 219
+        },
+        {
+          "id": "db02f698174c4ee7",
+          "title": "Shining Smite",
+          "page": 162
+        }
+      ]
+    },
+    {
+      "id": "dev-06",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "0a01b4f16a858116",
+          "title": "Hide [Action]",
+          "page": 183
+        },
+        {
+          "id": "157a0abf89ea35f8",
+          "title": "Hiding",
+          "page": 11
+        },
+        {
+          "id": "cea2dff1ba74145a",
+          "title": "Bonus Actions",
+          "page": 260
+        },
+        {
+          "id": "9e852ca2365baa0b",
+          "title": "Bonus Actions",
+          "page": 329
+        },
+        {
+          "id": "8f576cc6d8f00f37",
+          "title": "Finding Hidden Objects",
+          "page": 12
+        },
+        {
+          "id": "200370fefc603f79",
+          "title": "Sequester",
+          "page": 161
+        }
+      ]
+    },
+    {
+      "id": "dev-01",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "0df45754c12b427c",
+          "title": "Incapacitated [Condition]",
+          "page": 184
+        },
+        {
+          "id": "7a120b31b1d5d869",
+          "title": "Petrified [Condition]",
+          "page": 186
+        },
+        {
+          "id": "5f657520ffd9d168",
+          "title": "Banishment",
+          "page": 112
+        },
+        {
+          "id": "e01ae21be464f13e",
+          "title": "Imprisonment",
+          "page": 142
+        },
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "66970fed4a262bdf",
+          "title": "Paralyzed [Condition]",
+          "page": 186
+        }
+      ]
+    },
+    {
+      "id": "dev-02",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "bb5a7a1e9cbfe0f1",
+          "title": "Disengage [Action]",
+          "page": 181
+        },
+        {
+          "id": "2cc0bd36c1a4e8a8",
+          "title": "Opportunity Attacks",
+          "page": 15
+        },
+        {
+          "id": "77adb4ecfa1cf264",
+          "title": "Reaction",
+          "page": 186
+        },
+        {
+          "id": "f07aba9e2b99b263",
+          "title": "Actions",
+          "page": 9
+        },
+        {
+          "id": "161c785ad9f6d602",
+          "title": "Bonus Actions",
+          "page": 358
+        },
+        {
+          "id": "09016e4ee1811324",
+          "title": "Level 2: Monk\u2019s Focus",
+          "page": 50
+        }
+      ]
+    },
+    {
+      "id": "dev-03",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "553b956aae2fa8b4",
+          "title": "They Don\u2019t Stack",
+          "page": 8
+        },
+        {
+          "id": "eb33b680e956c632",
+          "title": "Disadvantage",
+          "page": 181
+        },
+        {
+          "id": "7c531c2aa9891b77",
+          "title": "Advantage",
+          "page": 176
+        },
+        {
+          "id": "1a0f4e70517f8156",
+          "title": "Roll Two D20s",
+          "page": 8
+        },
+        {
+          "id": "8eee68e0fb88f9d2",
+          "title": "Dodge [Action]",
+          "page": 181
+        },
+        {
+          "id": "05daf8ba40add01d",
+          "title": "Making an Attack",
+          "page": 14
+        }
+      ]
+    },
+    {
+      "id": "dev-04",
+      "method": "dense",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        },
+        {
+          "id": "259d5eb5f0534fec",
+          "title": "Combining Spell Effects",
+          "page": 106
+        },
+        {
+          "id": "0a7651cd1c2c0dca",
+          "title": "Contingency",
+          "page": 119
+        },
+        {
+          "id": "f3cde2a601a285c1",
+          "title": "One Spell with a Spell Slot per Turn",
+          "page": 105
+        },
+        {
+          "id": "7670697a008a479f",
+          "title": "Dominate Person",
+          "page": 126
+        },
+        {
+          "id": "e095dd0bc9485956",
+          "title": "Longer Casting Times",
+          "page": 105
+        }
+      ]
+    },
+    {
+      "id": "dev-05",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "88c2f5ebc71639a5",
+          "title": "Invisible [Condition]",
+          "page": 184
+        },
+        {
+          "id": "ef9c210e2219a836",
+          "title": "Blinded [Condition]",
+          "page": 177
+        },
+        {
+          "id": "05daf8ba40add01d",
+          "title": "Making an Attack",
+          "page": 14
+        },
+        {
+          "id": "35e301b9eee6b7c4",
+          "title": "Level 9: Supreme Sneak",
+          "page": 64
+        },
+        {
+          "id": "0a01b4f16a858116",
+          "title": "Hide [Action]",
+          "page": 183
+        },
+        {
+          "id": "40e4bee68b0e1901",
+          "title": "Attack Rolls",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "dev-06",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "0a01b4f16a858116",
+          "title": "Hide [Action]",
+          "page": 183
+        },
+        {
+          "id": "35e301b9eee6b7c4",
+          "title": "Level 9: Supreme Sneak",
+          "page": 64
+        },
+        {
+          "id": "157a0abf89ea35f8",
+          "title": "Hiding",
+          "page": 11
+        },
+        {
+          "id": "8f576cc6d8f00f37",
+          "title": "Finding Hidden Objects",
+          "page": 12
+        },
+        {
+          "id": "3a06cd1934af85c8",
+          "title": "Bonus Actions",
+          "page": 323
+        },
+        {
+          "id": "dca9f2521b4d800b",
+          "title": "Bonus Actions",
+          "page": 290
+        }
+      ]
+    },
+    {
+      "id": "dev-01",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "0df45754c12b427c",
+          "title": "Incapacitated [Condition]",
+          "page": 184
+        },
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "855b24704f89e111",
+          "title": "Spell",
+          "page": 188
+        },
+        {
+          "id": "5f657520ffd9d168",
+          "title": "Banishment",
+          "page": 112
+        },
+        {
+          "id": "52e8cdbb977c27fb",
+          "title": "Sleep",
+          "page": 163
+        },
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        }
+      ]
+    },
+    {
+      "id": "dev-02",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "bb5a7a1e9cbfe0f1",
+          "title": "Disengage [Action]",
+          "page": 181
+        },
+        {
+          "id": "17e98989f9333635",
+          "title": "Opportunity Attacks",
+          "page": 185
+        },
+        {
+          "id": "5486c322907cdaa9",
+          "title": "Action",
+          "page": 176
+        },
+        {
+          "id": "2cc0bd36c1a4e8a8",
+          "title": "Opportunity Attacks",
+          "page": 15
+        },
+        {
+          "id": "77adb4ecfa1cf264",
+          "title": "Reaction",
+          "page": 186
+        },
+        {
+          "id": "f07aba9e2b99b263",
+          "title": "Actions",
+          "page": 9
+        }
+      ]
+    },
+    {
+      "id": "dev-03",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "eb33b680e956c632",
+          "title": "Disadvantage",
+          "page": 181
+        },
+        {
+          "id": "7c531c2aa9891b77",
+          "title": "Advantage",
+          "page": 176
+        },
+        {
+          "id": "553b956aae2fa8b4",
+          "title": "They Don\u2019t Stack",
+          "page": 8
+        },
+        {
+          "id": "1a0f4e70517f8156",
+          "title": "Roll Two D20s",
+          "page": 8
+        },
+        {
+          "id": "930e79a8a62a84a3",
+          "title": "Interactions with Rerolls",
+          "page": 8
+        },
+        {
+          "id": "6590010f5c3016f7",
+          "title": "Advantage/Disadvantage",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "dev-04",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "e095dd0bc9485956",
+          "title": "Longer Casting Times",
+          "page": 105
+        },
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        },
+        {
+          "id": "ccf903d91c9cc036",
+          "title": "Eldritch Mind",
+          "page": 72
+        },
+        {
+          "id": "2f2e9378cbfb8c57",
+          "title": "Extended Spell",
+          "page": 67
+        },
+        {
+          "id": "c73cf1b6c7e95eb3",
+          "title": "Bestow Curse",
+          "page": 113
+        }
+      ]
+    },
+    {
+      "id": "dev-05",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "88c2f5ebc71639a5",
+          "title": "Invisible [Condition]",
+          "page": 184
+        },
+        {
+          "id": "0946afc94746aebd",
+          "title": "Attack [Action]",
+          "page": 177
+        },
+        {
+          "id": "eda0be6292839df5",
+          "title": "Condition",
+          "page": 179
+        },
+        {
+          "id": "ef9c210e2219a836",
+          "title": "Blinded [Condition]",
+          "page": 177
+        },
+        {
+          "id": "35e301b9eee6b7c4",
+          "title": "Level 9: Supreme Sneak",
+          "page": 64
+        },
+        {
+          "id": "8f45514b1ee2ade2",
+          "title": "Dust of Disappearance",
+          "page": 219
+        }
+      ]
+    },
+    {
+      "id": "dev-06",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "0a01b4f16a858116",
+          "title": "Hide [Action]",
+          "page": 183
+        },
+        {
+          "id": "5486c322907cdaa9",
+          "title": "Action",
+          "page": 176
+        },
+        {
+          "id": "157a0abf89ea35f8",
+          "title": "Hiding",
+          "page": 11
+        },
+        {
+          "id": "8f576cc6d8f00f37",
+          "title": "Finding Hidden Objects",
+          "page": 12
+        },
+        {
+          "id": "9e852ca2365baa0b",
+          "title": "Bonus Actions",
+          "page": 329
+        },
+        {
+          "id": "dca9f2521b4d800b",
+          "title": "Bonus Actions",
+          "page": 290
+        }
+      ]
+    },
+    {
+      "id": "dev-01",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "0df45754c12b427c",
+          "title": "Incapacitated [Condition]",
+          "page": 184
+        },
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "855b24704f89e111",
+          "title": "Spell",
+          "page": 188
+        },
+        {
+          "id": "52e8cdbb977c27fb",
+          "title": "Sleep",
+          "page": 163
+        },
+        {
+          "id": "5f657520ffd9d168",
+          "title": "Banishment",
+          "page": 112
+        },
+        {
+          "id": "17332824a0fdf124",
+          "title": "Hideous Laughter",
+          "page": 140
+        }
+      ]
+    },
+    {
+      "id": "dev-02",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "bb5a7a1e9cbfe0f1",
+          "title": "Disengage [Action]",
+          "page": 181
+        },
+        {
+          "id": "17e98989f9333635",
+          "title": "Opportunity Attacks",
+          "page": 185
+        },
+        {
+          "id": "5486c322907cdaa9",
+          "title": "Action",
+          "page": 176
+        },
+        {
+          "id": "2cc0bd36c1a4e8a8",
+          "title": "Opportunity Attacks",
+          "page": 15
+        },
+        {
+          "id": "f07aba9e2b99b263",
+          "title": "Actions",
+          "page": 9
+        },
+        {
+          "id": "77adb4ecfa1cf264",
+          "title": "Reaction",
+          "page": 186
+        }
+      ]
+    },
+    {
+      "id": "dev-03",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "eb33b680e956c632",
+          "title": "Disadvantage",
+          "page": 181
+        },
+        {
+          "id": "7c531c2aa9891b77",
+          "title": "Advantage",
+          "page": 176
+        },
+        {
+          "id": "553b956aae2fa8b4",
+          "title": "They Don\u2019t Stack",
+          "page": 8
+        },
+        {
+          "id": "1a0f4e70517f8156",
+          "title": "Roll Two D20s",
+          "page": 8
+        },
+        {
+          "id": "930e79a8a62a84a3",
+          "title": "Interactions with Rerolls",
+          "page": 8
+        },
+        {
+          "id": "88c2f5ebc71639a5",
+          "title": "Invisible [Condition]",
+          "page": 184
+        }
+      ]
+    },
+    {
+      "id": "dev-04",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "5406494370937d50",
+          "title": "Concentration",
+          "page": 179
+        },
+        {
+          "id": "c73cf1b6c7e95eb3",
+          "title": "Bestow Curse",
+          "page": 113
+        },
+        {
+          "id": "71e7eb92bb834a1a",
+          "title": "Magic [Action]",
+          "page": 185
+        },
+        {
+          "id": "bf7ab897371a601c",
+          "title": "Wall of Stone",
+          "page": 173
+        },
+        {
+          "id": "e095dd0bc9485956",
+          "title": "Longer Casting Times",
+          "page": 105
+        },
+        {
+          "id": "62969247a703e6e8",
+          "title": "Ready [Action]",
+          "page": 187
+        }
+      ]
+    },
+    {
+      "id": "dev-05",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "88c2f5ebc71639a5",
+          "title": "Invisible [Condition]",
+          "page": 184
+        },
+        {
+          "id": "0946afc94746aebd",
+          "title": "Attack [Action]",
+          "page": 177
+        },
+        {
+          "id": "eda0be6292839df5",
+          "title": "Condition",
+          "page": 179
+        },
+        {
+          "id": "f1f9153a94ed83a9",
+          "title": "Potion of Invisibility",
+          "page": 236
+        },
+        {
+          "id": "ef9c210e2219a836",
+          "title": "Blinded [Condition]",
+          "page": 177
+        },
+        {
+          "id": "db02f698174c4ee7",
+          "title": "Shining Smite",
+          "page": 162
+        }
+      ]
+    },
+    {
+      "id": "dev-06",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "0a01b4f16a858116",
+          "title": "Hide [Action]",
+          "page": 183
+        },
+        {
+          "id": "5486c322907cdaa9",
+          "title": "Action",
+          "page": 176
+        },
+        {
+          "id": "35e301b9eee6b7c4",
+          "title": "Level 9: Supreme Sneak",
+          "page": 64
+        },
+        {
+          "id": "200a01193b00da2e",
+          "title": "Level 14: Nature\u2019s Veil",
+          "page": 59
+        },
+        {
+          "id": "157a0abf89ea35f8",
+          "title": "Hiding",
+          "page": 11
+        },
+        {
+          "id": "3a06cd1934af85c8",
+          "title": "Bonus Actions",
+          "page": 323
+        }
+      ]
+    }
+  ]
+}
