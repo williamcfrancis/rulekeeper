@@ -15,7 +15,7 @@ async function navigate(page: Page, name: string | RegExp) {
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByText("Library ready", { exact: true })).toBeAttached();
+  await expect(page.locator(".library-status")).toContainText("Library ready");
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth,
@@ -86,8 +86,6 @@ test("another edition receives an evidence-gap response", async ({ page }) => {
   await page
     .getByRole("button", { name: "Find a ruling", exact: true })
     .click();
-  await expect(
-    page.getByText("Insufficient evidence", { exact: true }),
-  ).toBeVisible();
+  await expect(page.locator(".answer-status")).toContainText("Insufficient evidence");
   await expect(page.locator(".rich-text")).toContainText("SRD 5.2.1 only");
 });
