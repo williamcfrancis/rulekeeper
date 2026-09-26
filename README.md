@@ -9,6 +9,10 @@
 
 A tabletop rules assistant that retrieves evidence from the official **D&D SRD 5.2.1**, composes an explanation, and links each citation to the original page. Built as a practical, inspectable retrieval-augmented generation system.
 
+![RuleKeeper desktop interface showing the question form, source collection, and example rules questions](docs/screenshot-desktop.png)
+
+*Screenshot from the passing browser test run. [Mobile view](docs/screenshot-mobile.png) · [Architecture](docs/architecture.md) · [Measured retrieval results](eval/results.json)*
+
 > “If a creature is both prone and grappled, can it stand up?”
 >
 > The useful answer requires retrieving both conditions, noticing that grappling sets Speed to 0, and connecting that to the rule for standing from Prone. RuleKeeper shows its source passages so the interaction can be checked.

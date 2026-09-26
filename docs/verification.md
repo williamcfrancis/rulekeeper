@@ -2,6 +2,8 @@
 
 The application was exercised against the actual 364-page SRD 5.2.1 PDF and its 3,005 extracted passages. Source files, model weights, API keys, and local logs are excluded from Git.
 
+On September 26, 2026, [the clean Linux CI run](https://github.com/williamcfrancis/rulekeeper/actions/runs/36279947027) passed **25 Python tests and six browser tests**. The Linux ingestion reproduced the Windows corpus fingerprint `291840d3c390f9ce643fd6fef518bfb9e0df6e63c54b61388de9adb82258a76f`. The README screenshots were captured by that run.
+
 ## Local checks
 
 - Python unit/API tests verify extraction, edition filtering, index integrity, evidence references, provider fallback, and request validation without downloading models.
