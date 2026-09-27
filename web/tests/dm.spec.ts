@@ -377,7 +377,7 @@ test("mocked DM failure: preserve the real roll across reload and retry it once"
     .getByRole("button", { name: "Roll and continue", exact: true })
     .click();
   await expect(page.getByRole("alert")).toContainText(
-    "Your campaign and any rolled dice are kept",
+    "Simulated upstream failure for this test.",
   );
   await expect(
     page.getByRole("button", { name: "Continue with this roll", exact: true }),
