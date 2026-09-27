@@ -489,11 +489,11 @@ test("mocked DM: verify imported sources and send edited memory with bounded his
     .click();
   await page
     .getByRole("dialog")
-    .getByLabel("Story so far", { exact: true })
+    .getByRole("textbox", { name: "Story so far", exact: true })
     .fill(correctedMemory);
   await page
     .getByRole("dialog")
-    .getByLabel("Open threads", { exact: false })
+    .getByRole("textbox", { name: /^Open threads/ })
     .fill("");
   await page.getByRole("button", { name: "Save memory", exact: true }).click();
   await expect(page.getByRole("dialog")).toHaveCount(0);
