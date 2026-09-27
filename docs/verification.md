@@ -2,11 +2,11 @@
 
 The application was exercised against the actual 364-page SRD 5.2.1 PDF and its 3,005 extracted passages. Source files, model weights, API keys, and local logs are excluded from Git.
 
-The original rules-reference release passed [a clean Linux CI run](https://github.com/williamcfrancis/rulekeeper/actions/runs/36279947027) with 25 Python tests and six browser tests. Linux ingestion reproduced the Windows corpus fingerprint `291840d3c390f9ce643fd6fef518bfb9e0df6e63c54b61388de9adb82258a76f`.
+On September 26, 2026, [the clean Linux CI run](https://github.com/williamcfrancis/rulekeeper/actions/runs/36284985051) passed **81 Python tests and 12 browser tests**, covering desktop and mobile. Linux ingestion reproduced the Windows corpus fingerprint `291840d3c390f9ce643fd6fef518bfb9e0df6e63c54b61388de9adb82258a76f`. The Dungeon Master screenshots in the README were captured by that run.
 
 ## Dungeon Master verification
 
-The expanded Python suite passes **81 tests** locally, and the TypeScript/Vite production build passes. DM tests cover the actual API turn, server dice, and resolution pipeline using a mocked OpenAI transport. They also exercise structured response validation, unknown citations, roster changes, refusals, incomplete responses, key redaction, history limits, origins, host validation, request-size limits, and dice arithmetic.
+The Python suite and TypeScript/Vite production build also pass locally. DM tests cover the actual API turn, server dice, and resolution pipeline using a mocked OpenAI transport. They also exercise structured response validation, unknown citations, roster changes, refusals, incomplete responses, key redaction, history limits, origins, host validation, request-size limits, and dice arithmetic.
 
 The new browser journeys use authored fixtures for the paid model boundary, with real application dice and rule-library endpoints. They check campaign setup, a complete action/roll/resolution sequence, retrying the same roll after a failure and reload, key exclusion from exports/storage, canonical source lookup after importing altered evidence, and edited memory with bounded recent context. This tests the application contract, not the quality of live GPT-5.6 Sol narration.
 

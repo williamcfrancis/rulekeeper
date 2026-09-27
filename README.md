@@ -11,9 +11,9 @@ A local D&D companion with two connected jobs: run an adventure with an AI Dunge
 
 The campaign journal, party details, and editable memory keep the adventure coherent between turns. Retrieved rules remain separate from the story the model invents. This is a practical retrieval-augmented generation project with inspectable context, real dice rolls, and explicit limits on what citations can establish.
 
-![RuleKeeper rules reference showing the question form, source collection, and example rules questions](docs/screenshot-desktop.png)
+![RuleKeeper campaign journal with a narrated scene, player action form, party sheet, and campaign memory](docs/screenshot-dm-desktop.png)
 
-*Screenshot from the passing browser test run. [Mobile view](docs/screenshot-mobile.png) · [Architecture](docs/architecture.md) · [Measured retrieval results](eval/results.json)*
+*Gameplay interface captured by the [passing browser test run](https://github.com/williamcfrancis/rulekeeper/actions/runs/36284985051). Narration and key connection use test fixtures; this is not a captured live model response. [Mobile view](docs/screenshot-dm-mobile.png) · [Campaign setup](docs/screenshot-dm-setup.png) · [Architecture](docs/architecture.md)*
 
 > “If a creature is both prone and grappled, can it stand up?”
 >
