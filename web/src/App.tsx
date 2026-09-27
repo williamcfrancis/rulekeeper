@@ -27,8 +27,9 @@ import {
   WandSparkles,
   X,
 } from "lucide-react";
+import DungeonMaster from "./DungeonMaster";
 
-type Page = "ask" | "library" | "saved" | "engine";
+type Page = "dm" | "ask" | "library" | "saved" | "engine";
 type Rule = {
   id: string;
   title: string;
@@ -195,7 +196,7 @@ function RichText({
 }
 
 export default function App() {
-  const [page, setPage] = useState<Page>("ask");
+  const [page, setPage] = useState<Page>("dm");
   const [library, setLibrary] = useState<Library | null>(null);
   const [question, setQuestion] = useState("");
   const [category, setCategory] = useState("");
@@ -381,6 +382,7 @@ export default function App() {
   }
 
   const nav = [
+    { page: "dm" as Page, icon: Compass, label: "Dungeon Master" },
     { page: "ask" as Page, icon: Sparkles, label: "Ask the rules" },
     { page: "library" as Page, icon: BookOpen, label: "Compendium" },
     { page: "saved" as Page, icon: Bookmark, label: "Saved passages" },
@@ -392,17 +394,17 @@ export default function App() {
       <aside className={`sidebar ${mobileMenu ? "is-open" : ""}`}>
         <button
           className="brand"
-          onClick={() => navigate("ask")}
+          onClick={() => navigate("dm")}
           aria-label="RuleKeeper home"
         >
           <span className="brand-mark">
             <Die />
           </span>
           <span>
-            RuleKeeper<span className="brand-sub">THE RULES, REVEALED.</span>
+            RuleKeeper<span className="brand-sub">YOUR D&D TABLE</span>
           </span>
         </button>
-        <div className="sidebar-section">YOUR TABLE COMPANION</div>
+        <div className="sidebar-section">AT THE TABLE</div>
         <nav aria-label="Main navigation">
           {nav.map((item) => (
             <button
@@ -438,9 +440,8 @@ export default function App() {
             ))
           ) : (
             <p>
-              Your next great rules debate
-              <br />
-              starts here.
+              Rules you look up will appear here for the next time you need
+              them.
             </p>
           )}
         </div>
@@ -472,8 +473,7 @@ export default function App() {
             <Menu size={20} />
           </button>
           <span className="breadcrumb">
-            THE ADVENTURER'S REFERENCE <span>/</span>{" "}
-            {nav.find((n) => n.page === page)?.label}
+            RULEKEEPER <span>/</span> {nav.find((n) => n.page === page)?.label}
           </span>
           <button className="edition-pill" onClick={() => setAbout(true)}>
             <span className="status-dot" /> SRD 5.2.1 <ChevronDown size={13} />
@@ -494,6 +494,13 @@ export default function App() {
             </div>
           )}
 
+          <div hidden={page !== "dm"}>
+            <DungeonMaster
+              onOpenRules={() => navigate("ask")}
+              onOpenSource={setSource}
+            />
+          </div>
+
           {page === "ask" && (
             <>
               <div className="ask-layout">
@@ -509,8 +516,8 @@ export default function App() {
                     </h1>
                     <p>
                       Untangle a tricky rule. Settle a friendly debate.
-                      <br className="desktop-break" /> Get back to the
-                      story—with the source to back you up.
+                      <br className="desktop-break" /> Get back to the story,
+                      with the source to back you up.
                     </p>
                   </section>
                   <form className="question-box" onSubmit={submit}>
@@ -1056,8 +1063,8 @@ export default function App() {
 
           <footer>
             <span>
-              RuleKeeper <span className="footer-dot">·</span> Rules, with
-              receipts.
+              RuleKeeper <span className="footer-dot">·</span> Adventures &
+              their rules.
             </span>
             <button onClick={() => setAbout(true)}>
               Source & attribution <ExternalLink size={12} />
@@ -1136,17 +1143,19 @@ export default function App() {
             <>
               <div className="about-brand">
                 <Die />
-                <h2>Rules, with receipts.</h2>
+                <h2>A seat at the table.</h2>
               </div>
               <p>
-                RuleKeeper helps players and game masters find evidence for a
-                ruling. This library contains SRD 5.2.1 only; it does not
-                include every published D&D option or other editions.
+                RuleKeeper runs D&D adventures with GPT-5.6 Sol and helps
+                players find evidence for a ruling. This library contains SRD
+                5.2.1 only; it does not include every published D&D option or
+                other editions.
               </p>
               <p>
-                Generated answers can be wrong. Source links let you check the
-                wording. When a model is unavailable, RuleKeeper clearly
-                displays original source excerpts instead.
+                Source links let you check mechanical rulings. The DM narrates
+                scenes and tracks campaign notes; you can edit the party and
+                memory when a correction is needed. Rules search still works
+                without a DM key.
               </p>
               <div className="attribution">
                 <h3>Attribution</h3>
@@ -1178,9 +1187,11 @@ export default function App() {
                 </p>
               </div>
               <p className="muted">
-                Bookmarks and recent questions stay in this browser. Questions
-                are sent to the configured answer provider when generation is
-                enabled.
+                Campaigns, bookmarks, and recent questions stay in this browser.
+                Dungeon Master sends your action, campaign context, and
+                retrieved rules through this server to OpenAI. Its key stays in
+                memory for this tab. Rules questions use the separately
+                configured answer provider.
               </p>
             </>
           )}

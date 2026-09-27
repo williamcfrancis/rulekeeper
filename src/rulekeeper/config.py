@@ -23,6 +23,7 @@ class Settings(BaseSettings):
     rerank: bool = True
     model_threads: int = 4
     generation_timeout: float = 90.0
+    allowed_hosts: list[str] = ["localhost", "127.0.0.1", "[::1]"]
 
     @property
     def index_dir(self) -> Path:

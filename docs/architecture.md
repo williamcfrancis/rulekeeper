@@ -1,6 +1,6 @@
 # Architecture and decisions
 
-RuleKeeper answers rules questions from one explicit edition. An answer is useful only when the user can inspect the text that supports it.
+RuleKeeper has two generation paths over the same D&D SRD 5.2.1 index: a rules reference that explains retrieved evidence, and a Dungeon Master that uses rules evidence while running a campaign. Keeping these paths separate lets the Dungeon Master invent fiction without weakening the rules reference's source constraints.
 
 ```mermaid
 flowchart TD
@@ -38,7 +38,7 @@ The corpus file uses canonical UTF-8/LF bytes so its hash matches across Windows
 ## Retrieval
 
 - **Lexical:** BM25 with positive Robertson IDF, k1=1.5 and b=0.75. Titles appear twice in the indexed text. The positive IDF avoids zero-weight matches in very small corpora.
-- **Dense:** 384-dimensional MiniLM embeddings via FastEmbed/ONNX. Normalized vectors use an exact dot product. At this corpus size, exact search is simple and fast; a vector database would add infrastructure without a measured need.
+- **Dense:** 384-dimensional MiniLM embeddings via FastEmbed/ONNX. Normalized vectors use an exact dot product. Embeddings are stored in the local `data/index/` NumPy matrix, with passage metadata in the same index directory. At this corpus size, exact search is simple and fast; a vector database would add infrastructure without a measured need.
 - **Hybrid:** up to 40 hits from each retrieval branch, fused with `1 / (60 + rank)`.
 - **Definition preservation:** hybrid retrieval retains up to four glossary definitions explicitly named in the question, preferring condition/action names and more specific terms. These definitions survive reranking. This prevents a two-condition question from losing a required premise to a superficially relevant spell or monster ability.
 - **Reranking:** optional MiniLM cross-encoder over the top 24 fused candidates. The context has six passages, avoiding multiple chunks with the same heading and starting page.
@@ -46,7 +46,7 @@ The corpus file uses canonical UTF-8/LF bytes so its hash matches across Windows
 
 The cross-encoder's score is not a calibrated confidence probability. Its low-score abstention threshold is a heuristic. Do not interpret a high score as proof that the question is answerable or the answer is correct.
 
-## Generation
+## Rules-answer generation
 
 The model receives a bounded set of numbered passages and the question. There is no agent tool execution, open-web lookup, or incorporation of previously generated answers into the evidence.
 
@@ -62,11 +62,51 @@ For a general question explicitly naming two or more conditions, generation excl
 
 Malformed output, invalid references, timeouts, and provider errors return clearly labeled source excerpts. Provider error bodies are not exposed to the browser. The local Qwen3 integration enables reasoning with a bounded output budget; reasoning text is not displayed or stored by the application.
 
+## Dungeon Master turns
+
+```mermaid
+flowchart TD
+    Browser[Browser campaign + player action] --> Context[Bounded campaign context]
+    Context --> Retrieve[Hybrid SRD retrieval]
+    Retrieve --> Sources[Numbered source passages]
+    Sources --> DM[GPT-5.6 Sol / Responses API]
+    Context --> DM
+    DM --> ValidateDM[Validate structured turn and source references]
+    ValidateDM --> Journal[Narration + rulings + updated memory]
+    ValidateDM --> Check[Optional roll request]
+    Check --> Dice[Server-generated dice]
+    Dice --> Next[Next turn with roll result]
+    Next --> Context
+    Journal --> Saved[Browser campaign journal]
+    Saved --> Context
+```
+
+The Dungeon Master uses the fixed model ID `gpt-5.6-sol`, the OpenAI Responses endpoint, low reasoning effort, `store: false`, strict JSON-schema output, and a 10,000-token output ceiling. It does not inherit the separately configured rules-answer provider or silently fall back to the local model. A connection check verifies the user's access to that model without requesting generated text.
+
+Each turn carries the campaign premise and tone, party details, editable campaign memory, the current player action, and the last 12 journal entries. Memory preserves a summary plus the current location, quests, NPCs, and inventory. Field and collection limits bound the request; the whole accumulated journal is not repeatedly sent to the provider. Recent history supplies immediate context while the summary carries older events. Summaries can omit or distort details, so the user can inspect and edit them.
+
+The server retrieves SRD passages for the action and scene, then sends those passages alongside the campaign context. The Dungeon Master's prompt distinguishes two kinds of content:
+
+- **Fiction:** locations, dialogue, events, and consequences created for the campaign.
+- **Mechanics:** rules interpretations supported by the retrieved SRD passages, presented as separate rulings with source references.
+
+The structured response contains narration, rulings, a possible roll request, and revised campaign memory. Validation checks the response shape and source references before the app applies the turn. Citation validation establishes that a referenced passage was retrieved, not that the interpretation is correct. Opening a saved citation fetches the canonical passage by ID from the library, so imported text is not displayed as an official source. The model can also miss a rule that was not retrieved. No generated turn, summary, or imported campaign note is promoted into the rules index.
+
+Dice are generated separately with the backend's cryptographic random source. When a turn requests a roll, the interface carries the rolled result into the next model request so the model can narrate the outcome. The model does not supply the random result. This remains a cooperative, editable campaign: it is not a signed multiplayer game log or a complete implementation of D&D combat and resource accounting.
+
+Campaign files use a versioned format and are stored in browser localStorage. The browser retains up to 200 journal entries and sends only the last 12 as recent history; older events rely on the editable summary. Export/import provides a portable copy; there is no campaign account or shared server database. The backend receives the necessary state on each turn and does not maintain an OpenAI conversation ID. A failed model request leaves the saved campaign intact for retry.
+
 ## Application and privacy
 
-FastAPI serves both the JSON API and the production React build. Development uses Vite's same-origin API proxy. Bookmarks and recent questions live in browser localStorage; they are not user accounts or cloud storage. A question is sent to the configured answer provider only when generation is enabled. Model weights are fetched on initial setup. The local server binds to loopback by default.
+FastAPI serves both the JSON API and the production React build. Development uses Vite's same-origin API proxy. Campaigns, bookmarks, and recent questions live in browser localStorage; they are not user accounts or cloud storage. A rules question is sent to the configured answer provider only when generation is enabled. Dungeon Master turns send campaign context and retrieved passages to OpenAI. Model weights are fetched on initial setup. The local server binds to loopback by default.
 
-Two concurrent answer requests are permitted; additional requests receive HTTP 429. Browser cancellation stops waiting for the response but may not interrupt work already running on the server. This is a local portfolio application, not a hardened multi-tenant service. Add authentication, explicit origin policy, a queue, persistent rate limits, and spend limits before exposing a hosted provider publicly.
+The Dungeon Master's personal key is entered into a password field and retained only in React memory. The browser sends it in an Authorization header to the app's backend, which forwards it to the fixed OpenAI endpoint for the requested operation. It is not written into browser storage, campaign exports, or a server credential store. Disconnecting or refreshing clears it. The browser bundle contains no application-owned key. This differs from the optional hosted rules-answer path, whose separate key is configured in the server environment.
+
+The backend necessarily handles the user's key transiently, so a deployment operator is part of the trust boundary. `store: false` disables storage of the generated response for later API retrieval; it does not establish zero retention under every [OpenAI data policy](https://developers.openai.com/api/docs/guides/your-data). Campaign export files contain the user's adventure and party details, without the API credential.
+
+Two concurrent generation or connection-check requests are permitted; extra requests receive HTTP 429. Dungeon Master endpoints reject browser cross-origin requests, cap request bodies at 100,000 bytes before JSON decoding, and return `Cache-Control: no-store`. Trusted-host validation allows loopback hostnames by default; `RULEKEEPER_ALLOWED_HOSTS` accepts explicit additional hosts for a private deployment. The frontend and API must share an origin.
+
+Browser cancellation stops waiting for the response but may not interrupt work already running on the server or avoid provider charges. These local safeguards are not user authentication or spending quotas. A public service still needs HTTPS, authentication, persistent rate/abuse controls, and an explicit data-handling policy.
 
 ## Evaluation
 

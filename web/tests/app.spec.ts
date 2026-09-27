@@ -30,6 +30,7 @@ test("real retrieval, original source, and a persistent bookmark", async ({
     path: testInfo.outputPath("home.png"),
     fullPage: true,
   });
+  await navigate(page, "Ask the rules");
   await page
     .getByRole("textbox", { name: "Your rules question" })
     .fill("Does becoming incapacitated end my concentration on a spell?");
@@ -80,12 +81,15 @@ test("compendium filters and original-page lookup", async ({ page }) => {
 });
 
 test("another edition receives an evidence-gap response", async ({ page }) => {
+  await navigate(page, "Ask the rules");
   await page
     .getByRole("textbox", { name: "Your rules question" })
     .fill("What does the 2014 grappling rule say?");
   await page
     .getByRole("button", { name: "Find a ruling", exact: true })
     .click();
-  await expect(page.locator(".answer-status")).toContainText("Insufficient evidence");
+  await expect(page.locator(".answer-status")).toContainText(
+    "Insufficient evidence",
+  );
   await expect(page.locator(".rich-text")).toContainText("SRD 5.2.1 only");
 });

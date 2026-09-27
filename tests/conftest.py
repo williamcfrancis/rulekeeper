@@ -10,7 +10,9 @@ from rulekeeper.retrieval import Retriever
 
 @pytest.fixture
 def indexed_settings(tmp_path):
-    settings = Settings(data_dir=tmp_path, provider="evidence", rerank=False)
+    settings = Settings(
+        data_dir=tmp_path, provider="evidence", rerank=False, allowed_hosts=["testserver"]
+    )
     directory = settings.index_dir
     directory.mkdir()
     chunks = [

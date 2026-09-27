@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rulekeeper"
-version = "0.1.0"
-description = "An evidence-first tabletop rules assistant: hybrid retrieval, reranking, and page-level citations."
+version = "0.2.0"
+description = "A D&D dungeon master and rules companion with campaign memory, real dice, and cited hybrid retrieval."
 requires-python = ">=3.11"
 license = "MIT"
 dependencies = [

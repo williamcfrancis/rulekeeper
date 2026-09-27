@@ -2,12 +2,16 @@ import json
 import threading
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, Header, HTTPException, Query
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from .config import EDITION, ROOT, Settings
+from .dm import DMError, check_key, roll_dice, run_turn
+from .dm_models import DMTurnRequest, DMTurnResponse, RollRequest, RollResult
 from .generation import answer_question
+from .http_guard import DMRequestGuard
 from .models import Answer, AskRequest
 from .retrieval import Retriever
 
@@ -22,7 +26,9 @@ def create_app(settings: Settings | None = None, retriever=None) -> FastAPI:
             app.state.retriever = Retriever(config)
         yield
 
-    app = FastAPI(title="RuleKeeper", version="0.1.0", lifespan=lifespan)
+    app = FastAPI(title="RuleKeeper", version="0.2.0", lifespan=lifespan)
+    app.add_middleware(DMRequestGuard)
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=config.allowed_hosts)
     app.state.retriever = retriever
 
     def engine():
@@ -31,6 +37,49 @@ def create_app(settings: Settings | None = None, retriever=None) -> FastAPI:
                 503, "The rule library has not been indexed. Run rulekeeper ingest."
             )
         return app.state.retriever
+
+    def personal_key(authorization: str | None) -> str:
+        if not authorization or not authorization.startswith("Bearer "):
+            raise HTTPException(401, "Connect your OpenAI API key to use Dungeon Master.")
+        key = authorization[7:]
+        if not 20 <= len(key) <= 512 or not key.isascii() or any(c.isspace() for c in key):
+            raise HTTPException(401, "Enter a valid OpenAI API key.")
+        return key
+
+    @app.post("/api/dm/connect")
+    def dm_connect(authorization: str | None = Header(default=None)):
+        key = personal_key(authorization)
+        if not slots.acquire(blocking=False):
+            raise HTTPException(429, "The table is busy. Try again shortly.")
+        try:
+            return check_key(key)
+        except DMError as exc:
+            raise HTTPException(exc.status_code, exc.public_message) from None
+        finally:
+            slots.release()
+
+    @app.post("/api/dm/roll", response_model=RollResult)
+    def dm_roll(request: RollRequest):
+        return roll_dice(request)
+
+    @app.post("/api/dm/turn", response_model=DMTurnResponse)
+    def dm_turn(request: DMTurnRequest, authorization: str | None = Header(default=None)):
+        key = personal_key(authorization)
+        retrieval = engine()
+        if not slots.acquire(blocking=False):
+            raise HTTPException(
+                429, "The table is busy. Your action is still here; try again shortly."
+            )
+        try:
+            return run_turn(request, retrieval, config, key)
+        except DMError as exc:
+            raise HTTPException(exc.status_code, exc.public_message) from None
+        except ValueError:
+            raise HTTPException(
+                503, "The rule index needs rebuilding. Run rulekeeper ingest."
+            ) from None
+        finally:
+            slots.release()
 
     @app.get("/api/health")
     def health():
