@@ -71,6 +71,16 @@ def test_one_supported_claim_cannot_hide_an_unsupported_claim():
         validate_answer(json.dumps(value), [SOURCE])
 
 
+def test_a_complete_supported_answer_does_not_require_filler():
+    value = json.loads(generated())
+    value["claims"] = value["claims"][:1]
+    assert validate_answer(json.dumps(value), [SOURCE]) == (
+        "Your concentration ends. [1]",
+        [1],
+        False,
+    )
+
+
 @pytest.mark.parametrize("text", ["", "Yes. [8]", "Yes. [1:99]", 42])
 def test_empty_nontext_or_freeform_citations_are_rejected(text):
     with pytest.raises(ValueError):

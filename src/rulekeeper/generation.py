@@ -20,10 +20,12 @@ questions unless a monster is specified. A spell or monster's special effect is
 not a general rule. Current Hit Points are NOT the Hit Point maximum.
 If the question confuses dying with 0 Hit Points, clarify that distinction.
 
-Return JSON: {"claims": [{"support": ["1:2"], "text": "Direct ruling."},
-{"support": ["2:3", "3:1"], "text": "Reason and relevant exceptions."}],
+Return JSON: {"claims": [{"support": ["1:2", "2:3"],
+"text": "Direct ruling, reason, and relevant exceptions."}],
 "insufficient": false}.
-Return 2-3 short claims. Each support list contains 1-4 EXACT clause IDs from the
+Prefer one concise paragraph. Use up to three claims only when necessary; do not
+repeat yourself or add mechanics the question does not need.
+Each support list contains 1-4 EXACT clause IDs from the
 evidence that establish the ENTIRE claim, not just related words or a section title.
 Select the supporting clauses before composing that claim. Preserve their scope,
 negations, quantities, and conditions. An empty support list is allowed only when
@@ -82,7 +84,7 @@ def validate_answer(text: str, evidence: list[Evidence]) -> tuple[str, list[int]
         raise ValueError("The model did not return an answer object")
     if type(data.get("insufficient")) is not bool:
         raise ValueError("The model did not return an evidence decision")
-    if not 2 <= len(data["claims"]) <= 3:
+    if not 1 <= len(data["claims"]) <= 3:
         raise ValueError("The model did not return a bounded answer")
     clauses = evidence_clauses(evidence)
     paragraphs, cited = [], set()
@@ -188,7 +190,7 @@ def generate(settings: Settings, question: str, evidence: list[Evidence]) -> tup
                                 "properties": {
                                     "claims": {
                                         "type": "array",
-                                        "minItems": 2,
+                                        "minItems": 1,
                                         "maxItems": 3,
                                         "items": {
                                             "type": "object",
