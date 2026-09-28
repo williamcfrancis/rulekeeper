@@ -352,7 +352,8 @@ def answer_question(request: AskRequest, retriever: Retriever, settings: Setting
                     context = [
                         e
                         for e in context
-                        if e.title in {"Dead", "Damage Types", "Falling Unconscious"}
+                        if e.title
+                        in {"Dead", "Damage Types", "Falling Unconscious", "Death Saving Throws"}
                     ]
                 elif "Death Saving Throws" in core_titles and any(
                     "suffer a Death Saving Throw failure" in e.text for e in context

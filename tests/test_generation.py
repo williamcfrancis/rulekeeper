@@ -123,7 +123,7 @@ def test_death_context_preserves_the_question_scope(monkeypatch, indexed_setting
     answer_question(
         AskRequest(question="what happens if i die from fire?"), StubRetriever(), settings
     )
-    assert contexts[-1] == ["Dead", "Damage Types", "Falling Unconscious"]
+    assert contexts[-1] == ["Dead", "Damage Types", "Falling Unconscious", "Death Saving Throws"]
     answer_question(
         AskRequest(question="How much fire damage causes instant death?"), StubRetriever(), settings
     )

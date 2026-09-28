@@ -13,7 +13,7 @@ The campaign journal, party details, and editable memory keep the adventure cohe
 
 ![RuleKeeper campaign journal with a narrated scene, player action form, party sheet, and campaign memory](docs/screenshot-dm-desktop.png)
 
-*Gameplay interface captured by the [passing browser test run](https://github.com/williamcfrancis/rulekeeper/actions/runs/36284985051). Narration and key connection use test fixtures; this is not a captured live model response. [Mobile view](docs/screenshot-dm-mobile.png) · [Campaign setup](docs/screenshot-dm-setup.png) · [Architecture](docs/architecture.md)*
+*Gameplay interface captured by the [passing browser test run](https://github.com/williamcfrancis/rulekeeper/actions/runs/36365380332). Narration and key connection use test fixtures; this is not a captured live model response. [Mobile view](docs/screenshot-dm-mobile.png) · [Campaign setup](docs/screenshot-dm-setup.png) · [Architecture](docs/architecture.md)*
 
 > “If a creature is both prone and grappled, can it stand up?”
 >
