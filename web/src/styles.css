@@ -810,6 +810,22 @@ footer button {
   padding-top: 15px;
   margin-top: 23px;
 }
+.answer-note.fallback-note {
+  background: #f5eddd;
+  border: 1px solid #dbcbb0;
+  border-radius: 4px;
+  color: #735438;
+  font-size: 12px;
+  padding: 12px 15px;
+  margin: 0 0 22px;
+}
+.answer-timing {
+  color: #6d765f;
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 20px 0 0;
+  font-variant-numeric: tabular-nums;
+}
 .evidence-list > .section-kicker {
   display: flex;
   justify-content: space-between;

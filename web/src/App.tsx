@@ -102,7 +102,7 @@ const examples = [
   },
   {
     icon: Compass,
-    tag: "THE FINER DETAILS",
+    tag: "D20 ROLLS",
     title: "What if I have advantage and disadvantage?",
     question:
       "What happens if I have both advantage and disadvantage on the same roll?",
@@ -202,6 +202,7 @@ export default function App() {
   const [category, setCategory] = useState("");
   const [result, setResult] = useState<Result | null>(null);
   const [busy, setBusy] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
   const [error, setError] = useState("");
   const [recent, setRecent] = useState<Recent[]>(() =>
     stored("rulekeeper-recent", []),
@@ -289,6 +290,16 @@ export default function App() {
     };
   }, [page, ruleQuery, ruleCategory, offset]);
   useEffect(() => () => controllerRef.current?.abort(), []);
+  useEffect(() => {
+    if (!busy) return;
+    const started = performance.now();
+    setElapsed(0);
+    const timer = window.setInterval(
+      () => setElapsed(Math.floor((performance.now() - started) / 1000)),
+      1000,
+    );
+    return () => window.clearInterval(timer);
+  }, [busy]);
 
   function navigate(next: Page) {
     setPage(next);
@@ -507,17 +518,12 @@ export default function App() {
                 <div className="ask-main">
                   <section className="hero">
                     <div className="eyebrow">
-                      <span /> A LITTLE CLARITY. A LOT MORE ADVENTURE.
+                      <span /> D&D RULES REFERENCE
                     </div>
-                    <h1>
-                      Less page-turning.
-                      <br />
-                      <em>More adventuring.</em>
-                    </h1>
+                    <h1>Ask the rules</h1>
                     <p>
-                      Untangle a tricky rule. Settle a friendly debate.
-                      <br className="desktop-break" /> Get back to the story,
-                      with the source to back you up.
+                      Ask a D&D rules question and read the supporting passages
+                      from SRD 5.2.1.
                     </p>
                   </section>
                   <form className="question-box" onSubmit={submit}>
@@ -530,7 +536,7 @@ export default function App() {
                       value={question}
                       maxLength={1500}
                       onChange={(e) => setQuestion(e.target.value)}
-                      placeholder="What’s happening at your table?"
+                      placeholder="For example: Can I stand up while grappled?"
                       onKeyDown={(e) => {
                         if (e.key === "Enter" && !e.shiftKey) {
                           e.preventDefault();
@@ -583,9 +589,7 @@ export default function App() {
                   </div>
                   {!result && !busy && (
                     <section className="starters">
-                      <div className="section-kicker">
-                        EVERY ADVENTURE HAS A QUESTION
-                      </div>
+                      <div className="section-kicker">EXAMPLE QUESTIONS</div>
                       {examples.map((item) => (
                         <button
                           className="starter"
@@ -611,13 +615,11 @@ export default function App() {
                 </div>
                 <aside className="source-rail">
                   <div className="book-cover">
-                    <div className="book-topline">
-                      THE OPEN RULES COLLECTION
-                    </div>
+                    <div className="book-topline">SOURCE DOCUMENT</div>
                     <div className="book-title">
-                      A world of rules.
+                      System Reference
                       <br />
-                      <em>One trusted source.</em>
+                      Document
                     </div>
                     <div className="book-art">
                       <span className="orbit orbit-one" />
@@ -638,7 +640,7 @@ export default function App() {
                   <div className="source-caption">
                     <BookOpen size={17} />
                     <p>
-                      Every answer starts with the text.
+                      Read the full text and original pages.
                       <br />
                       <button
                         onClick={() => {
@@ -646,15 +648,15 @@ export default function App() {
                           navigate("library");
                         }}
                       >
-                        Explore the compendium <ArrowRight size={13} />
+                        Browse the compendium <ArrowRight size={13} />
                       </button>
                     </p>
                   </div>
                   <div className="rail-note">
                     <span>FOR PLAYERS & GAME MASTERS</span>
                     <p>
-                      The final call belongs to your table. We make the rules
-                      easier to find.
+                      Includes the open SRD 5.2.1 rules. Other books and house
+                      rules are outside this library.
                     </p>
                   </div>
                 </aside>
@@ -664,10 +666,16 @@ export default function App() {
                 <section className="loading-state" role="status">
                   <LoaderCircle className="spin" size={24} />
                   <div>
-                    <strong>Consulting the compendium…</strong>
+                    <strong>
+                      {library?.provider === "evidence"
+                        ? "Searching the rules…"
+                        : "Searching rules and generating an answer…"}
+                    </strong>
                     <p>
-                      Finding the relevant passages and checking how they fit
-                      together.
+                      <span aria-live="off">{elapsed}s elapsed.</span>{" "}
+                      {elapsed >= 15
+                        ? "Still waiting for the answer. You can cancel and try again."
+                        : "Timing depends on the model and hardware. You can cancel at any time."}
                     </p>
                   </div>
                 </section>
@@ -677,10 +685,10 @@ export default function App() {
                   <div className="answer-heading">
                     <span className="section-kicker">
                       {result.status === "answered"
-                        ? "YOUR RULING"
+                        ? "ANSWER"
                         : result.status === "sources_only"
-                          ? "FROM THE SOURCE"
-                          : "A LITTLE MORE CONTEXT NEEDED"}
+                          ? "SOURCE PASSAGES"
+                          : "INSUFFICIENT EVIDENCE"}
                     </span>
                     <button
                       className="text-button"
@@ -694,26 +702,37 @@ export default function App() {
                   <div className="answer-grid">
                     <div className="answer-content">
                       <div
-                        className={`answer-status ${result.status === "insufficient_evidence" ? "uncertain" : ""}`}
+                        className={`answer-status ${result.status !== "answered" ? "uncertain" : ""}`}
                       >
-                        <ShieldCheck size={15} />
+                        {result.status === "answered" ? (
+                          <BookOpen size={15} />
+                        ) : (
+                          <CircleHelp size={15} />
+                        )}
                         {result.status === "answered"
                           ? "Answer with source citations"
                           : result.status === "sources_only"
-                            ? "Original source excerpts"
+                            ? "Source passages only"
                             : "Insufficient evidence"}
                         <span>SRD 5.2.1</span>
                       </div>
+                      {result.status === "sources_only" && (
+                        <p className="answer-note fallback-note" role="status">
+                          {result.note}
+                        </p>
+                      )}
                       <RichText
                         text={result.answer}
                         evidence={result.evidence}
                         onSource={setSource}
                       />
-                      <p className="answer-note">{result.note}</p>
+                      {result.status !== "sources_only" && (
+                        <p className="answer-note">{result.note}</p>
+                      )}
                     </div>
                     <div className="evidence-list">
                       <div className="section-kicker">
-                        ON THE PAGE{" "}
+                        RETRIEVED SOURCES{" "}
                         <span>{result.evidence.length} PASSAGES</span>
                       </div>
                       {result.evidence.map((item) => (
@@ -739,6 +758,14 @@ export default function App() {
                       ))}
                     </div>
                   </div>
+                  <p className="answer-timing">
+                    Search:{" "}
+                    {((result.trace.retrieval_ms || 0) / 1000).toFixed(1)}s
+                    {" · "}Answer generation:{" "}
+                    {((result.trace.generation_ms || 0) / 1000).toFixed(1)}s
+                    {" · "}Total:{" "}
+                    {((result.trace.total_ms || 0) / 1000).toFixed(1)}s
+                  </p>
                   <div className="trace-block">
                     <button
                       className="trace-toggle"
@@ -797,13 +824,13 @@ export default function App() {
               )}
               <div className="bottom-principles">
                 <span>
-                  <BookOpen size={16} /> Open rules, openly cited
+                  <BookOpen size={16} /> Original source passages
                 </span>
                 <span>
-                  <Layers3 size={16} /> One edition. No crossed wires.
+                  <Layers3 size={16} /> SRD 5.2.1
                 </span>
                 <span>
-                  <ShieldCheck size={16} /> Evidence before inference
+                  <ShieldCheck size={16} /> Page references
                 </span>
               </div>
             </>
@@ -812,14 +839,9 @@ export default function App() {
           {(page === "library" || page === "saved") && (
             <section className="compendium">
               <div className="eyebrow">
-                <span />{" "}
-                {page === "saved"
-                  ? "YOUR PERSONAL REFERENCE"
-                  : "STRAIGHT FROM THE SOURCE"}
+                <span /> {page === "saved" ? "BOOKMARKS" : "SRD 5.2.1"}
               </div>
-              <h1>
-                {page === "saved" ? "Keep the good pages." : "The compendium."}
-              </h1>
+              <h1>{page === "saved" ? "Saved passages" : "Compendium"}</h1>
               <p className="page-description">
                 {page === "saved"
                   ? "Passages you have bookmarked, stored in this browser."
@@ -900,12 +922,12 @@ export default function App() {
                   <BookOpen size={34} strokeWidth={1} />
                   <h2>
                     {page === "saved"
-                      ? "Your reference shelf is waiting."
+                      ? "No saved passages yet"
                       : "No matching rule titles."}
                   </h2>
                   <p>
                     {page === "saved"
-                      ? "Open a passage and tap the bookmark to keep it close."
+                      ? "Open a passage and select the bookmark to save it here."
                       : "Try a shorter name, another category, or ask a question to search the full text."}
                   </p>
                   <button
@@ -947,12 +969,12 @@ export default function App() {
           {page === "engine" && (
             <section className="engine-page">
               <div className="eyebrow">
-                <span /> BUILT TO BE INSPECTED
+                <span /> RETRIEVAL AND GENERATION
               </div>
-              <h1>Good answers leave a trail.</h1>
+              <h1>How RuleKeeper works</h1>
               <p className="page-description">
-                A small, transparent RAG system. Follow the evidence from the
-                official document to the answer at your table.
+                The search finds relevant SRD passages. The answer model uses
+                those passages to write a response with source references.
               </p>
               <div className="pipeline">
                 {[
@@ -1009,7 +1031,7 @@ export default function App() {
               </div>
               <div className="benchmark">
                 <div className="section-kicker">RETRIEVAL BENCHMARK</div>
-                <h2>Measure it. Then improve it.</h2>
+                <h2>Evaluation results</h2>
                 {evaluation?.results ? (
                   <>
                     <p>
@@ -1055,7 +1077,7 @@ export default function App() {
                 rel="noreferrer"
               >
                 <Code2 size={18} />
-                <span>Read the code, reproduce the results.</span>
+                <span>View code and evaluation on GitHub</span>
                 <ArrowUpRight size={18} />
               </a>
             </section>
@@ -1063,8 +1085,8 @@ export default function App() {
 
           <footer>
             <span>
-              RuleKeeper <span className="footer-dot">·</span> Adventures &
-              their rules.
+              RuleKeeper <span className="footer-dot">·</span> D&D rules and
+              campaigns
             </span>
             <button onClick={() => setAbout(true)}>
               Source & attribution <ExternalLink size={12} />
@@ -1143,7 +1165,7 @@ export default function App() {
             <>
               <div className="about-brand">
                 <Die />
-                <h2>A seat at the table.</h2>
+                <h2>About RuleKeeper</h2>
               </div>
               <p>
                 RuleKeeper runs D&D adventures with GPT-5.6 Sol and helps

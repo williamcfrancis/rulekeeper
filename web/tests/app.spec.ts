@@ -93,3 +93,79 @@ test("another edition receives an evidence-gap response", async ({ page }) => {
   );
   await expect(page.locator(".rich-text")).toContainText("SRD 5.2.1 only");
 });
+
+test("death from fire retains general death rules and their original pages", async ({
+  page,
+}, testInfo) => {
+  await navigate(page, "Ask the rules");
+  await expect(
+    page.getByRole("heading", { name: "Ask the rules", exact: true }),
+  ).toBeVisible();
+  await page
+    .getByRole("textbox", { name: "Your rules question" })
+    .fill("what happens if i die from fire?");
+  await page
+    .getByRole("button", { name: "Find a ruling", exact: true })
+    .click();
+  const source = page.getByRole("button", {
+    name: "Open source 1: Dead",
+    exact: true,
+  });
+  await expect(source).toBeVisible({ timeout: 90_000 });
+  await expect(page.locator(".rich-text")).toContainText("revived by magic");
+  await expect(page.locator(".rich-text")).toContainText(
+    "Damage types have no rules of their own",
+  );
+  await expect(page.locator(".rich-text")).toContainText("Death Saving Throws");
+  await expect(page.locator(".answer-timing")).toContainText(
+    "Answer generation:",
+  );
+  await page.screenshot({
+    path: testInfo.outputPath("rules-death.png"),
+    fullPage: true,
+  });
+  await source.click();
+  await expect(page.getByRole("dialog")).toContainText(
+    "A dead creature has no Hit Points",
+  );
+  await expect(
+    page.getByRole("link", { name: "Open original page" }),
+  ).toHaveAttribute("href", /source\.pdf#page=180$/);
+});
+
+test("elapsed time and an explicit provider failure are visible", async ({
+  page,
+}) => {
+  // Real retrieval, a simulated model timeout. CI does not run a paid or local LLM.
+  const response = await page.request.post("/api/ask", {
+    data: { question: "What does Concentration mean?" },
+  });
+  const answer = await response.json();
+  answer.note =
+    "The answer model timed out. No generated answer is available. The retrieved passages are shown below.";
+  answer.trace.generation_error = "timeout";
+  answer.trace.generation_ms = 90000;
+  let release!: () => void;
+  const pending = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  await page.route("**/api/ask", async (route) => {
+    await pending;
+    await route.fulfill({ status: 200, json: answer });
+  });
+  await navigate(page, "Ask the rules");
+  await page
+    .getByRole("textbox", { name: "Your rules question" })
+    .fill("What does Concentration mean?");
+  await page
+    .getByRole("button", { name: "Find a ruling", exact: true })
+    .click();
+  await expect(page.locator(".loading-state")).toContainText(/\d+s elapsed/);
+  await expect(page.locator(".loading-state")).not.toContainText("0s elapsed");
+  release();
+  await expect(page.locator(".answer-status")).toContainText(
+    "Source passages only",
+  );
+  await expect(page.locator(".fallback-note")).toContainText("timed out");
+  await expect(page.locator(".answer-timing")).toContainText("90.0s");
+});

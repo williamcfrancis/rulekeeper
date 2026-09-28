@@ -2,7 +2,7 @@
   "available": true,
   "split": "test",
   "questions": 30,
-  "built_at": "2026-09-26T23:33:46.436108+00:00",
+  "built_at": "2026-09-28T01:03:54.128603+00:00",
   "corpus_sha256": "291840d3c390f9ce643fd6fef518bfb9e0df6e63c54b61388de9adb82258a76f",
   "environment": {
     "platform": "Windows-11-10.0.26200-SP0",
@@ -14,26 +14,26 @@
     "lexical": {
       "recall_at_6": 0.8,
       "mrr": 0.6444,
-      "p50_ms": 10.3,
-      "p95_ms": 19.1
+      "p50_ms": 4.7,
+      "p95_ms": 6.0
     },
     "dense": {
       "recall_at_6": 0.9833,
       "mrr": 0.8611,
-      "p50_ms": 25.9,
-      "p95_ms": 41.4
+      "p50_ms": 14.1,
+      "p95_ms": 16.3
     },
     "hybrid": {
       "recall_at_6": 1.0,
-      "mrr": 0.8056,
-      "p50_ms": 15.6,
-      "p95_ms": 24.7
+      "mrr": 0.8028,
+      "p50_ms": 14.4,
+      "p95_ms": 16.4
     },
     "hybrid_reranked": {
       "recall_at_6": 1.0,
-      "mrr": 0.8167,
-      "p50_ms": 944.8,
-      "p95_ms": 1143.0
+      "mrr": 0.8139,
+      "p50_ms": 975.2,
+      "p95_ms": 1154.7
     }
   },
   "details": [
@@ -2815,8 +2815,13 @@
       "id": "test-14",
       "method": "hybrid",
       "recall_at_6": 1.0,
-      "reciprocal_rank": 0.3333333333333333,
+      "reciprocal_rank": 0.25,
       "retrieved": [
+        {
+          "id": "39d0a994bdbf4694",
+          "title": "Dead",
+          "page": 180
+        },
         {
           "id": "30294ed3d7a261df",
           "title": "Death Saving Throw",
@@ -2841,11 +2846,6 @@
           "id": "957b3eda440660ff",
           "title": "Rolling 20 or 1",
           "page": 7
-        },
-        {
-          "id": "b115313cd3fbfd3e",
-          "title": "Level 18: Survivor",
-          "page": 49
         }
       ]
     },
@@ -3955,8 +3955,13 @@
       "id": "test-14",
       "method": "hybrid_reranked",
       "recall_at_6": 1.0,
-      "reciprocal_rank": 0.3333333333333333,
+      "reciprocal_rank": 0.25,
       "retrieved": [
+        {
+          "id": "39d0a994bdbf4694",
+          "title": "Dead",
+          "page": 180
+        },
         {
           "id": "30294ed3d7a261df",
           "title": "Death Saving Throw",
@@ -3981,11 +3986,6 @@
           "id": "40a535add717a0a6",
           "title": "Death Saving Throws",
           "page": 17
-        },
-        {
-          "id": "957b3eda440660ff",
-          "title": "Rolling 20 or 1",
-          "page": 7
         }
       ]
     },

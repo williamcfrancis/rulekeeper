@@ -57,6 +57,65 @@ def named_definitions(query: str, chunks: list[Chunk], eligible: list[int]) -> l
     ]
 
 
+def core_rule_queries(query: str) -> list[tuple[str, str]]:
+    """Map everyday descriptions to SRD headings, without supplying an answer.
+
+    Damage sources often dominate similarity scores. Reserve the general rules
+    needed to interpret death/zero HP before considering a particular hazard.
+    Keep the mapping visible in the trace and restricted to the eligible corpus.
+    """
+    death = re.search(r"\b(die|dies|died|dying|dead|death|killed)\b", query, re.I)
+    # A damage die is a dice term, not a character's death.
+    damage_die = re.search(
+        r"\b(damage|hit|one|single|a|the) die\b|\bdie (size|roll)\b", query, re.I
+    )
+    zero_hp = re.search(r"\b(0|zero)\s*(hp|hit points?)\b", query, re.I)
+    burning = re.search(r"\b(burning|on fire)\b", query, re.I)
+    damage_type = re.search(
+        r"\b(acid|bludgeoning|cold|fire|force|lightning|necrotic|piercing|poison|psychic|radiant|slashing|thunder)\b",
+        query,
+        re.I,
+    )
+    if not zero_hp and (not death or damage_die):
+        return [("Rules Glossary", "Burning [Hazard]")] if burning else []
+    headings = []
+    if death and not damage_die:
+        headings.append(("Rules Glossary", "Dead"))
+    if damage_type and death and not damage_die:
+        headings.append(("Rules Glossary", "Damage Types"))
+    # A named spell about the dead still gets its own retrieval slots. General
+    # damage/death questions need both the outcome and the instant-death exception.
+    if zero_hp or (death and damage_type):
+        headings.extend(
+            [
+                ("Playing the Game", "Falling Unconscious"),
+                ("Playing the Game", "Instant Death"),
+                ("Playing the Game", "Death Saving Throws"),
+            ]
+        )
+    if burning:
+        headings.append(("Rules Glossary", "Burning [Hazard]"))
+    return headings
+
+
+def core_rule_anchors(query: str, chunks: list[Chunk], eligible: list[int]) -> list[int]:
+    anchors = []
+    for category, title in core_rule_queries(query):
+        # Headings can span several chunks. Prefer the beginning of the rule;
+        # continuations remain candidates through normal retrieval.
+        matches = [
+            i for i in eligible if chunks[i].category == category and chunks[i].title == title
+        ]
+        count = (
+            2
+            if title == "Death Saving Throws"
+            and re.search(r"\b(0|zero)\s*(hp|hit points?)\b", query, re.I)
+            else 1
+        )
+        anchors.extend(matches[:count])
+    return anchors
+
+
 class Retriever:
     def __init__(self, settings: Settings):
         self.settings = settings
@@ -127,7 +186,8 @@ class Retriever:
         if not len(eligible) or not tokenize(query):
             return [], {"mode": mode, "candidate_count": 0, "retrieval_ms": 0}
         do_rerank = (self.settings.rerank if rerank is None else rerank) and mode == "hybrid"
-        lexical_scores = self.lexical.get_scores(tokenize(query))
+        search_query = re.sub(r"\bhp\b", "Hit Points", query, flags=re.I)
+        lexical_scores = self.lexical.get_scores(tokenize(search_query))
         dense_scores = np.zeros(len(self.chunks))
         lexical_rank = eligible[np.argsort(-lexical_scores[eligible], kind="stable")][:40].tolist()
         lexical_rank = [i for i in lexical_rank if lexical_scores[i] > 0]
@@ -138,7 +198,7 @@ class Retriever:
                     "Semantic index is missing. Run rulekeeper ingest without --no-embed."
                 )
             self._models(rerank=do_rerank)
-            query_vector = np.array(list(self._encoder.query_embed([query]))[0])
+            query_vector = np.array(list(self._encoder.query_embed([search_query]))[0])
             query_vector /= max(float(np.linalg.norm(query_vector)), 1e-12)
             dense_scores = self.vectors @ query_vector
             dense_rank = eligible[np.argsort(-dense_scores[eligible], kind="stable")][:40].tolist()
@@ -150,6 +210,13 @@ class Retriever:
         anchors = (
             named_definitions(query, self.chunks, eligible.tolist()) if mode == "hybrid" else []
         )
+        core_anchors = (
+            core_rule_anchors(query, self.chunks, eligible.tolist()) if mode == "hybrid" else []
+        )
+        definition_anchors = anchors
+        # Keep at least one slot for a named spell, hazard, or other retrieved
+        # context. General-rule anchors never bypass edition/category filtering.
+        anchors = list(dict.fromkeys(core_anchors + anchors))[: max(0, limit - 1)]
         for i in anchors:
             fused.setdefault(i, 0.0)
         candidates = anchors + [i for i in candidates if i not in anchors][: 24 - len(anchors)]
@@ -157,7 +224,8 @@ class Retriever:
         if do_rerank and candidates:
             scores = list(
                 self._reranker.rerank(
-                    query, [f"{self.chunks[i].title}. {self.chunks[i].text}" for i in candidates]
+                    search_query,
+                    [f"{self.chunks[i].title}. {self.chunks[i].text}" for i in candidates],
                 )
             )
             rerank_scores = dict(zip(candidates, (float(s) for s in scores), strict=True))
@@ -194,7 +262,10 @@ class Retriever:
             "embedding_model": EMBEDDING_MODEL if mode != "lexical" else None,
             "candidate_count": len(fused),
             "reranked_count": len(rerank_scores),
-            "definition_anchors": [self.chunks[i].title for i in anchors],
+            "definition_anchors": [
+                self.chunks[i].title for i in definition_anchors if i in anchors
+            ],
+            "core_rule_anchors": [self.chunks[i].title for i in core_anchors if i in anchors],
             "retrieval_ms": round((perf_counter() - started) * 1000, 1),
             "corpus_sha256": self.manifest["corpus_sha256"],
         }

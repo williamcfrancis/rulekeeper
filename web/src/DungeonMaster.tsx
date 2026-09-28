@@ -851,15 +851,15 @@ export default function DungeonMaster({
     <section className="dm-key-panel" aria-labelledby="dm-key-heading">
       <div className="dm-rail-heading">
         <KeyRound size={16} />
-        <h3 id="dm-key-heading">A seat for your DM</h3>
+        <h3 id="dm-key-heading">Connect Dungeon Master</h3>
         <span
           className={`dm-connection-dot${connected ? " dm-connected" : ""}`}
           title={connected ? "Connected" : "Not connected"}
         />
       </div>
       <p className="dm-key-description">
-        GPT-5.6 Sol runs the adventure. Connect your own OpenAI API key to
-        invite it to the table.
+        GPT-5.6 Sol runs the adventure. Connect your own OpenAI API key to use
+        Dungeon Master.
       </p>
       {connected ? (
         <div className="dm-connected-row">
@@ -1004,10 +1004,8 @@ export default function DungeonMaster({
         <>
           <section className="dm-introduction">
             <div>
-              <span className="dm-eyebrow">
-                An open chair. An unwritten adventure.
-              </span>
-              <h1>Gather your party.</h1>
+              <span className="dm-eyebrow">DUNGEON MASTER</span>
+              <h1>Create a campaign</h1>
               <p>
                 Your Dungeon Master sets the scene, plays the world, and checks
                 the rules. You decide what your adventurers do next.
@@ -1015,7 +1013,7 @@ export default function DungeonMaster({
             </div>
             <div className="dm-intro-emblem">
               <DiceMark />
-              <span>MAKE YOUR NEXT MOVE</span>
+              <span>CAMPAIGNS · DICE · RULES</span>
             </div>
           </section>
           <div className="dm-desk-grid dm-setup-grid">
@@ -1024,7 +1022,7 @@ export default function DungeonMaster({
                 <span className="dm-ordinal">I.</span>
                 <div>
                   <h2>Open a new campaign</h2>
-                  <p>A ready-to-play seed below. Make it your own.</p>
+                  <p>Edit the starter campaign or enter your own setting.</p>
                 </div>
                 <Feather size={23} />
               </div>
@@ -1032,7 +1030,7 @@ export default function DungeonMaster({
               <div className="dm-form-footer">
                 <p>No key needed to prepare your campaign.</p>
                 <button className="dm-primary-button" type="submit">
-                  Prepare the table <ArrowRight size={17} />
+                  Create campaign <ArrowRight size={17} />
                 </button>
               </div>
             </form>
@@ -1040,7 +1038,7 @@ export default function DungeonMaster({
               {keyPanel}
               <section className="dm-starter-card">
                 <div className="dm-small-label">
-                  <ScrollText size={14} /> From the adventure drawer
+                  <ScrollText size={14} /> Starter campaign
                 </div>
                 <div className="dm-bell-illustration" aria-hidden="true">
                   <svg viewBox="0 0 200 146" fill="none">
@@ -1077,7 +1075,7 @@ export default function DungeonMaster({
                 </p>
                 {onOpenRules && (
                   <button className="dm-text-button" onClick={onOpenRules}>
-                    <BookOpen size={15} /> Visit the rules desk{" "}
+                    <BookOpen size={15} /> Ask the rules{" "}
                     <ArrowRight size={14} />
                   </button>
                 )}
@@ -1097,7 +1095,7 @@ export default function DungeonMaster({
               <div className="dm-campaign-meta">
                 <span>
                   <MapPin size={14} />
-                  {campaign.location || "An adventure waiting to begin"}
+                  {campaign.location || "No location set"}
                 </span>
                 <span>{campaign.tone}</span>
               </div>
@@ -1108,12 +1106,8 @@ export default function DungeonMaster({
             <div className="dm-journal-column">
               {!entries.length ? (
                 <section className="dm-unopened-journal">
-                  <span className="dm-small-label">Before the first scene</span>
-                  <h2>
-                    Every adventure starts
-                    <br />
-                    with a little trouble.
-                  </h2>
+                  <span className="dm-small-label">CAMPAIGN PREMISE</span>
+                  <h2>Opening scene</h2>
                   <p>{campaign.premise}</p>
                   <div className="dm-start-divider">
                     <span />
@@ -1349,7 +1343,7 @@ export default function DungeonMaster({
               <section className="dm-memory-panel">
                 <div className="dm-rail-heading">
                   <ScrollText size={16} />
-                  <h3>In the margins</h3>
+                  <h3>Campaign memory</h3>
                   <button
                     className="dm-text-button"
                     onClick={() => openEdit("memory")}
@@ -1399,14 +1393,14 @@ export default function DungeonMaster({
               <section className="dm-reference-card">
                 <BookOpen size={21} />
                 <div>
-                  <h3>A ruling you can read.</h3>
+                  <h3>Rules reference</h3>
                   <p>
                     Mechanical rulings include source passages. Open a citation
                     to see what the rulebook says.
                   </p>
                   {onOpenRules && (
                     <button className="dm-text-button" onClick={onOpenRules}>
-                      Open rules desk <ArrowRight size={14} />
+                      Ask the rules <ArrowRight size={14} />
                     </button>
                   )}
                 </div>
@@ -1422,7 +1416,7 @@ export default function DungeonMaster({
         </>
       )}
       <footer className="dm-page-footer">
-        <span>Story by your table. Rules within reach.</span>
+        <span>Campaign data is saved in this browser.</span>
         <span>SRD 5.2.1 · D&D 2024 rules</span>
       </footer>
       <dialog

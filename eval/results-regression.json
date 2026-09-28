@@ -1,0 +1,953 @@
+{
+  "available": true,
+  "split": "regression",
+  "questions": 6,
+  "built_at": "2026-09-28T01:03:43.098739+00:00",
+  "corpus_sha256": "291840d3c390f9ce643fd6fef518bfb9e0df6e63c54b61388de9adb82258a76f",
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.14",
+    "model_threads": 4
+  },
+  "methodology": "Authored question set; required groups matched by title and supporting phrase. Recall@6 is the mean fraction of required groups retrieved per question. MRR is reciprocal rank of first relevant passage. Timings are warm, end-to-end retrieval. No answer-quality claim.",
+  "results": {
+    "lexical": {
+      "recall_at_6": 0.25,
+      "mrr": 0.0556,
+      "p50_ms": 5.9,
+      "p95_ms": 8.1
+    },
+    "dense": {
+      "recall_at_6": 0.3889,
+      "mrr": 0.4306,
+      "p50_ms": 20.1,
+      "p95_ms": 27.0
+    },
+    "hybrid": {
+      "recall_at_6": 1.0,
+      "mrr": 0.7639,
+      "p50_ms": 24.1,
+      "p95_ms": 29.7
+    },
+    "hybrid_reranked": {
+      "recall_at_6": 1.0,
+      "mrr": 0.7917,
+      "p50_ms": 1174.1,
+      "p95_ms": 1810.4
+    }
+  },
+  "details": [
+    {
+      "id": "regression-01",
+      "method": "lexical",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "1be0b31220342c60",
+          "title": "Shape-Shifting",
+          "page": 187
+        },
+        {
+          "id": "dd7e38ac8dc51f0b",
+          "title": "Stat Block",
+          "page": 189
+        },
+        {
+          "id": "5610863822fcdba1",
+          "title": "Astral Projection",
+          "page": 111
+        },
+        {
+          "id": "889cb7fdaa7b380c",
+          "title": "Level 1: Bardic Inspiration",
+          "page": 32
+        },
+        {
+          "id": "45fda97f7c530fc5",
+          "title": "Wand of Wonder",
+          "page": 252
+        },
+        {
+          "id": "3c236614a78165a2",
+          "title": "Interacting with Objects",
+          "page": 11
+        }
+      ]
+    },
+    {
+      "id": "regression-02",
+      "method": "lexical",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "c97d90ee3a8e4e38",
+          "title": "Cone of Cold",
+          "page": 117
+        },
+        {
+          "id": "afaf7f25e57b3086",
+          "title": "Ending Combat",
+          "page": 14
+        },
+        {
+          "id": "2be86e2024e458d7",
+          "title": "Traits",
+          "page": 304
+        },
+        {
+          "id": "b9f42ffe839ea2ff",
+          "title": "Mental Stress Effects",
+          "page": 196
+        },
+        {
+          "id": "f2a815606fadc7a3",
+          "title": "Actions",
+          "page": 340
+        },
+        {
+          "id": "30c71ab1304a3a6e",
+          "title": "Actions",
+          "page": 341
+        }
+      ]
+    },
+    {
+      "id": "regression-03",
+      "method": "lexical",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "3745697bd7732141",
+          "title": "Traits",
+          "page": 333
+        },
+        {
+          "id": "718918f950fe6d50",
+          "title": "Dropping to 0 Hit Points",
+          "page": 17
+        },
+        {
+          "id": "17d1447c9d685112",
+          "title": "They\u2019re Not Hit Points or Healing",
+          "page": 18
+        },
+        {
+          "id": "1e7fb2aa826cf808",
+          "title": "Hit Points",
+          "page": 183
+        },
+        {
+          "id": "1b6c976b87bc32ca",
+          "title": "Hit Points",
+          "page": 16
+        },
+        {
+          "id": "4fcc4d53bfcb1237",
+          "title": "Instant Death",
+          "page": 17
+        }
+      ]
+    },
+    {
+      "id": "regression-04",
+      "method": "lexical",
+      "recall_at_6": 0.5,
+      "reciprocal_rank": 0.16666666666666666,
+      "retrieved": [
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "8f109beb598d1efa",
+          "title": "Lose Temporary Hit Points First",
+          "page": 18
+        },
+        {
+          "id": "8ee11b366d4b5920",
+          "title": "Stabilizing a Character",
+          "page": 18
+        },
+        {
+          "id": "01212e3464070c0a",
+          "title": "Traits",
+          "page": 285
+        },
+        {
+          "id": "1b6c976b87bc32ca",
+          "title": "Hit Points",
+          "page": 16
+        },
+        {
+          "id": "0b66d8325803a7b2",
+          "title": "Death Saving Throws",
+          "page": 18
+        }
+      ]
+    },
+    {
+      "id": "regression-05",
+      "method": "lexical",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.16666666666666666,
+      "retrieved": [
+        {
+          "id": "e17fd95f56e38a6b",
+          "title": "Necklace of Fireballs",
+          "page": 233
+        },
+        {
+          "id": "849e3ced1d5ac829",
+          "title": "Delayed Blast Fireball",
+          "page": 122
+        },
+        {
+          "id": "fa9db1c0ac53648a",
+          "title": "Damage Notation",
+          "page": 257
+        },
+        {
+          "id": "6b1391c551f2f59d",
+          "title": "Damage against Multiple Targets",
+          "page": 16
+        },
+        {
+          "id": "0621e9d782651369",
+          "title": "Actions",
+          "page": 315
+        },
+        {
+          "id": "77df804a7f0accb8",
+          "title": "Fireball",
+          "page": 131
+        }
+      ]
+    },
+    {
+      "id": "regression-06",
+      "method": "lexical",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "541580ef9df973f8",
+          "title": "Power Word Heal",
+          "page": 154
+        },
+        {
+          "id": "577ebd04b9d6891f",
+          "title": "Bonus Actions",
+          "page": 317
+        },
+        {
+          "id": "1a33f9e5fa1455c5",
+          "title": "Bonus Actions",
+          "page": 332
+        },
+        {
+          "id": "b0d0914857068c1b",
+          "title": "Bonus Actions",
+          "page": 319
+        },
+        {
+          "id": "00f7c9462df5adf7",
+          "title": "Grappler",
+          "page": 87
+        },
+        {
+          "id": "abb5285af95e083e",
+          "title": "Actions",
+          "page": 303
+        }
+      ]
+    },
+    {
+      "id": "regression-01",
+      "method": "dense",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "bd9c5efd39e6e114",
+          "title": "Burning [Hazard]",
+          "page": 178
+        },
+        {
+          "id": "2a9bae9e9f40e481",
+          "title": "Actions",
+          "page": 305
+        },
+        {
+          "id": "0d1f6dd3068a5e1d",
+          "title": "Actions",
+          "page": 285
+        },
+        {
+          "id": "77df804a7f0accb8",
+          "title": "Fireball",
+          "page": 131
+        },
+        {
+          "id": "ec7bb4bef1b62eb0",
+          "title": "Burning Hands",
+          "page": 114
+        },
+        {
+          "id": "2477278984d9fd01",
+          "title": "Hazard",
+          "page": 182
+        }
+      ]
+    },
+    {
+      "id": "regression-02",
+      "method": "dense",
+      "recall_at_6": 0.0,
+      "reciprocal_rank": 0,
+      "retrieved": [
+        {
+          "id": "55a3bab5f13e5121",
+          "title": "Extreme Cold",
+          "page": 195
+        },
+        {
+          "id": "c97d90ee3a8e4e38",
+          "title": "Cone of Cold",
+          "page": 117
+        },
+        {
+          "id": "6f0d6bdfd09130ae",
+          "title": "Ring of Warmth",
+          "page": 239
+        },
+        {
+          "id": "e79e3de88eae521a",
+          "title": "Damage and Healing",
+          "page": 16
+        },
+        {
+          "id": "348cc21b318ea78c",
+          "title": "Immunity",
+          "page": 183
+        },
+        {
+          "id": "2b2baea894f2d66d",
+          "title": "Actions",
+          "page": 342
+        }
+      ]
+    },
+    {
+      "id": "regression-03",
+      "method": "dense",
+      "recall_at_6": 0.3333333333333333,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "8f109beb598d1efa",
+          "title": "Lose Temporary Hit Points First",
+          "page": 18
+        },
+        {
+          "id": "2a9bae9e9f40e481",
+          "title": "Actions",
+          "page": 305
+        },
+        {
+          "id": "d50eeacdffca5495",
+          "title": "Falling Unconscious",
+          "page": 17
+        },
+        {
+          "id": "7706d5821e1da9e1",
+          "title": "Temporary Hit Points",
+          "page": 190
+        },
+        {
+          "id": "8b7673e284442395",
+          "title": "Actions",
+          "page": 261
+        },
+        {
+          "id": "30294ed3d7a261df",
+          "title": "Death Saving Throw",
+          "page": 181
+        }
+      ]
+    },
+    {
+      "id": "regression-04",
+      "method": "dense",
+      "recall_at_6": 0.5,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        {
+          "id": "8f109beb598d1efa",
+          "title": "Lose Temporary Hit Points First",
+          "page": 18
+        },
+        {
+          "id": "2a9bae9e9f40e481",
+          "title": "Actions",
+          "page": 305
+        },
+        {
+          "id": "7706d5821e1da9e1",
+          "title": "Temporary Hit Points",
+          "page": 190
+        },
+        {
+          "id": "bd9c5efd39e6e114",
+          "title": "Burning [Hazard]",
+          "page": 178
+        },
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "ec7bb4bef1b62eb0",
+          "title": "Burning Hands",
+          "page": 114
+        }
+      ]
+    },
+    {
+      "id": "regression-05",
+      "method": "dense",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "77df804a7f0accb8",
+          "title": "Fireball",
+          "page": 131
+        },
+        {
+          "id": "2a9bae9e9f40e481",
+          "title": "Actions",
+          "page": 305
+        },
+        {
+          "id": "849e3ced1d5ac829",
+          "title": "Delayed Blast Fireball",
+          "page": 122
+        },
+        {
+          "id": "8b7673e284442395",
+          "title": "Actions",
+          "page": 261
+        },
+        {
+          "id": "0d1f6dd3068a5e1d",
+          "title": "Actions",
+          "page": 285
+        },
+        {
+          "id": "b6aed180cac3584f",
+          "title": "Actions",
+          "page": 307
+        }
+      ]
+    },
+    {
+      "id": "regression-06",
+      "method": "dense",
+      "recall_at_6": 0.5,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e41130563176a387",
+          "title": "Grappled [Condition]",
+          "page": 182
+        },
+        {
+          "id": "3c5e33614a7fe322",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "cafded3d416e29a1",
+          "title": "Falling [Hazard]",
+          "page": 182
+        },
+        {
+          "id": "ff3d8e7c30becfb2",
+          "title": "Dropping Prone",
+          "page": 14
+        },
+        {
+          "id": "1184ff7176fac0b7",
+          "title": "Actions",
+          "page": 347
+        },
+        {
+          "id": "af65697bb3fbac71",
+          "title": "Actions",
+          "page": 326
+        }
+      ]
+    },
+    {
+      "id": "regression-01",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "39d0a994bdbf4694",
+          "title": "Dead",
+          "page": 180
+        },
+        {
+          "id": "4d28ab5252e1e3fa",
+          "title": "Damage Types",
+          "page": 180
+        },
+        {
+          "id": "d50eeacdffca5495",
+          "title": "Falling Unconscious",
+          "page": 17
+        },
+        {
+          "id": "4fcc4d53bfcb1237",
+          "title": "Instant Death",
+          "page": 17
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "bd9c5efd39e6e114",
+          "title": "Burning [Hazard]",
+          "page": 178
+        }
+      ]
+    },
+    {
+      "id": "regression-02",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "39d0a994bdbf4694",
+          "title": "Dead",
+          "page": 180
+        },
+        {
+          "id": "4d28ab5252e1e3fa",
+          "title": "Damage Types",
+          "page": 180
+        },
+        {
+          "id": "d50eeacdffca5495",
+          "title": "Falling Unconscious",
+          "page": 17
+        },
+        {
+          "id": "4fcc4d53bfcb1237",
+          "title": "Instant Death",
+          "page": 17
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "c97d90ee3a8e4e38",
+          "title": "Cone of Cold",
+          "page": 117
+        }
+      ]
+    },
+    {
+      "id": "regression-03",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "d50eeacdffca5495",
+          "title": "Falling Unconscious",
+          "page": 17
+        },
+        {
+          "id": "4fcc4d53bfcb1237",
+          "title": "Instant Death",
+          "page": 17
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "0b66d8325803a7b2",
+          "title": "Death Saving Throws",
+          "page": 18
+        },
+        {
+          "id": "bd9c5efd39e6e114",
+          "title": "Burning [Hazard]",
+          "page": 178
+        },
+        {
+          "id": "718918f950fe6d50",
+          "title": "Dropping to 0 Hit Points",
+          "page": 17
+        }
+      ]
+    },
+    {
+      "id": "regression-04",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        {
+          "id": "d50eeacdffca5495",
+          "title": "Falling Unconscious",
+          "page": 17
+        },
+        {
+          "id": "4fcc4d53bfcb1237",
+          "title": "Instant Death",
+          "page": 17
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "0b66d8325803a7b2",
+          "title": "Death Saving Throws",
+          "page": 18
+        },
+        {
+          "id": "bd9c5efd39e6e114",
+          "title": "Burning [Hazard]",
+          "page": 178
+        },
+        {
+          "id": "8f109beb598d1efa",
+          "title": "Lose Temporary Hit Points First",
+          "page": 18
+        }
+      ]
+    },
+    {
+      "id": "regression-05",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "retrieved": [
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "849e3ced1d5ac829",
+          "title": "Delayed Blast Fireball",
+          "page": 122
+        },
+        {
+          "id": "77df804a7f0accb8",
+          "title": "Fireball",
+          "page": 131
+        },
+        {
+          "id": "d54ed33504c93131",
+          "title": "Damage Roll",
+          "page": 180
+        },
+        {
+          "id": "6b1391c551f2f59d",
+          "title": "Damage against Multiple Targets",
+          "page": 16
+        },
+        {
+          "id": "e17fd95f56e38a6b",
+          "title": "Necklace of Fireballs",
+          "page": 233
+        }
+      ]
+    },
+    {
+      "id": "regression-06",
+      "method": "hybrid",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e41130563176a387",
+          "title": "Grappled [Condition]",
+          "page": 182
+        },
+        {
+          "id": "6bd32f4555f4c9a2",
+          "title": "Prone [Condition]",
+          "page": 186
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "e153765a23a359a2",
+          "title": "Grappling",
+          "page": 182
+        },
+        {
+          "id": "577ebd04b9d6891f",
+          "title": "Bonus Actions",
+          "page": 317
+        },
+        {
+          "id": "1a33f9e5fa1455c5",
+          "title": "Bonus Actions",
+          "page": 332
+        }
+      ]
+    },
+    {
+      "id": "regression-01",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "39d0a994bdbf4694",
+          "title": "Dead",
+          "page": 180
+        },
+        {
+          "id": "4d28ab5252e1e3fa",
+          "title": "Damage Types",
+          "page": 180
+        },
+        {
+          "id": "d50eeacdffca5495",
+          "title": "Falling Unconscious",
+          "page": 17
+        },
+        {
+          "id": "4fcc4d53bfcb1237",
+          "title": "Instant Death",
+          "page": 17
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "bd9c5efd39e6e114",
+          "title": "Burning [Hazard]",
+          "page": 178
+        }
+      ]
+    },
+    {
+      "id": "regression-02",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "39d0a994bdbf4694",
+          "title": "Dead",
+          "page": 180
+        },
+        {
+          "id": "4d28ab5252e1e3fa",
+          "title": "Damage Types",
+          "page": 180
+        },
+        {
+          "id": "d50eeacdffca5495",
+          "title": "Falling Unconscious",
+          "page": 17
+        },
+        {
+          "id": "4fcc4d53bfcb1237",
+          "title": "Instant Death",
+          "page": 17
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "c97d90ee3a8e4e38",
+          "title": "Cone of Cold",
+          "page": 117
+        }
+      ]
+    },
+    {
+      "id": "regression-03",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "d50eeacdffca5495",
+          "title": "Falling Unconscious",
+          "page": 17
+        },
+        {
+          "id": "4fcc4d53bfcb1237",
+          "title": "Instant Death",
+          "page": 17
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "0b66d8325803a7b2",
+          "title": "Death Saving Throws",
+          "page": 18
+        },
+        {
+          "id": "bd9c5efd39e6e114",
+          "title": "Burning [Hazard]",
+          "page": 178
+        },
+        {
+          "id": "81a2fdf1b29145cc",
+          "title": "Traits",
+          "page": 333
+        }
+      ]
+    },
+    {
+      "id": "regression-04",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.25,
+      "retrieved": [
+        {
+          "id": "d50eeacdffca5495",
+          "title": "Falling Unconscious",
+          "page": 17
+        },
+        {
+          "id": "4fcc4d53bfcb1237",
+          "title": "Instant Death",
+          "page": 17
+        },
+        {
+          "id": "40a535add717a0a6",
+          "title": "Death Saving Throws",
+          "page": 17
+        },
+        {
+          "id": "0b66d8325803a7b2",
+          "title": "Death Saving Throws",
+          "page": 18
+        },
+        {
+          "id": "bd9c5efd39e6e114",
+          "title": "Burning [Hazard]",
+          "page": 178
+        },
+        {
+          "id": "8f109beb598d1efa",
+          "title": "Lose Temporary Hit Points First",
+          "page": 18
+        }
+      ]
+    },
+    {
+      "id": "regression-05",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 0.5,
+      "retrieved": [
+        {
+          "id": "0463c950358ae217",
+          "title": "Damage",
+          "page": 180
+        },
+        {
+          "id": "77df804a7f0accb8",
+          "title": "Fireball",
+          "page": 131
+        },
+        {
+          "id": "6b1391c551f2f59d",
+          "title": "Damage against Multiple Targets",
+          "page": 16
+        },
+        {
+          "id": "849e3ced1d5ac829",
+          "title": "Delayed Blast Fireball",
+          "page": 122
+        },
+        {
+          "id": "0d1f6dd3068a5e1d",
+          "title": "Actions",
+          "page": 285
+        },
+        {
+          "id": "e17fd95f56e38a6b",
+          "title": "Necklace of Fireballs",
+          "page": 233
+        }
+      ]
+    },
+    {
+      "id": "regression-06",
+      "method": "hybrid_reranked",
+      "recall_at_6": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved": [
+        {
+          "id": "e41130563176a387",
+          "title": "Grappled [Condition]",
+          "page": 182
+        },
+        {
+          "id": "6bd32f4555f4c9a2",
+          "title": "Prone [Condition]",
+          "page": 186
+        },
+        {
+          "id": "9ccbdcbae1bbc146",
+          "title": "Creature",
+          "page": 179
+        },
+        {
+          "id": "541580ef9df973f8",
+          "title": "Power Word Heal",
+          "page": 154
+        },
+        {
+          "id": "b4083511ea62db3d",
+          "title": "Actions",
+          "page": 303
+        },
+        {
+          "id": "e153765a23a359a2",
+          "title": "Grappling",
+          "page": 182
+        }
+      ]
+    }
+  ]
+}

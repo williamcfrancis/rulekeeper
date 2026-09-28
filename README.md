@@ -61,7 +61,7 @@ flowchart LR
   E --> F
   F --> G[Optional cross-encoder reranking]
   G --> H[Six source passages]
-  F --> N[Preserve explicitly named glossary definitions]
+  F --> N[Preserve glossary definitions and core rule context]
   N --> H
   H --> I[Local or hosted rules model]
   I --> J[Citation validation]
@@ -132,7 +132,9 @@ For a separately installed llama.cpp server on another OS:
 llama-server -hf Qwen/Qwen3-4B-GGUF:Q4_K_M --host 127.0.0.1 --port 8081 --alias qwen3-4b -c 6144 --jinja
 ```
 
-The request enables Qwen3 reasoning and constrains the final output to JSON containing selected source clauses and a cited answer. The server resolves clause pointers to the original text. Compatible servers may require their own model name and settings; the bundled llama.cpp route is the tested local integration.
+The request gives Qwen3 a separate 768-token reasoning budget within a 1,600-token output limit, leaving room for the final answer. Each generated claim selects supporting source clauses; the backend checks those pointers and renders the citations. Compatible servers may require their own model name and settings; the bundled llama.cpp route is the tested local integration. Reference checks do not establish that a model's interpretation is correct.
+
+Rules search shows an elapsed timer while a request runs, followed by separate search and answer-generation timings. If generation times out, exhausts its output limit, or fails validation, the app states the reason above the original source passages. Source-only output is not presented as a generated ruling.
 
 ## Optional hosted rules answers
 
@@ -147,15 +149,16 @@ The hosted provider incurs usage charges and has not been tested with a live pai
 .\.venv\Scripts\ruff.exe check src tests scripts
 .\.venv\Scripts\python.exe -m rulekeeper evaluate --split dev
 .\.venv\Scripts\python.exe -m rulekeeper evaluate --split test
+.\.venv\Scripts\python.exe -m rulekeeper evaluate --split regression
 ```
 
-There are **36 authored retrieval questions**: six development questions and 30 test questions, including several interactions requiring more than one source. Required evidence groups specify a title and supporting phrase. Results include the corpus hash, per-question retrieved IDs, warm retrieval latency, recall@6, and MRR. Read the complete [results](eval/results.json) and [methodology](docs/architecture.md#evaluation).
+There are **42 authored retrieval questions**: six development questions, 30 test questions, and six regression cases, including several interactions requiring more than one source. The regression set includes the reported fire/death failure, zero-HP burning interactions, and a damage-die question to check that dice terminology does not trigger death rules. Required evidence groups specify a title and supporting phrase. Results include the corpus hash, per-question retrieved IDs, warm retrieval latency, recall@6, and MRR. Read the complete [test results](eval/results.json), [regression results](eval/results-regression.json), and [methodology](docs/architecture.md#evaluation).
 
 The benchmark is deliberately small. It measures retrieval of labeled passages, **not** generated-answer accuracy or performance on arbitrary player questions. Reranking is configurable because it adds substantial CPU latency and does not improve every query. Results are displayed unchanged in the app's “Under the hood” page.
 
 Unit/API tests run without a model download or API key. They cover edition isolation, corpus integrity, layout extraction, citation and clause validation, provider fallback, input bounds, and the request-to-source path. CI also builds the full corpus and runs real browser journeys at desktop and mobile sizes, including source lookup and bookmark persistence.
 
-With the local model running, `python scripts/verify_live.py` checks four generated answers and three abstention cases. It records the complete responses locally for manual review. See the [verification notes](docs/verification.md) for the observed failure that motivated definition preservation and the limits of these checks.
+With the local model running, `python scripts/verify_live.py` checks six generated answers and three abstention cases. It records the complete responses locally for manual review. See the [verification notes](docs/verification.md) for the observed failures that motivated context preservation and the limits of these checks.
 
 ## Development
 

@@ -198,7 +198,7 @@ test("mocked DM: prepare, play with real dice and sources, export, and resume", 
   page,
 }, testInfo) => {
   await expect(
-    page.getByRole("heading", { name: "Gather your party." }),
+    page.getByRole("heading", { name: "Create a campaign" }),
   ).toBeVisible();
   await expectNoHorizontalOverflow(page);
   await page.screenshot({
@@ -254,7 +254,7 @@ test("mocked DM: prepare, play with real dice and sources, export, and resume", 
     .getByLabel("Character 1 notes", { exact: true })
     .fill(campaignFixture().characters[0].notes);
   await page
-    .getByRole("button", { name: "Prepare the table", exact: true })
+    .getByRole("button", { name: "Create campaign", exact: true })
     .click();
   await expect(
     page.getByRole("button", { name: "Begin adventure", exact: true }),

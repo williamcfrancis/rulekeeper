@@ -5,7 +5,7 @@ from .config import Settings
 
 
 def main():
-    parser = argparse.ArgumentParser(description="RuleKeeper: rules, with receipts.")
+    parser = argparse.ArgumentParser(description="RuleKeeper: D&D rules and campaigns")
     commands = parser.add_subparsers(dest="command", required=True)
     ingest = commands.add_parser(
         "ingest", help="Download, verify, extract, and embed the official SRD"
@@ -17,7 +17,7 @@ def main():
     evaluate = commands.add_parser(
         "evaluate", help="Measure retrieval against the labeled question set"
     )
-    evaluate.add_argument("--split", choices=["dev", "test", "all"], default="test")
+    evaluate.add_argument("--split", choices=["dev", "test", "regression", "all"], default="test")
     args = parser.parse_args()
     if args.command == "ingest":
         from .ingest import build_index
