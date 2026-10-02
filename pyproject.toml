@@ -5,7 +5,8 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "rulekeeper"
 version = "0.2.0"
-description = "A D&D dungeon master and rules companion with campaign memory, real dice, and cited hybrid retrieval."
+description = "D&D rules reference and Dungeon Master with hybrid retrieval, source citations, and campaign memory."
+authors = [{ name = "William C Francis" }]
 requires-python = ">=3.11"
 license = "MIT"
 dependencies = [
@@ -13,6 +14,10 @@ dependencies = [
   "pdfplumber>=0.11,<1", "fastembed>=0.8,<1", "rank-bm25==0.2.2",
   "numpy>=1.26,<3", "pydantic-settings>=2.5,<3",
 ]
+
+[project.urls]
+Repository = "https://github.com/williamcfrancis/rulekeeper"
+Issues = "https://github.com/williamcfrancis/rulekeeper/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=8,<10", "ruff>=0.12,<1"]

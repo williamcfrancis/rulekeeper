@@ -1168,6 +1168,25 @@ export default function App() {
                 <h2>About RuleKeeper</h2>
               </div>
               <p>
+                Maintained by{" "}
+                <a
+                  href="https://github.com/williamcfrancis"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  William C Francis
+                </a>
+                .{" "}
+                <a
+                  href="https://github.com/williamcfrancis/rulekeeper"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Source code on GitHub
+                </a>
+                .
+              </p>
+              <p>
                 RuleKeeper runs D&D adventures with GPT-5.6 Sol and helps
                 players find evidence for a ruling. This library contains SRD
                 5.2.1 only; it does not include every published D&D option or

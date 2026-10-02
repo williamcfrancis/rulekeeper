@@ -1,6 +1,13 @@
 {
   "name": "rulekeeper-web",
   "version": "0.2.0",
+  "description": "D&D rules reference and Dungeon Master with hybrid retrieval, source citations, and campaign memory.",
+  "author": "William C Francis (https://github.com/williamcfrancis)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williamcfrancis/rulekeeper.git"
+  },
   "private": true,
   "type": "module",
   "scripts": {
