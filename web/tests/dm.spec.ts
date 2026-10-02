@@ -192,6 +192,15 @@ test.beforeEach(async ({ page }) => {
   await mockConnection(page);
   await page.goto("/");
   await expect(page.locator(".library-status")).toContainText("Library ready");
+  const menu = page.getByRole("button", {
+    name: "Toggle navigation",
+    exact: true,
+  });
+  if (await menu.isVisible()) await menu.click();
+  await page
+    .getByRole("navigation", { name: "Main navigation" })
+    .getByRole("button", { name: "Dungeon Master", exact: true })
+    .click();
 });
 
 test("mocked DM: prepare, play with real dice and sources, export, and resume", async ({

@@ -12,7 +12,7 @@ Windows and Linux ingestion produced the same corpus fingerprint:
 291840d3c390f9ce643fd6fef518bfb9e0df6e63c54b61388de9adb82258a76f
 ```
 
-The committed screenshots come from the [interface test run](https://github.com/williamcfrancis/rulekeeper/actions/runs/36365380332). Campaign screenshots use sample narration and a simulated key connection.
+The committed screenshots are captured by the desktop/mobile browser tests. The rules screenshot shows the initial search view. Campaign screenshots use sample narration and a simulated key connection.
 
 ## Coverage
 

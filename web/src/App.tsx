@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import {
-  ArrowDown,
   ArrowRight,
   ArrowUpRight,
   BookOpen,
@@ -17,14 +16,9 @@ import {
   Copy,
   ExternalLink,
   FlaskConical,
-  Layers3,
   LoaderCircle,
   Menu,
   Search,
-  ShieldCheck,
-  Sparkles,
-  Swords,
-  WandSparkles,
   X,
 } from "lucide-react";
 import DungeonMaster from "./DungeonMaster";
@@ -89,20 +83,17 @@ type Evaluation = {
 
 const examples = [
   {
-    icon: WandSparkles,
-    tag: "SPELLS & CONDITIONS",
+    tag: "Concentration",
     title: "Does being incapacitated break concentration?",
     question: "Does becoming incapacitated end my concentration on a spell?",
   },
   {
-    icon: Swords,
-    tag: "COMBAT & REACTIONS",
+    tag: "Movement",
     title: "Can I move away without an opportunity attack?",
     question: "How does the Disengage action affect opportunity attacks?",
   },
   {
-    icon: Compass,
-    tag: "D20 ROLLS",
+    tag: "Ability checks",
     title: "What if I have advantage and disadvantage?",
     question:
       "What happens if I have both advantage and disadvantage on the same roll?",
@@ -196,7 +187,12 @@ function RichText({
 }
 
 export default function App() {
-  const [page, setPage] = useState<Page>("dm");
+  const [page, setPage] = useState<Page>(() => {
+    const savedPage = stored<string>("rulekeeper-page", "ask");
+    return ["ask", "library", "saved", "dm", "engine"].includes(savedPage)
+      ? (savedPage as Page)
+      : "ask";
+  });
   const [library, setLibrary] = useState<Library | null>(null);
   const [question, setQuestion] = useState("");
   const [category, setCategory] = useState("");
@@ -237,6 +233,13 @@ export default function App() {
       .then(setEvaluation)
       .catch(() => {});
   }, []);
+  useEffect(() => {
+    try {
+      localStorage.setItem("rulekeeper-page", JSON.stringify(page));
+    } catch {
+      /* Navigation still works when browser storage is unavailable. */
+    }
+  }, [page]);
   useEffect(() => {
     try {
       localStorage.setItem("rulekeeper-recent", JSON.stringify(recent));
@@ -305,6 +308,7 @@ export default function App() {
     setPage(next);
     setMobileMenu(false);
     setError("");
+    window.scrollTo(0, 0);
   }
   function toggleSave(rule: Rule) {
     setSaved((list) =>
@@ -393,11 +397,11 @@ export default function App() {
   }
 
   const nav = [
-    { page: "dm" as Page, icon: Compass, label: "Dungeon Master" },
-    { page: "ask" as Page, icon: Sparkles, label: "Ask the rules" },
+    { page: "ask" as Page, icon: Search, label: "Ask the rules" },
     { page: "library" as Page, icon: BookOpen, label: "Compendium" },
     { page: "saved" as Page, icon: Bookmark, label: "Saved passages" },
-    { page: "engine" as Page, icon: FlaskConical, label: "Under the hood" },
+    { page: "dm" as Page, icon: Compass, label: "Dungeon Master" },
+    { page: "engine" as Page, icon: FlaskConical, label: "Retrieval" },
   ];
 
   return (
@@ -405,17 +409,17 @@ export default function App() {
       <aside className={`sidebar ${mobileMenu ? "is-open" : ""}`}>
         <button
           className="brand"
-          onClick={() => navigate("dm")}
+          onClick={() => navigate("ask")}
           aria-label="RuleKeeper home"
         >
           <span className="brand-mark">
             <Die />
           </span>
           <span>
-            RuleKeeper<span className="brand-sub">YOUR D&D TABLE</span>
+            RuleKeeper
+            <span className="brand-sub">D&D reference & campaigns</span>
           </span>
         </button>
-        <div className="sidebar-section">AT THE TABLE</div>
         <nav aria-label="Main navigation">
           {nav.map((item) => (
             <button
@@ -433,7 +437,7 @@ export default function App() {
         </nav>
         <div className="recent">
           <div className="sidebar-section">
-            RECENT QUESTIONS <Clock3 size={12} />
+            Recent questions <Clock3 size={14} />
           </div>
           {recent.length ? (
             recent.slice(0, 5).map((item, i) => (
@@ -450,10 +454,7 @@ export default function App() {
               </button>
             ))
           ) : (
-            <p>
-              Rules you look up will appear here for the next time you need
-              them.
-            </p>
+            <p>No questions yet.</p>
           )}
         </div>
         <div className="sidebar-bottom">
@@ -484,7 +485,7 @@ export default function App() {
             <Menu size={20} />
           </button>
           <span className="breadcrumb">
-            RULEKEEPER <span>/</span> {nav.find((n) => n.page === page)?.label}
+            RuleKeeper <span>/</span> {nav.find((n) => n.page === page)?.label}
           </span>
           <button className="edition-pill" onClick={() => setAbout(true)}>
             <span className="status-dot" /> SRD 5.2.1 <ChevronDown size={13} />
@@ -516,15 +517,9 @@ export default function App() {
             <>
               <div className="ask-layout">
                 <div className="ask-main">
-                  <section className="hero">
-                    <div className="eyebrow">
-                      <span /> D&D RULES REFERENCE
-                    </div>
+                  <section className="page-heading">
                     <h1>Ask the rules</h1>
-                    <p>
-                      Ask a D&D rules question and read the supporting passages
-                      from SRD 5.2.1.
-                    </p>
+                    <p>Look up a ruling and check the pages behind it.</p>
                   </section>
                   <form className="question-box" onSubmit={submit}>
                     <label className="sr-only" htmlFor="question">
@@ -580,16 +575,14 @@ export default function App() {
                     </div>
                   </form>
                   <div className="search-footnote">
-                    <span>
-                      <ShieldCheck size={14} /> Grounded in the official SRD
-                    </span>
+                    <span>SRD 5.2.1 · D&D 2024 rules</span>
                     <span className="shortcut">
                       Enter to ask <kbd>↵</kbd>
                     </span>
                   </div>
                   {!result && !busy && (
                     <section className="starters">
-                      <div className="section-kicker">EXAMPLE QUESTIONS</div>
+                      <h2 className="section-kicker">Try a question</h2>
                       {examples.map((item) => (
                         <button
                           className="starter"
@@ -600,11 +593,8 @@ export default function App() {
                           }}
                           disabled={!library}
                         >
-                          <span className="starter-icon">
-                            <item.icon size={20} strokeWidth={1.5} />
-                          </span>
+                          <span className="starter-topic">{item.tag}</span>
                           <span>
-                            <small>{item.tag}</small>
                             <strong>{item.title}</strong>
                           </span>
                           <ArrowUpRight size={17} />
@@ -614,49 +604,36 @@ export default function App() {
                   )}
                 </div>
                 <aside className="source-rail">
-                  <div className="book-cover">
-                    <div className="book-topline">SOURCE DOCUMENT</div>
-                    <div className="book-title">
-                      System Reference
-                      <br />
-                      Document
-                    </div>
-                    <div className="book-art">
-                      <span className="orbit orbit-one" />
-                      <span className="orbit orbit-two" />
-                      <Die className="cover-die" />
-                      <span className="art-star star-one">✦</span>
-                      <span className="art-star star-two">✧</span>
-                    </div>
-                    <div className="book-bottom">
-                      <span>
-                        SYSTEM REFERENCE
-                        <br />
-                        DOCUMENT
-                      </span>
-                      <span>5.2.1</span>
-                    </div>
+                  <div className="source-index">
+                    <span className="section-kicker">Rulebook</span>
+                    <h2>SRD 5.2.1</h2>
+                    <p>System Reference Document</p>
+                    <dl>
+                      <div>
+                        <dt>Pages</dt>
+                        <dd>{library?.page_count ?? "…"}</dd>
+                      </div>
+                      <div>
+                        <dt>Indexed passages</dt>
+                        <dd>{library?.chunk_count.toLocaleString() ?? "…"}</dd>
+                      </div>
+                    </dl>
+                    <button
+                      onClick={() => {
+                        setRuleCategory("");
+                        navigate("library");
+                      }}
+                    >
+                      Browse the compendium <ArrowRight size={14} />
+                    </button>
+                    <a href="/api/source.pdf" target="_blank" rel="noreferrer">
+                      Open the PDF <ExternalLink size={13} />
+                    </a>
                   </div>
-                  <div className="source-caption">
-                    <BookOpen size={17} />
+                  <div className="source-scope">
                     <p>
-                      Read the full text and original pages.
-                      <br />
-                      <button
-                        onClick={() => {
-                          setRuleCategory("");
-                          navigate("library");
-                        }}
-                      >
-                        Browse the compendium <ArrowRight size={13} />
-                      </button>
-                    </p>
-                  </div>
-                  <div className="rail-note">
-                    <span>FOR PLAYERS & GAME MASTERS</span>
-                    <p>
-                      Includes the open SRD 5.2.1 rules. Other books and house
-                      rules are outside this library.
+                      This index covers the open SRD. Check with your table for
+                      house rules and material from other books.
                     </p>
                   </div>
                 </aside>
@@ -675,7 +652,7 @@ export default function App() {
                       <span aria-live="off">{elapsed}s elapsed.</span>{" "}
                       {elapsed >= 15
                         ? "Still waiting for the answer. You can cancel and try again."
-                        : "Timing depends on the model and hardware. You can cancel at any time."}
+                        : "You can cancel while the request runs."}
                     </p>
                   </div>
                 </section>
@@ -685,10 +662,10 @@ export default function App() {
                   <div className="answer-heading">
                     <span className="section-kicker">
                       {result.status === "answered"
-                        ? "ANSWER"
+                        ? "Answer"
                         : result.status === "sources_only"
-                          ? "SOURCE PASSAGES"
-                          : "INSUFFICIENT EVIDENCE"}
+                          ? "Source passages"
+                          : "Insufficient evidence"}
                     </span>
                     <button
                       className="text-button"
@@ -732,8 +709,7 @@ export default function App() {
                     </div>
                     <div className="evidence-list">
                       <div className="section-kicker">
-                        RETRIEVED SOURCES{" "}
-                        <span>{result.evidence.length} PASSAGES</span>
+                        Sources <span>{result.evidence.length} passages</span>
                       </div>
                       {result.evidence.map((item) => (
                         <button
@@ -789,25 +765,25 @@ export default function App() {
                     {traceOpen && (
                       <div className="trace-details">
                         <div>
-                          <small>RETRIEVAL</small>
+                          <small>Retrieval</small>
                           <strong>{result.trace.mode || "Scope check"}</strong>
                         </div>
                         <div>
-                          <small>CANDIDATES</small>
+                          <small>Candidates</small>
                           <strong>{result.trace.candidate_count || 0}</strong>
                         </div>
                         <div>
-                          <small>RERANKED</small>
+                          <small>Reranked</small>
                           <strong>{result.trace.reranked_count || 0}</strong>
                         </div>
                         <div>
-                          <small>SEARCH TIME</small>
+                          <small>Search time</small>
                           <strong>
                             {Math.round(result.trace.retrieval_ms || 0)} ms
                           </strong>
                         </div>
                         <div>
-                          <small>GENERATION</small>
+                          <small>Generation</small>
                           <strong>
                             {Math.round(result.trace.generation_ms || 0)} ms
                           </strong>
@@ -822,25 +798,11 @@ export default function App() {
                   </div>
                 </section>
               )}
-              <div className="bottom-principles">
-                <span>
-                  <BookOpen size={16} /> Original source passages
-                </span>
-                <span>
-                  <Layers3 size={16} /> SRD 5.2.1
-                </span>
-                <span>
-                  <ShieldCheck size={16} /> Page references
-                </span>
-              </div>
             </>
           )}
 
           {(page === "library" || page === "saved") && (
             <section className="compendium">
-              <div className="eyebrow">
-                <span /> {page === "saved" ? "BOOKMARKS" : "SRD 5.2.1"}
-              </div>
               <h1>{page === "saved" ? "Saved passages" : "Compendium"}</h1>
               <p className="page-description">
                 {page === "saved"
@@ -968,35 +930,31 @@ export default function App() {
 
           {page === "engine" && (
             <section className="engine-page">
-              <div className="eyebrow">
-                <span /> RETRIEVAL AND GENERATION
-              </div>
-              <h1>How RuleKeeper works</h1>
+              <h1>Retrieval</h1>
               <p className="page-description">
-                The search finds relevant SRD passages. The answer model uses
-                those passages to write a response with source references.
+                How a question becomes six source passages, then a cited answer.
               </p>
               <div className="pipeline">
                 {[
                   {
                     n: "01",
-                    title: "Read the right text",
+                    title: "PDF extraction",
                     text: "Verify the source checksum. Extract two columns separately. Split on rule headings and retain page numbers.",
                   },
                   {
                     n: "02",
-                    title: "Search two ways",
+                    title: "Keyword and vector search",
                     text: "BM25 finds exact rule terms. MiniLM embeddings find related meanings. Reciprocal rank fusion joins both lists.",
                   },
                   {
                     n: "03",
-                    title: "Read the shortlist",
-                    text: "A cross-encoder reranks up to 24 candidates. Six passages become the bounded answer context.",
+                    title: "Context selection",
+                    text: "A cross-encoder reranks up to 24 candidates. Named definitions and core rules keep their place in the final six passages.",
                   },
                   {
                     n: "04",
-                    title: "Answer with evidence",
-                    text: "A local or hosted model composes a cited explanation. Invalid references fall back to original excerpts.",
+                    title: "Generation and reference checks",
+                    text: "The model writes claims with supporting clause IDs. The backend checks those IDs and renders citations. Failed requests return labeled excerpts.",
                   },
                 ].map((step) => (
                   <div className="pipeline-step" key={step.n}>
@@ -1005,33 +963,31 @@ export default function App() {
                       <h3>{step.title}</h3>
                       <p>{step.text}</p>
                     </div>
-                    <ArrowDown size={18} />
                   </div>
                 ))}
               </div>
               <div className="engine-stats">
                 <div>
-                  <small>INDEXED PASSAGES</small>
+                  <small>Indexed passages</small>
                   <strong>
                     {library?.chunk_count.toLocaleString() || "—"}
                   </strong>
                 </div>
                 <div>
-                  <small>SOURCE PAGES</small>
+                  <small>Source pages</small>
                   <strong>{library?.page_count || "—"}</strong>
                 </div>
                 <div>
-                  <small>EMBEDDING DIMENSIONS</small>
+                  <small>Vector dimensions</small>
                   <strong>384</strong>
                 </div>
                 <div>
-                  <small>EDITION</small>
+                  <small>SRD edition</small>
                   <strong>5.2.1</strong>
                 </div>
               </div>
               <div className="benchmark">
-                <div className="section-kicker">RETRIEVAL BENCHMARK</div>
-                <h2>Evaluation results</h2>
+                <h2>Retrieval benchmark</h2>
                 {evaluation?.results ? (
                   <>
                     <p>
@@ -1039,23 +995,45 @@ export default function App() {
                       {evaluation.split} split. Recall measures how many
                       required evidence groups appear in the top six passages.
                     </p>
-                    <div className="benchmark-grid">
-                      {Object.entries(evaluation.results).map(
-                        ([name, metric]) => (
-                          <div key={name}>
-                            <h3>{name.replaceAll("_", " ")}</h3>
-                            <strong>
-                              {(metric.recall_at_6 * 100).toFixed(1)}
-                              <small>%</small>
-                            </strong>
-                            <span>Evidence recall @ 6</span>
-                            <p>
-                              MRR {metric.mrr.toFixed(3)} · median{" "}
-                              {Math.round(metric.p50_ms)} ms
-                            </p>
-                          </div>
-                        ),
-                      )}
+                    <div
+                      className="benchmark-table-wrap"
+                      tabIndex={0}
+                      role="region"
+                      aria-label="Retrieval benchmark results"
+                    >
+                      <table className="benchmark-table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Method</th>
+                            <th scope="col">Recall @ 6</th>
+                            <th scope="col">MRR</th>
+                            <th scope="col">Median</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {Object.entries(evaluation.results).map(
+                            ([name, metric]) => (
+                              <tr key={name}>
+                                <th scope="row">
+                                  {(
+                                    {
+                                      lexical: "BM25",
+                                      dense: "Vector",
+                                      hybrid: "Hybrid",
+                                      hybrid_reranked: "Hybrid + reranking",
+                                    } as Record<string, string>
+                                  )[name] ?? name}
+                                </th>
+                                <td>
+                                  {(metric.recall_at_6 * 100).toFixed(1)}%
+                                </td>
+                                <td>{metric.mrr.toFixed(3)}</td>
+                                <td>{metric.p50_ms.toFixed(1)} ms</td>
+                              </tr>
+                            ),
+                          )}
+                        </tbody>
+                      </table>
                     </div>
                     <p className="muted">
                       This is a small, authored benchmark, not a claim of
@@ -1164,7 +1142,6 @@ export default function App() {
           ) : (
             <>
               <div className="about-brand">
-                <Die />
                 <h2>About RuleKeeper</h2>
               </div>
               <p>

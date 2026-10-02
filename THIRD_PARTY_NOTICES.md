@@ -21,6 +21,6 @@ Model weights and runtime binaries are not redistributed in this repository. The
 
 - DM Sans and Libre Baskerville: SIL Open Font License 1.1, distributed by `@fontsource` with their license files.
 - Lucide icons: ISC license. https://lucide.dev/license
-- The RuleKeeper die mark and book illustration are original SVG/CSS assets in this repository.
+- The RuleKeeper die mark is an original SVG asset in this repository.
 
 Other dependencies retain their licenses; the Python and npm lock files identify exact tested package versions.

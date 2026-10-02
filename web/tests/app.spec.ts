@@ -16,6 +16,9 @@ async function navigate(page: Page, name: string | RegExp) {
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
   await expect(page.locator(".library-status")).toContainText("Library ready");
+  await expect(
+    page.getByRole("heading", { name: "Ask the rules", exact: true }),
+  ).toBeVisible();
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth,
@@ -55,6 +58,9 @@ test("real retrieval, original source, and a persistent bookmark", async ({
     page.getByRole("heading", { name: "Concentration", exact: true }),
   ).toBeVisible();
   await page.reload();
+  await expect(
+    page.getByRole("heading", { name: "Saved passages", exact: true }),
+  ).toBeVisible();
   await navigate(page, /Saved passages/);
   await expect(
     page.getByRole("heading", { name: "Concentration", exact: true }),

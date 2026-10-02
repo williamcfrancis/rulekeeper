@@ -942,8 +942,7 @@ export default function DungeonMaster({
     <div className="dm-workspace">
       <header className="dm-masthead">
         <div className="dm-small-label">
-          <Compass size={15} /> The campaign desk <span> / </span> D&D · SRD
-          5.2.1
+          <Compass size={15} /> Campaign
         </div>
         <div className="dm-toolbar">
           <input
@@ -1004,27 +1003,20 @@ export default function DungeonMaster({
         <>
           <section className="dm-introduction">
             <div>
-              <span className="dm-eyebrow">DUNGEON MASTER</span>
               <h1>Create a campaign</h1>
               <p>
-                Your Dungeon Master sets the scene, plays the world, and checks
-                the rules. You decide what your adventurers do next.
+                Set the premise and add your characters. Connect an API key when
+                you're ready to play.
               </p>
-            </div>
-            <div className="dm-intro-emblem">
-              <DiceMark />
-              <span>CAMPAIGNS · DICE · RULES</span>
             </div>
           </section>
           <div className="dm-desk-grid dm-setup-grid">
             <form className="dm-setup-paper" onSubmit={prepareTable}>
               <div className="dm-paper-title">
-                <span className="dm-ordinal">I.</span>
                 <div>
-                  <h2>Open a new campaign</h2>
-                  <p>Edit the starter campaign or enter your own setting.</p>
+                  <h2>Campaign details</h2>
+                  <p>Use the example below or enter your own setting.</p>
                 </div>
-                <Feather size={23} />
               </div>
               <CampaignFields draft={draft} setDraft={setDraft} />
               <div className="dm-form-footer">
@@ -1040,38 +1032,19 @@ export default function DungeonMaster({
                 <div className="dm-small-label">
                   <ScrollText size={14} /> Starter campaign
                 </div>
-                <div className="dm-bell-illustration" aria-hidden="true">
-                  <svg viewBox="0 0 200 146" fill="none">
-                    <path d="M27 118c22-8 30 7 51 0s31 8 54 0 32 4 43-2M20 131c25-7 40 6 63-1s32 7 57 0 37 4 45 0M70 112c0-12 10-17 10-47 0-29 40-29 40 0 0 30 10 35 10 47H70ZM73 105h54M94 113c0 12 13 12 13 0M95 43V32h10v11M89 32h22M100 22V13M57 66l-8-5M142 64l8-5M40 116l-4-31 12 29M158 117l8-39 5 36" />
-                    <path
-                      d="M87 74c0-15 2-18 7-20M102 90V61M111 98V81"
-                      opacity=".45"
-                    />
-                  </svg>
-                </div>
-                <h3>
-                  The Bell at
-                  <br />
-                  Blackwater
-                </h3>
+                <h3>The Bell at Blackwater</h3>
                 <p>
-                  A bell under the marsh. A village borrowing memories. A letter
-                  from someone who vanished.
+                  Investigate a drowned chapel whose bell is changing the
+                  villagers' memories.
                 </p>
-                <span className="dm-starter-caption">
-                  Starter premise · Level 1 · Folklore mystery
-                </span>
+                <span className="dm-starter-caption">Level 1 · Mystery</span>
               </section>
               <section className="dm-table-agreement">
-                <h3>A few table conventions</h3>
+                <h3>Playing a turn</h3>
                 <p>
-                  You control your characters. The DM narrates the world and
-                  asks for rolls when the outcome is uncertain.
-                </p>
-                <p>
-                  Dice come from the server. Rules explanations link to the SRD.
-                  You can correct the party sheet or the DM's memory at any
-                  time.
+                  Describe your action, make any requested roll, then read the
+                  outcome. You can edit the party sheet and campaign notes at
+                  any time.
                 </p>
                 {onOpenRules && (
                   <button className="dm-text-button" onClick={onOpenRules}>
@@ -1088,8 +1061,7 @@ export default function DungeonMaster({
           <section className="dm-campaign-header">
             <div className="dm-campaign-heading">
               <span className="dm-eyebrow">
-                Campaign journal{" "}
-                <span>№ {String(campaign.turn_count).padStart(3, "0")}</span>
+                Campaign journal <span>Turn {campaign.turn_count}</span>
               </span>
               <h1>{campaign.title}</h1>
               <div className="dm-campaign-meta">
@@ -1100,20 +1072,14 @@ export default function DungeonMaster({
                 <span>{campaign.tone}</span>
               </div>
             </div>
-            <DiceMark small />
           </section>
           <div className="dm-desk-grid dm-play-grid">
             <div className="dm-journal-column">
               {!entries.length ? (
                 <section className="dm-unopened-journal">
-                  <span className="dm-small-label">CAMPAIGN PREMISE</span>
+                  <span className="dm-small-label">Campaign premise</span>
                   <h2>Opening scene</h2>
                   <p>{campaign.premise}</p>
-                  <div className="dm-start-divider">
-                    <span />
-                    <DiceMark small />
-                    <span />
-                  </div>
                   <button
                     type="button"
                     className="dm-primary-button"
@@ -1161,8 +1127,8 @@ export default function DungeonMaster({
                         }
                       >
                         <div className="dm-entry-margin">
-                          <span>{String(turnNumber).padStart(2, "0")}</span>
-                          <span>THE DM</span>
+                          <span>DM</span>
+                          <span>Turn {turnNumber}</span>
                         </div>
                         <div className="dm-entry-body">
                           <div className="dm-narration">
@@ -1245,7 +1211,6 @@ export default function DungeonMaster({
                 <form className="dm-action-form" onSubmit={submitAction}>
                   <div className="dm-section-heading">
                     <label htmlFor="dm-player-action">What do you do?</label>
-                    <span>Your move</span>
                   </div>
                   <textarea
                     id="dm-player-action"
@@ -1258,7 +1223,7 @@ export default function DungeonMaster({
                     placeholder={
                       campaign.pending_roll
                         ? "Resolve the requested roll to continue the scene."
-                        : "Tell the DM what your character says, tries, or investigates…"
+                        : "For example: I check the door for traps."
                     }
                     required
                   />
@@ -1268,7 +1233,7 @@ export default function DungeonMaster({
                         ? "Reconnect your key to continue."
                         : campaign.pending_roll
                           ? "A dice roll is waiting above."
-                          : "Describe your intent. The DM handles the world."}
+                          : "Enter to add a line. Use Take action to send."}
                     </p>
                     <button
                       className="dm-primary-button"
@@ -1285,7 +1250,7 @@ export default function DungeonMaster({
                       ) : (
                         <ArrowRight size={16} />
                       )}
-                      {busy ? "The DM is thinking…" : "Take action"}
+                      {busy ? "Waiting for the DM…" : "Take action"}
                     </button>
                   </div>
                 </form>
@@ -1297,8 +1262,7 @@ export default function DungeonMaster({
                 </p>
               )}
               <p className="dm-journal-footnote">
-                <Feather size={13} /> Saved in this browser. Export your
-                campaign to carry it to another table.
+                Saved in this browser. Use Export to keep a backup.
               </p>
             </div>
             <aside className="dm-rail">
